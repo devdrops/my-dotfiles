@@ -1,0 +1,45 @@
+"
+" VIMRC SETTINGS
+"
+" References:
+" https://github.com/mhinz/vim-galore/blob/master/static/minimal-vimrc.vim
+"
+
+" SYNTAX
+syntax on
+
+
+" SETS
+set nocompatible
+set autoindent
+set expandtab
+set shiftwidth=2
+set softtabstop=2
+set shiftround
+set laststatus=2
+set display=lastline
+set showmode
+set incsearch
+set hlsearch
+set splitbelow
+set splitright
+set cursorline
+set wrapscan
+set report=0
+set synmaxcol=200
+set number
+set relativenumber
+set updatecount=100
+set undofile
+
+
+" CUSTOM COMBINATIONS
+if has("autocmd")
+  filetype on
+  filetype indent on
+  filetype plugin on
+endif
+
+let g:netrw_banner = 0
+let g:netrw_liststyle = 3
+
