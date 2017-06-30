@@ -32,6 +32,8 @@ set number
 set relativenumber
 set updatecount=100
 set noundofile
+set wildmenu
+set wildmode=longest:full,full
 
 
 " CUSTOM COMBINATIONS
