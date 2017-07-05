@@ -38,12 +38,18 @@ set wildmode=longest:full,full    " Navigation method.
 
 " :::::::::: Vim Custom Settings ::::::::::
 
+"
 if has("autocmd")
   filetype on
   filetype indent on
   filetype plugin on
 endif
 
+" Netrw style
 let g:netrw_banner = 0
 let g:netrw_liststyle = 3
+
+" Highlight columns longer than 80 characters
+highlight OverLength ctermbg=DarkMagenta ctermfg=LightRed guibg=#592929
+match OverLength /\%81v.\+/
 
