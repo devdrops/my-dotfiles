@@ -1,42 +1,43 @@
-"
-" VIMRC SETTINGS
-"
-" References:
-" https://github.com/mhinz/vim-galore/blob/master/static/minimal-vimrc.vim
-"
+" ##################################
+" # VIMRC SETTINGS
+" #
+" #
+" # References:
+" # https://github.com/mhinz/vim-galore/blob/master/static/minimal-vimrc.vim
+" #
+" ##################################
 
-" SYNTAX
-syntax on
+" :::::::::: Vim General Settings ::::::::::
+
+syntax on                         " File syntax
+set nocompatible                  " Vim exclusive
+set autoindent                    " Vim auto indentation
+set tabstop=2                     " Tabs with 2 intervals
+set expandtab                     " Tabs replaced by spaces
+set shiftwidth=2                  " Indentation with 2 intervals
+set softtabstop=2                 " Indentation with 2 intervals
+set shiftround                    " Round indent to shiftwidth value
+set laststatus=2                  " Last window status
+set display=lastline              " 
+set showmode                      " Already defined on Vim. Display current mode
+set incsearch                     " Highlight pattern on search while typing
+set hlsearch                      " Highlight all matches on search .
+set splitbelow                    " Puts the new splitted window below the current one.
+set splitright                    " Puts the new splitted window right the current one.
+set cursorline                    " Highlight the screen line of the cursor.
+set wrapscan                      " Searches wrap around the end of the file.
+set report=0                      " Reports number of lines changed. 0 stands for always.
+set synmaxcol=200                 " Maximum column to search for syntax items.
+set number                        " Line number.
+set relativenumber                " Relative line number.
+set updatecount=100               " How many characters are required to be present to allow the creation for swap files. 0 stands for no swap files.
+set noundofile                    " Deactivate file backup.
+set wildmenu                      " Navigation through files/folders.
+set wildmode=longest:full,full    " Navigation method.
 
 
-" SETS
-set nocompatible
-set autoindent
-set tabstop=2
-set expandtab
-set shiftwidth=2
-set softtabstop=2
-set shiftround
-set laststatus=2
-set display=lastline
-set showmode
-set incsearch
-set hlsearch
-set splitbelow
-set splitright
-set cursorline
-set wrapscan
-set report=0
-set synmaxcol=200
-set number
-set relativenumber
-set updatecount=100
-set noundofile
-set wildmenu
-set wildmode=longest:full,full
+" :::::::::: Vim Custom Settings ::::::::::
 
-
-" CUSTOM COMBINATIONS
 if has("autocmd")
   filetype on
   filetype indent on
