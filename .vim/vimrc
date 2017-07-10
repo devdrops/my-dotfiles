@@ -4,20 +4,22 @@
 " #
 " # References:
 " # https://github.com/mhinz/vim-galore/blob/master/static/minimal-vimrc.vim
+" # http://ivanbrennan.nyc/blog/2014/01/16/rigging-vims-netrw/
+" # http://www.drchip.org/astronaut/vim/index.html#NETRW
 " #
 " ##################################
 
 " :::::::::: Vim General Settings ::::::::::
 
-syntax on                         " File syntax
-set nocompatible                  " Vim exclusive
-set autoindent                    " Vim auto indentation
-set tabstop=2                     " Tabs with 2 intervals
-set expandtab                     " Tabs replaced by spaces
-set shiftwidth=2                  " Indentation with 2 intervals
-set softtabstop=2                 " Indentation with 2 intervals
-set shiftround                    " Round indent to shiftwidth value
-set laststatus=2                  " Last window status
+syntax on                         " File syntax.
+set nocompatible                  " Vim exclusive.
+set autoindent                    " Vim auto indentation.
+set tabstop=2                     " Tabs with 2 intervals.
+set expandtab                     " Tabs replaced by spaces.
+set shiftwidth=2                  " Indentation with 2 intervals.
+set softtabstop=2                 " Indentation with 2 intervals.
+set shiftround                    " Round indent to shiftwidth value.
+set laststatus=2                  " Last window status.
 set display=lastline              " 
 set showmode                      " Already defined on Vim. Display current mode
 set incsearch                     " Highlight pattern on search while typing
@@ -36,20 +38,81 @@ set wildmenu                      " Navigation through files/folders.
 set wildmode=longest:full,full    " Navigation method.
 
 
+" :::::::::: Netrw Settings ::::::::::
+let g:netrw_banner = 0            " Remove netrw banner
+let g:netrw_liststyle = 3         " Visualization. 3 stands for tree style
+let g:netrw_altv=1                " Open files on the right
+let g:netrw_preview=1             " Open preview vertically
+let g:netrw_special_syntax=1      "
+let g:netrw_fastbrowse=2          "
+
+
 " :::::::::: Vim Custom Settings ::::::::::
 
-"
+" >>>
 if has("autocmd")
   filetype on
   filetype indent on
   filetype plugin on
 endif
 
-" Netrw style
-let g:netrw_banner = 0
-let g:netrw_liststyle = 3
-
-" Highlight columns longer than 80 characters
+" >>> Highlight columns longer than 80 characters
 highlight OverLength ctermbg=DarkMagenta ctermfg=LightRed guibg=#592929
 match OverLength /\%81v.\+/
+
+" >>> Open files from paths with the cursor using `gf`
+nnoremap gf :vertical wincmd f<CR>
+
+" >>> Features with netrw and file navigation
+fun! VexToggle(dir)
+  if exists("t:vex_buf_nr")
+    call VexClose()
+  else
+    call VexOpen(a:dir)
+  endif
+endf
+
+fun! VexOpen(dir)
+  let g:netrw_browse_split=4
+  let vex_width = 25
+
+  execute "Vexplore ".a:dir
+  let t:vex_buf_nr = bufnr("%")
+  wincmd H
+
+  call VexSize(vex_width)
+endf
+
+noremap <Leader><Tab> :call VexToggle(getcwd())<CR>
+noremap <Leader>` :call VexToggle("")<CR>
+
+fun! VexClose()
+  let cur_win_nr = winnr()
+  let target_nr = (cur_win_nr == 1 ? winnr("#") : cur_win_nr)
+
+  1wincmd w
+  close
+  unlet t:vex_buf_nr
+
+  execute (target_nr -1)."wincmd w"
+  call NormalizeWidths()
+endf
+
+fun! VexSize(vex_width)
+  execute "vertical resize".a:vex_width
+  set winfixwidth
+  call NormalizeWidths()
+endf
+
+fun! NormalizeWidths()
+  let eadir_pref = &eadirection
+  set eadirection=hor
+  set equalalways! equalalways!
+  let &eadirection = eadir_pref
+endf
+
+augroup NetrwGroup
+  autocmd! BufEnter * call NormalizeWidths()
+augroup END
+
 
