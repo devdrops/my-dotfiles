@@ -3,9 +3,9 @@
 " #
 " #
 " # References:
-" # https://github.com/mhinz/vim-galore/blob/master/static/minimal-vimrc.vim
-" # http://ivanbrennan.nyc/blog/2014/01/16/rigging-vims-netrw/
-" # http://www.drchip.org/astronaut/vim/index.html#NETRW
+" #   https://github.com/mhinz/vim-galore/blob/master/static/minimal-vimrc.vim
+" #   http://ivanbrennan.nyc/blog/2014/01/16/rigging-vims-netrw/
+" #   http://www.drchip.org/astronaut/vim/index.html#NETRW
 " #
 " ##################################
 
@@ -63,7 +63,8 @@ match OverLength /\%81v.\+/
 " >>> Open files from paths with the cursor using `gf`
 nnoremap gf :vertical wincmd f<CR>
 
-" >>> Features with netrw and file navigation
+" >>> Features with netrw and file navigation:
+" - Maps to use `v` to open files with vertical split, with the new file opened at the right window.
 fun! VexToggle(dir)
   if exists("t:vex_buf_nr")
     call VexClose()
