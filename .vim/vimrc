@@ -20,9 +20,9 @@ set shiftwidth=2                  " Indentation with 2 intervals.
 set softtabstop=2                 " Indentation with 2 intervals.
 set shiftround                    " Round indent to shiftwidth value.
 set laststatus=2                  " Last window status.
-set display=lastline              " 
-set showmode                      " Already defined on Vim. Display current mode
-set incsearch                     " Highlight pattern on search while typing
+set display=lastline              " Display the whole line instead of wrap with @.
+set showmode                      " Already defined on Vim. Display current mode.
+set incsearch                     " Highlight pattern on search while typing.
 set hlsearch                      " Highlight all matches on search .
 set splitbelow                    " Puts the new splitted window below the current one.
 set splitright                    " Puts the new splitted window right the current one.
@@ -39,21 +39,21 @@ set wildmode=longest:full,full    " Navigation method.
 
 
 " :::::::::: Netrw Settings ::::::::::
-let g:netrw_banner = 0            " Remove netrw banner
-let g:netrw_liststyle = 3         " Visualization. 3 stands for tree style
-let g:netrw_altv=1                " Open files on the right
-let g:netrw_preview=1             " Open preview vertically
-let g:netrw_special_syntax=1      "
-let g:netrw_fastbrowse=2          "
+let g:netrw_banner=0              " Remove netrw banner.
+let g:netrw_liststyle=3           " Visualization. 3 stands for tree style.
+let g:netrw_altv=1                " Open files on the right.
+let g:netrw_preview=1             " Open preview vertically.
+let g:netrw_special_syntax=1      " Special syntax for a given list of file types.
+let g:netrw_fastbrowse=2          " Speed for listing directories.
 
 
 " :::::::::: Vim Custom Settings ::::::::::
 
-" >>>
+" >>> Checks for auto command, then add some file type features
 if has("autocmd")
-  filetype on
-  filetype indent on
-  filetype plugin on
+  filetype on                     " File type detection
+  filetype indent on              " Indentation by file type
+  filetype plugin on              " Load plugins for file types
 endif
 
 " >>> Highlight columns longer than 80 characters
