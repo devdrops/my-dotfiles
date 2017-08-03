@@ -32,6 +32,12 @@ composer.phar
 ######
 
 ######
+# JavaScript
+node-dependencies-*-dev
+node-dependencies-*-prod
+######
+
+######
 # Git
 !.gitkeep
 ######

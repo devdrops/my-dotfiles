@@ -1,4 +1,4 @@
 #!/bin/bash
 
 cp -a ./.vim ~/
-
+cp ./git/.gitignore_global ~/
