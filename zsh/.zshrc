@@ -84,6 +84,10 @@ export LANG=en_US.UTF-8
 alias zshconfig="vim ~/.zshrc"
 alias ohmyzsh="vim ~/.oh-my-zsh"
 
+# TILIX UPDATES 2017-03-29
+if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
+  source /etc/profile.d/vte.sh
+fi
 
 ###################
 # MY OWN FUNCTIONS
