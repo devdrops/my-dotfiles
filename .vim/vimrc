@@ -117,4 +117,6 @@ augroup NetrwGroup
   autocmd! BufEnter * call NormalizeWidths()
 augroup END
 
+" >>> Map F3 to clear search highlight
+nnoremap <F3> :set hlsearch!<CR>
 
