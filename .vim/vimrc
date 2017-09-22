@@ -38,7 +38,6 @@ set noundofile                    " Deactivate file backup.
 set wildmenu                      " Navigation through files/folders.
 set wildmode=longest:full,full    " Navigation method.
 
-
 " :::::::::: Netrw Settings ::::::::::
 let g:netrw_banner=0              " Remove netrw banner.
 let g:netrw_liststyle=3           " Visualization. 3 stands for tree style.
@@ -62,7 +61,7 @@ highlight OverLength ctermbg=DarkMagenta ctermfg=LightRed guibg=#592929
 match OverLength /\%81v.\+/
 
 " >>> Open files from paths with the cursor using `gf`
-nnoremap gf :vertical wincmd f<CR>
+noremap gf :vertical wincmd f<CR>
 
 " >>> Features with netrw and file navigation:
 " - Maps to use `v` to open files with vertical split, with the new file opened at the right window.
@@ -118,5 +117,5 @@ augroup NetrwGroup
 augroup END
 
 " >>> Map F3 to clear search highlight
-nnoremap <F3> :set hlsearch!<CR>
+map <F3> :set hlsearch!<CR>
 
