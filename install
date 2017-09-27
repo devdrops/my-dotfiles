@@ -2,3 +2,5 @@
 
 cp -a ./.vim ~/
 cp git/.gitignore_global ~/
+cp -a ./tmux/.tmux.conf ~/.tmux.conf
+
