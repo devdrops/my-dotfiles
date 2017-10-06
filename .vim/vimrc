@@ -8,6 +8,7 @@
 " #   http://www.drchip.org/astronaut/vim/index.html#NETRW
 " #   https://www.cs.clemson.edu/course/cpsc102/links/vimrc
 " #   http://ellengummesson.com/blog/2014/02/22/make-vim-really-behave-like-netrw/
+" #   https://gist.github.com/danidiaz/37a69305e2ed3319bfff9631175c5d0f
 " #
 " ##################################
 
@@ -63,59 +64,6 @@ match OverLength /\%81v.\+/
 
 " >>> Open files from paths with the cursor using `gf`
 noremap gf :vertical wincmd f<CR>
-
-" >>> Features with netrw and file navigation:
-" - Maps to use `v` to open files with vertical split, with the new file opened at the right window.
-fun! VexToggle(dir)
-  if exists("t:vex_buf_nr")
-    call VexClose()
-  else
-    call VexOpen(a:dir)
-  endif
-endf
-
-fun! VexOpen(dir)
-  let g:netrw_browse_split=4
-  let vex_width = 25
-
-  execute "Vexplore ".a:dir
-  let t:vex_buf_nr = bufnr("%")
-  wincmd H
-
-  call VexSize(vex_width)
-endf
-
-noremap <Leader><Tab> :call VexToggle(getcwd())<CR>
-noremap <Leader>` :call VexToggle("")<CR>
-
-fun! VexClose()
-  let cur_win_nr = winnr()
-  let target_nr = (cur_win_nr == 1 ? winnr("#") : cur_win_nr)
-
-  1wincmd w
-  close
-  unlet t:vex_buf_nr
-
-  execute (target_nr -1)."wincmd w"
-  call NormalizeWidths()
-endf
-
-fun! VexSize(vex_width)
-  execute "vertical resize".a:vex_width
-  set winfixwidth
-  call NormalizeWidths()
-endf
-
-fun! NormalizeWidths()
-  let eadir_pref = &eadirection
-  set eadirection=hor
-  set equalalways! equalalways!
-  let &eadirection = eadir_pref
-endf
-
-augroup NetrwGroup
-  autocmd! BufEnter * call NormalizeWidths()
-augroup END
 
 " >>> Map F3 to clear search highlight
 map <F3> :set hlsearch!<CR>
