@@ -1,0 +1,35 @@
+#!/bin/bash
+
+##################################
+#
+# CUSTOM SETTINGS FOR .zshrc
+#
+##################################
+
+###################
+# MY OWN FUNCTIONS
+###################
+
+# General functions
+function  todayIs {
+  echo 'TODAY IS: '`date +%^A`, `date +%^B`, `date +%F`
+}
+todayIs
+
+function messageOfTheDay {
+  echo $(curl -s -X GET 'http://api.forismatic.com/api/1.0/?method=getQuote&format=json&lang=en' | jq '.quoteText')
+}
+messageOfTheDay
+
+function currentDir {
+  pwd | xclip
+}
+alias c="currentDir"
+function goToDir {
+  cd $(xclip -o)
+}
+alias gt="goToDir"
+
+# Git
+alias gc="git commit -S"
+
