@@ -9,6 +9,7 @@
 " #   https://www.cs.clemson.edu/course/cpsc102/links/vimrc
 " #   http://ellengummesson.com/blog/2014/02/22/make-vim-really-behave-like-netrw/
 " #   https://gist.github.com/danidiaz/37a69305e2ed3319bfff9631175c5d0f
+" #   https://github.com/sickill/vim-monokai
 " #
 " ##################################
 
@@ -67,4 +68,8 @@ noremap gf :vertical wincmd f<CR>
 
 " >>> Map F3 to clear search highlight
 map <F3> :set hlsearch!<CR>
+
+" >>> Color and Theme settings
+syntax enable
+colorscheme monokai
 
