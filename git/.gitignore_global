@@ -10,10 +10,8 @@ Thumbs.db
 # IDE / Editor
 nbproject
 .idea
-.swp
-*.swp
-.swo
-*.swo
+.sw*
+*.sw*
 .floo
 .flooignore
 ######
