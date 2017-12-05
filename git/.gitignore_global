@@ -35,6 +35,7 @@ composer.phar
 # JavaScript
 node-dependencies-*-dev
 node-dependencies-*-prod
+npm-debug.log
 ######
 
 ######
