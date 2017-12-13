@@ -10,6 +10,11 @@
 # MY OWN FUNCTIONS
 ###################
 
+# Go
+export PATH=$PATH:/usr/local/go/bin
+export PATH=$PATH:$HOME/go/bin
+export CGO_ENABLED=0
+
 # General functions
 function  todayIs {
   echo 'TODAY IS: '`date +%^A`, `date +%^B`, `date +%F`
