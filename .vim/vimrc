@@ -73,3 +73,7 @@ map <F3> :set hlsearch!<CR>
 syntax enable
 colorscheme monokai
 
+" Detecting where the wild tabs are
+syntax match Tab /\t/
+hi Tab gui=underline guifg=blue ctermbg=blue
+
