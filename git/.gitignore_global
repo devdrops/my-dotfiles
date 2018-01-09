@@ -36,6 +36,7 @@ composer.phar
 node-dependencies-*-dev
 node-dependencies-*-prod
 npm-debug.log
+coverage
 ######
 
 ######
