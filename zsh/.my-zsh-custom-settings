@@ -24,7 +24,7 @@ todayIs
 function messageOfTheDay {
   echo $(curl -s -X GET 'http://api.forismatic.com/api/1.0/?method=getQuote&format=json&lang=en' | jq '.quoteText')
 }
-messageOfTheDay
+#messageOfTheDay
 
 function currentDir {
   pwd | xclip
@@ -38,4 +38,72 @@ alias ls="ls -lat --color"
 
 # Git
 alias gc="git commit -S"
+
+# Default text editor
+export EDITOR=vim
+
+# Random phrases
+function randomPhrase {
+  declare -a QUALITIES=("good" "bad" "great" "terrible" "nice" "tough")
+  declare -a SITUATIONS=("wear red socks on lava when using a"
+    "fishing sharks using your enemies with a"
+    "find a treasure hidden in your"
+    "read a book about psycopaths with a"
+    "watch unicorns having sex using a"
+    "learn how mummies use to cook people using a"
+    "find an immigrant living inside your"
+    "drink a lot of coffee with a"
+    "drive a racing car along with a"
+    "open a can of beans using a"
+    "wear anti-radiation clothes using your"
+    "see the sunrise at Chernobyl with a"
+    "go to Mars using only your"
+    "leave your house with only your"
+    "travel to Spain riding a"
+    "worship a God that looks like a"
+    "create an statue of your"
+    "watch Rick and Morty with your"
+    "Get Schwifty using your"
+  )
+  declare -a THINGS=("cat"
+    "dog"
+    "boot"
+    "hat"
+    "keyboard"
+    "bottle"
+    "money"
+    "butter"
+    "Mountain Dew"
+    "spoon"
+    "fork"
+    "laser gun"
+    "corn"
+    "head"
+    "knife"
+    "Limp Bizkit album"
+    "Elvis costume"
+    "Terminator poster"
+    "Terminator"
+    "Barbie doll"
+    "poncho"
+    "credit card"
+    "bread"
+    "typewriter"
+    "machine gun"
+    "cocaine"
+    "bottle of 51"
+    "scissors"
+    "shark"
+  )
+
+  foo=`shuf -i 1-${#QUALITIES[@]} -n 1`
+  bar=`shuf -i 1-${#SITUATIONS[@]} -n 1`
+  baz=`shuf -i 1-${#THINGS[@]} -n 1`
+
+  echo "Today is a ${QUALITIES[$foo]} day to ${SITUATIONS[$bar]} ${THINGS[$baz]}."
+}
+randomPhrase
+
+
+
 
