@@ -64,6 +64,11 @@ function randomPhrase {
     "create an statue of your"
     "watch Rick and Morty with your"
     "Get Schwifty using your"
+    "learn a new recipe on how to cook"
+    "fight aliens inside a"
+    "watch a boring TV show along with your"
+    "choose your next president using a"
+    "run naked with only your"
   )
   declare -a THINGS=("cat"
     "dog"
@@ -73,7 +78,7 @@ function randomPhrase {
     "bottle"
     "money"
     "butter"
-    "Mountain Dew"
+    "bottle of Mountain Dew"
     "spoon"
     "fork"
     "laser gun"
@@ -94,6 +99,15 @@ function randomPhrase {
     "bottle of 51"
     "scissors"
     "shark"
+    "chainsaw"
+    "Old Spice"
+    "TNT"
+    "cat"
+    "pencil"
+    "Apple Watch"
+    "cellphone"
+    "spear"
+    "Batman costume"
   )
 
   foo=`shuf -i 1-${#QUALITIES[@]} -n 1`
