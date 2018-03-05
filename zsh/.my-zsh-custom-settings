@@ -34,7 +34,10 @@ function goToDir {
   cd $(xclip -o)
 }
 alias gt="goToDir"
+
+# Common aliases
 alias ls="ls -lat --color"
+alias xclip="xclip -selection clipboard"
 
 # Git
 alias gc="git commit -S"
