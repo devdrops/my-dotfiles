@@ -15,6 +15,9 @@ export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:$HOME/go/bin
 export CGO_ENABLED=0
 
+# Gradle
+export PATH=$PATH:$HOME/gradle-4.6/bin
+
 # General functions
 function  todayIs {
   echo 'TODAY IS: '`date +%^A`, `date +%^B`, `date +%F`
@@ -38,6 +41,7 @@ alias gt="goToDir"
 # Common aliases
 alias ls="ls -lat --color"
 alias xclip="xclip -selection clipboard"
+alias expath="export PATH=$PATH:$(pwd)"
 
 # Git
 alias gc="git commit -S"
