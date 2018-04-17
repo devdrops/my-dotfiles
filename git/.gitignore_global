@@ -32,6 +32,11 @@ composer.phar
 ######
 
 ######
+# Android
+build
+######
+
+######
 # JavaScript
 node-dependencies-*-dev
 node-dependencies-*-prod
