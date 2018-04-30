@@ -46,9 +46,6 @@ alias ls="ls -lat --color"
 alias xclip="xclip -selection clipboard"
 alias expath="export PATH=$PATH:$(pwd)"
 
-# Git
-alias gc="git commit -S"
-
 # Default text editor
 export EDITOR=vim
 

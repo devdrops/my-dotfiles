@@ -11,8 +11,7 @@ rm -rf ~/.vim && \
   cp -a ./.vim ~/
 
 # Git
-cp ./git/.gitignore_global ~/ && \
-  git config --global core.excludesfile '~/.gitignore_global'
+cp -a ./git/.git* ~/
 
 # tmux
 cp -a ./tmux/.tmux.conf ~/.tmux.conf

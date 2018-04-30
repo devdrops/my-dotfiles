@@ -1,0 +1,31 @@
+##################################
+#
+# :: GIT GLOBAL SETTINGS ::
+#
+# References:
+#   - https://github.com/dougblack/dotfiles/blob/master/.gitconfig
+#   - https://gist.github.com/pksunkara/988716
+#   - https://www.atlassian.com/git/tutorials/setting-up-a-repository/git-config
+#
+##################################
+
+[user]
+  name = Davi Marcondes Moreira
+  email = davi.marcondes.moreira@gmail.com
+  username = devdrops
+  signingkey = 564848AD8F25F213
+
+[core]
+  editor = vim
+  whitespace = trailing-space
+  excludesfile = ~/.gitignore_global
+
+[diff]
+  tool = vimdiff
+
+[alias]
+  gc = commit -S 
+
+[commit]
+  gpgsign = true
+
