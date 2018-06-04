@@ -14,66 +14,81 @@
 " ##################################
 
 " :::::::::: Vim General Settings ::::::::::
+" {
+  syntax on                         " File syntax.
+  set nocompatible                  " Vim exclusive.
+  set autoindent                    " Vim auto indentation.
+  set tabstop=2                     " Tabs with 2 intervals.
+  set expandtab                     " Tabs replaced by spaces.
+  set shiftwidth=2                  " Indentation with 2 intervals.
+  set softtabstop=2                 " Indentation with 2 intervals.
+  set shiftround                    " Round indent to shiftwidth value.
+  set laststatus=2                  " Last window status.
+  set display=lastline              " Display the whole line instead of wrap with @.
+  set showmode                      " Already defined on Vim. Display current mode.
+  set incsearch                     " Highlight pattern on search while typing.
+  set hlsearch                      " Highlight all matches on search .
+  set splitbelow                    " Puts the new splitted window below the current one.
+  set splitright                    " Puts the new splitted window right the current one.
+  set cursorline                    " Highlight the screen line of the cursor.
+  set wrapscan                      " Searches wrap around the end of the file.
+  set report=0                      " Reports number of lines changed. 0 stands for always.
+  set synmaxcol=200                 " Maximum column to search for syntax items.
+  set number                        " Line number.
+  set relativenumber                " Relative line number.
+  set updatecount=100               " How many characters are required to be present to allow the creation for swap files. 0 stands for no swap files.
+  set noundofile                    " Deactivate file backup.
+  set wildmenu                      " Navigation through files/folders.
+  set wildmode=longest:full,full    " Navigation method.
+" }
 
-syntax on                         " File syntax.
-set nocompatible                  " Vim exclusive.
-set autoindent                    " Vim auto indentation.
-set tabstop=2                     " Tabs with 2 intervals.
-set expandtab                     " Tabs replaced by spaces.
-set shiftwidth=2                  " Indentation with 2 intervals.
-set softtabstop=2                 " Indentation with 2 intervals.
-set shiftround                    " Round indent to shiftwidth value.
-set laststatus=2                  " Last window status.
-set display=lastline              " Display the whole line instead of wrap with @.
-set showmode                      " Already defined on Vim. Display current mode.
-set incsearch                     " Highlight pattern on search while typing.
-set hlsearch                      " Highlight all matches on search .
-set splitbelow                    " Puts the new splitted window below the current one.
-set splitright                    " Puts the new splitted window right the current one.
-set cursorline                    " Highlight the screen line of the cursor.
-set wrapscan                      " Searches wrap around the end of the file.
-set report=0                      " Reports number of lines changed. 0 stands for always.
-set synmaxcol=200                 " Maximum column to search for syntax items.
-set number                        " Line number.
-set relativenumber                " Relative line number.
-set updatecount=100               " How many characters are required to be present to allow the creation for swap files. 0 stands for no swap files.
-set noundofile                    " Deactivate file backup.
-set wildmenu                      " Navigation through files/folders.
-set wildmode=longest:full,full    " Navigation method.
 
 " :::::::::: Netrw Settings ::::::::::
-let g:netrw_banner=0              " Remove netrw banner.
-let g:netrw_liststyle=3           " Visualization. 3 stands for tree style.
-let g:netrw_altv=1                " Open files on the right.
-let g:netrw_preview=1             " Open preview vertically.
-let g:netrw_special_syntax=1      " Special syntax for a given list of file types.
-let g:netrw_fastbrowse=2          " Speed for listing directories.
+" {
+  let g:netrw_banner=0              " Remove netrw banner.
+  let g:netrw_liststyle=3           " Visualization. 3 stands for tree style.
+  let g:netrw_altv=1                " Open files on the right.
+  let g:netrw_preview=1             " Open preview vertically.
+  let g:netrw_special_syntax=1      " Special syntax for a given list of file types.
+  let g:netrw_fastbrowse=2          " Speed for listing directories.
+" }
 
 
 " :::::::::: Vim Custom Settings ::::::::::
+" {
+  " >>> Checks for auto command, then add some file type features {
+  if has("autocmd")
+    filetype on                     " File type detection
+    filetype indent on              " Indentation by file type
+    filetype plugin on              " Load plugins for file types
+  endif
+  " }
 
-" >>> Checks for auto command, then add some file type features
-if has("autocmd")
-  filetype on                     " File type detection
-  filetype indent on              " Indentation by file type
-  filetype plugin on              " Load plugins for file types
-endif
+  " >>> Highlight columns longer than 80 characters {
+  highlight OverLength ctermbg=DarkMagenta ctermfg=LightRed guibg=#592929
+  match OverLength /\%81v.\+/
+  " }
 
-" >>> Highlight columns longer than 80 characters
-highlight OverLength ctermbg=DarkMagenta ctermfg=LightRed guibg=#592929
-match OverLength /\%81v.\+/
+  " >>> Open files from paths with the cursor using `gf` {
+  noremap gf :vertical wincmd f<CR>
+  " }
 
-" >>> Open files from paths with the cursor using `gf`
-noremap gf :vertical wincmd f<CR>
+  " >>> Map F3 to clear search highlight {
+  map <F3> :set hlsearch!<CR>
+  " }
 
-" >>> Map F3 to clear search highlight
-map <F3> :set hlsearch!<CR>
+  " >>> Color and Theme settings {
+  syntax enable
 
-" >>> Color and Theme settings
-syntax enable
-colorscheme monokai
+    " > Color: Monokai {
+    colorscheme monokai
+    " }
 
-" Detecting where the wild tabs are
-syntax match Tab /\t/
-hi Tab gui=underline guifg=blue ctermbg=blue
+  " }
+
+  " Detecting where the wild tabs are {
+  syntax match Tab /\t/
+  hi Tab gui=underline guifg=blue ctermbg=blue
+  " }
+" }
 
