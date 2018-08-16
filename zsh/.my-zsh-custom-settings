@@ -121,10 +121,7 @@ function randomPhrase {
   bar=`shuf -i 1-${#SITUATIONS[@]} -n 1`
   baz=`shuf -i 1-${#THINGS[@]} -n 1`
 
-  echo "Today is a ${QUALITIES[$foo]} day to ${SITUATIONS[$bar]} ${THINGS[$baz]}."
+  echo "Today is a ${QUALITIES[$foo]} day to ${SITUATIONS[$bar]} ${THINGS[$baz]}." | cowsay
 }
 randomPhrase
-
-
-
 
