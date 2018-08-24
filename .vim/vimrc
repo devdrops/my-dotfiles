@@ -40,6 +40,7 @@
   set noundofile                    " Deactivate file backup.
   set wildmenu                      " Navigation through files/folders.
   set wildmode=longest:full,full    " Navigation method.
+  set wildignorecase                " Case insensitive autocompletion for files and folders.
 " }
 
 
