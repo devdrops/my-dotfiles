@@ -4,6 +4,8 @@
 #
 # CUSTOM SETTINGS FOR .zshrc
 #
+# OBS: requires ZSH.
+#
 ##################################
 
 ###################
@@ -51,6 +53,19 @@ alias expath="export PATH=$PATH:$(pwd)"
 
 # Default text editor
 export EDITOR=vim
+
+# Checks if there is a tmux session named 'dotfiles'
+function checkDotfilesSession {
+  tmux ls | grep 'dotfiles' &> /dev/null
+
+  if [ $? = 0 ]; then return true; else return false; fi
+
+  #if [ $? = 0 ] then
+  #  return true
+  #else
+  #  return false
+  #fi
+}
 
 # Random phrases
 function randomPhrase {
