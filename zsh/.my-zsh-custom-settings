@@ -54,6 +54,8 @@ alias expath="export PATH=$PATH:$(pwd)"
 # Default text editor
 export EDITOR=vim
 
+source ~/.tmuxinator-helper 
+
 # Checks if there is a tmux session named 'dotfiles'
 function checkDotfilesSession {
   tmux ls | grep 'dotfiles' &> /dev/null

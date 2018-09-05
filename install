@@ -20,3 +20,6 @@ cp -a ./tmux/.tmux.conf ~/.tmux.conf
 cp ./zsh/.my-zsh-custom-settings ~/ && \
   grep -q -F 'source ~/.my-zsh-custom-settings' ~/.zshrc || echo "source ~/.my-zsh-custom-settings" >> ~/.zshrc
 
+# tmuxinator
+cp ./zsh/.tmuxinator-helper ~/
+
