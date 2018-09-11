@@ -1,0 +1,12 @@
+#!/bin/bash
+
+##################################
+#
+# GOOGLE VIM HELPER
+#
+# Used with vim keywordprg.
+#
+##################################
+
+google-chrome-stable https://www.google.com/search?q=$1
+

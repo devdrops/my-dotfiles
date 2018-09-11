@@ -10,6 +10,7 @@
 " #   http://ellengummesson.com/blog/2014/02/22/make-vim-really-behave-like-netrw/
 " #   https://gist.github.com/danidiaz/37a69305e2ed3319bfff9631175c5d0f
 " #   https://github.com/sickill/vim-monokai
+" #   https://jovicailic.org/mastering-vim-quickly/
 " #
 " ##################################
 
@@ -77,6 +78,12 @@
   " >>> Map F3 to clear search highlight {
   map <F3> :set hlsearch!<CR>
   " }
+
+  " Every time I hit K, run program called `google`,
+  " which searches for the keyword using Google.
+  "
+  " See ./zsh/google file
+  set keywordprg=google
 
   " >>> Color and Theme settings {
   syntax enable

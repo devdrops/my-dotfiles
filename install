@@ -23,3 +23,7 @@ cp ./zsh/.my-zsh-custom-settings ~/ && \
 # tmuxinator
 cp ./zsh/.tmuxinator-helper ~/
 
+# Binaries
+rm -rf ~/.my-binaries && \
+  cp -a ./bins ~/.my-binaries
+

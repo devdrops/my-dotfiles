@@ -9,26 +9,37 @@
 ##################################
 
 ###################
-# MY OWN FUNCTIONS
+# SOURCES
 ###################
 
+source ~/.tmuxinator-helper
+
+####################
+# EXPORTS
+####################
+
+# Default text editor
+export EDITOR=vim
 # Go
 export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:$HOME/go/bin
 export CGO_ENABLED=0
-
 # Kotlin
 export PATH=$PATH:$HOME/kotlinc/bin
-
 # Gradle
 export PATH=$PATH:$HOME/gradle-4.6/bin
+# Binaries
+export PATH=$PATH:~/.my-binaries
 
-# General functions
-function  todayIs {
-  declare -a TEXTCOLORS=("\e[39m" "\e[30m" "\e[31m" "\e[32m" "\e[33m" "\e[34m" "\e[35m" "\e[36m" "\e[37m" "\e[90m" "\e[91m" "\e[92m" "\e[93m" "\e[94m" "\e[95m" "\e[96m" "\e[97m")
+###################
+# FUNCTIONS
+###################
+
+function todayIs {
+  declare -a TEXTCOLORS=("1" "2" "3" "4" "5" "6" "7")
   choosen=`shuf -i 1-${#TEXTCOLORS[@]} -n 1`
 
-  echo "${TEXTCOLORS[$choosen]}TODAY IS: "`date +%^A`, `date +%^B`, `date +%F`"\e[39m"
+  tput setaf ${TEXTCOLORS[$choosen]};tput bold; echo "TODAY IS: "`date +%^A`, `date +%^B`, `date +%F`"\e[39m"
 }
 todayIs
 
@@ -40,21 +51,9 @@ function messageOfTheDay {
 function currentDir {
   pwd | xclip
 }
-alias c="currentDir"
 function goToDir {
   cd $(xclip -o)
 }
-alias gt="goToDir"
-
-# Common aliases
-alias ls="ls -lat --color"
-alias xclip="xclip -selection clipboard"
-alias expath="export PATH=$PATH:$(pwd)"
-
-# Default text editor
-export EDITOR=vim
-
-source ~/.tmuxinator-helper 
 
 # Checks if there is a tmux session named 'dotfiles'
 function checkDotfilesSession {
@@ -135,13 +134,24 @@ function randomPhrase {
     "cellphone"
     "spear"
     "Batman costume"
+    "can of beans"
   )
 
   foo=`shuf -i 1-${#QUALITIES[@]} -n 1`
   bar=`shuf -i 1-${#SITUATIONS[@]} -n 1`
   baz=`shuf -i 1-${#THINGS[@]} -n 1`
 
-  echo "Today is a ${QUALITIES[$foo]} day to ${SITUATIONS[$bar]} ${THINGS[$baz]}." | cowsay
+  echo "Today is a ${QUALITIES[$foo]} day to ${SITUATIONS[$bar]} ${THINGS[$baz]}." | cowsay -f skeleton
 }
 randomPhrase
+
+###################
+# ALIASES
+###################
+
+alias c="currentDir"
+alias gt="goToDir"
+alias ls="ls -lat --color"
+alias xclip="xclip -selection clipboard"
+alias expath="export PATH=$PATH:$(pwd)"
 
