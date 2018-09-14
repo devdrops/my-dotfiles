@@ -1,0 +1,13 @@
+#!/bin/bash
+
+##################################
+#
+# GOOGLE VIM HELPER
+#
+# Just a shortcut to call Chrome
+# from terminal to open a file.
+#
+##################################
+
+google-chrome-stable $1
+
