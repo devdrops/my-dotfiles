@@ -43,6 +43,7 @@
   set wildmode=longest:full,full    " Navigation method.
   set wildignorecase                " Case insensitive autocompletion for files and folders.
   set tabpagemax=100                " Number of tabs when using `vim -p` (default is 10).
+  set showtabline=2                 " Tab display. 0: never; 1: only with 2 or more tabs; 2: always.
 " }
 
 
