@@ -26,6 +26,7 @@
 [alias]
   gc = commit -S 
   group = shortlog -s -n
+  csi = log --follow -- 
 
 [commit]
   gpgsign = true
