@@ -81,6 +81,11 @@
   map <F3> :set hlsearch!<CR>
   " }
 
+  " >>> Map to run `git group` alias on the opened file.
+  " >>> OBS: requires my git/.gitconfig file! {
+  map <F2> :!git group %<cr>
+  " }
+
   " Every time I hit K, run program called `google`,
   " which searches for the keyword using Google.
   "
