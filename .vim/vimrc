@@ -11,6 +11,7 @@
 " #   https://gist.github.com/danidiaz/37a69305e2ed3319bfff9631175c5d0f
 " #   https://github.com/sickill/vim-monokai
 " #   https://jovicailic.org/mastering-vim-quickly/
+" #   https://medium.com/vim-drops/javascript-folding-on-vim-119c70d2e872
 " #
 " ##################################
 
@@ -44,6 +45,9 @@
   set wildignorecase                " Case insensitive autocompletion for files and folders.
   set tabpagemax=100                " Number of tabs when using `vim -p` (default is 10).
   set showtabline=2                 " Tab display. 0: never; 1: only with 2 or more tabs; 2: always.
+  set foldmethod=syntax             " Defines folding method. `syntax` is based on file syntax.
+  set foldcolumn=1                  " Columns when folding. 
+  set foldlevelstart=99             " Folding mode when opening files. 99 keeps all folds open.
 " }
 
 
