@@ -1,8 +1,7 @@
 " ##################################
-" # VIMRC SETTINGS
+" # VIM SETTINGS
 " #
-" #
-" # References:
+" # REFERENCES:
 " #   https://github.com/mhinz/vim-galore/blob/master/static/minimal-vimrc.vim
 " #   http://ivanbrennan.nyc/blog/2014/01/16/rigging-vims-netrw/
 " #   http://www.drchip.org/astronaut/vim/index.html#NETRW
@@ -12,11 +11,11 @@
 " #   https://github.com/sickill/vim-monokai
 " #   https://jovicailic.org/mastering-vim-quickly/
 " #   https://medium.com/vim-drops/javascript-folding-on-vim-119c70d2e872
+" #   https://vimways.org/2018/from-vimrc-to-vim/
 " #
 " ##################################
 
 " :::::::::: Vim General Settings ::::::::::
-" {
   syntax on                         " File syntax.
   set nocompatible                  " Vim exclusive.
   set autoindent                    " Vim auto indentation.
@@ -48,66 +47,14 @@
   set foldmethod=syntax             " Defines folding method. `syntax` is based on file syntax.
   set foldcolumn=1                  " Columns when folding. 
   set foldlevelstart=99             " Folding mode when opening files. 99 keeps all folds open.
-" }
-
+  set keywordprg=google             " Execute `google` when hit K. Requires `bins/google` file from this repository.
+  colorscheme monokai               " DEfine the current color theme. Requires contents from `.vim/colors` dir from this repository.
 
 " :::::::::: Netrw Settings ::::::::::
-" {
   let g:netrw_banner=0              " Remove netrw banner.
   let g:netrw_liststyle=3           " Visualization. 3 stands for tree style.
   let g:netrw_altv=1                " Open files on the right.
   let g:netrw_preview=1             " Open preview vertically.
   let g:netrw_special_syntax=1      " Special syntax for a given list of file types.
   let g:netrw_fastbrowse=2          " Speed for listing directories.
-" }
-
-
-" :::::::::: Vim Custom Settings ::::::::::
-" {
-  " >>> Checks for auto command, then add some file type features {
-  if has("autocmd")
-    filetype on                     " File type detection
-    filetype indent on              " Indentation by file type
-    filetype plugin on              " Load plugins for file types
-  endif
-  " }
-
-  " >>> Highlight columns longer than 80 characters {
-  highlight OverLength ctermbg=DarkMagenta ctermfg=LightRed guibg=#592929
-  match OverLength /\%81v.\+/
-  " }
-
-  " >>> Open files from paths with the cursor using `gf` {
-  noremap gf :vertical wincmd f<CR>
-  " }
-
-  " >>> Map F3 to clear search highlight {
-  map <F3> :set hlsearch!<CR>
-  " }
-
-  " >>> Map to run `git group` alias on the opened file.
-  " >>> OBS: requires my git/.gitconfig file! {
-  map <F2> :!git group %<cr>
-  " }
-
-  " Every time I hit K, run program called `google`,
-  " which searches for the keyword using Google.
-  "
-  " See ./zsh/google file
-  set keywordprg=google
-
-  " >>> Color and Theme settings {
-  syntax enable
-
-    " > Color: Monokai {
-    colorscheme monokai
-    " }
-
-  " }
-
-  " Detecting where the wild tabs are {
-  syntax match Tab /\t/
-  hi Tab gui=underline guifg=blue ctermbg=blue
-  " }
-" }
 
