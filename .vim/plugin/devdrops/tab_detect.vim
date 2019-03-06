@@ -8,4 +8,4 @@
 
 highlight SpecialKey gui=underline guifg=blue ctermbg=blue
 set list
-set listchars=tab:T>
+set listchars=tab:T.
