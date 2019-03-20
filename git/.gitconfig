@@ -6,6 +6,7 @@
 #   - https://github.com/dougblack/dotfiles/blob/master/.gitconfig
 #   - https://gist.github.com/pksunkara/988716
 #   - https://www.atlassian.com/git/tutorials/setting-up-a-repository/git-config
+#   - https://nathanhoad.net/how-to-colours-in-git/
 #
 ##################################
 
@@ -36,8 +37,8 @@
 
 [color "branch"]
   current = yellow bold
-  local = green bold
-  remote = cyan bold
+  local = green bold dim
+  remote = cyan bold dim
 
 [color "diff"]
   meta = yellow bold
