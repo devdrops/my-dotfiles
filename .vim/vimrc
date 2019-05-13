@@ -12,33 +12,38 @@
 " #   https://jovicailic.org/mastering-vim-quickly/
 " #   https://medium.com/vim-drops/javascript-folding-on-vim-119c70d2e872
 " #   https://vimways.org/2018/from-vimrc-to-vim/
+" #   https://github.com/amix/vimrc/blob/master/vimrcs/basic.vim
 " #
 " ##################################
 
 " :::::::::: Vim General Settings ::::::::::
-  syntax on                         " File syntax.
+  syntax enable                     " File syntax.
   set nocompatible                  " Vim exclusive.
   set autoindent                    " Vim auto indentation.
+
   set tabstop=2                     " Tabs with 2 intervals.
   set expandtab                     " Tabs replaced by spaces.
   set shiftwidth=2                  " Indentation with 2 intervals.
   set softtabstop=2                 " Indentation with 2 intervals.
   set shiftround                    " Round indent to shiftwidth value.
   set laststatus=2                  " Last window status.
+
   set display=lastline              " Display the whole line instead of wrap with @.
+
   set showmode                      " Already defined on Vim. Display current mode.
+
   set incsearch                     " Highlight pattern on search while typing.
-  set hlsearch                      " Highlight all matches on search .
+  set hlsearch                      " Highlight all matches on search.
+  set wrapscan                      " Searches wrap around the end of the file.
   set splitbelow                    " Puts the new splitted window below the current one.
   set splitright                    " Puts the new splitted window right the current one.
   set cursorline                    " Highlight the screen line of the cursor.
-  set wrapscan                      " Searches wrap around the end of the file.
   set report=0                      " Reports number of lines changed. 0 stands for always.
   set synmaxcol=200                 " Maximum column to search for syntax items.
+
   set number                        " Line number.
   set relativenumber                " Relative line number.
-  set updatecount=100               " How many characters are required to be present to allow the creation for swap files. 0 stands for no swap files.
-  set noundofile                    " Deactivate file backup.
+
   set wildmenu                      " Navigation through files/folders.
   set wildmode=longest:full,full    " Navigation method.
   set wildignorecase                " Case insensitive autocompletion for files and folders.
@@ -48,7 +53,23 @@
   set foldcolumn=1                  " Columns when folding. 
   set foldlevelstart=99             " Folding mode when opening files. 99 keeps all folds open.
   set keywordprg=google             " Execute `google` when hit K. Requires `bins/google` file from this repository.
-  colorscheme monokai               " DEfine the current color theme. Requires contents from `.vim/colors` dir from this repository.
+  set autoread                      " Vim will automatically read all changes made outside Vim.
+  set ruler                         " Display current line and column numbers, as `live, column`.
+
+  filetype plugin on
+  filetype indent on
+
+  set nobackup                      " No backup files.
+  set nowb                          " Don't write backup files.
+  set noswapfile                    " No swap files.
+  set noundofile                    " Deactivate file backup.
+
+  if $COLORTERM == 'gnome-terminal'
+      set t_Co=256
+  endif
+
+  colorscheme monokai               " Define the current color theme. Requires contents from `.vim/colors` dir from this repository.
+
 
 " :::::::::: Netrw Settings ::::::::::
   let g:netrw_banner=0              " Remove netrw banner.
