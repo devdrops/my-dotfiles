@@ -8,6 +8,7 @@
 #
 # References:
 #   http://mewbies.com/motd_console_codes_color_chart_in_color_black_background.htm#colors
+#   https://samljones.com/2017-07-19/remote-pair-tmate-tmux/
 #
 ##################################
 
@@ -152,6 +153,59 @@ function randomPhrase {
   echo "Today is a ${QUALITIES[$foo]} day to ${SITUATIONS[$bar]} ${THINGS[$baz]}." | cowsay -f skeleton
 }
 randomPhrase
+
+# TMUX / TMATE functions
+
+TMATE_PAIR_NAME="$(whoami)-pair"
+TMATE_SOCKET_LOCATION="/tmp/tmate-pair.sock"
+TMATE_TMUX_SESSION="/tmp/tmate-tmux-session"
+
+tmate-write-url() {
+    url="$(tmate -S $TMATE_SOCKET_LOCATION display -p 'WRITE: #{tmate_ssh} | #{tmate_web}')"
+    echo "$url" | tr -d '\n' | xclip
+    echo "Copied tmate URL for $TMATE_PAIR_NAME:"
+    echo "$url"
+}
+
+tmate-read-url() {
+    url="$(tmate -S $TMATE_SOCKET_LOCATION display -p 'READ: #{tmate_ssh_ro} | #{tmate_web_ro}')"
+    echo "$url" | tr -d '\n' | xclip
+    echo "Copied tmate URL for $TMATE_PAIR_NAME:"
+    echo "$url"
+}
+
+tmate-pair() {
+    if [ ! -e "$TMATE_SOCKET_LOCATION" ]; then
+        tmate -S "$TMATE_SOCKET_LOCATION" -f "$HOME/.tmate.conf" new-session -d -s "$TMATE_PAIR_NAME"
+
+        while [ -z "$url" ]; do
+            url="$(tmate -S $TMATE_SOCKET_LOCATION display -p '#{tmate_ssh}')"
+        done
+        tmate-write-url
+        sleep 1
+
+        if [ -n "$1" ]; then
+            echo $1 > $TMATE_TMUX_SESSION
+            tmate -S "$TMATE_SOCKET_LOCATION" send -t "$TMATE_PAIR_NAME" "TMUX='' tmux attach-session -t $1" ENTER
+        fi
+    fi
+
+    tmate -S "$TMATE_SOCKET_LOCATION" attach-session -t "$TMATE_PAIR_NAME"
+}
+
+tmate-unpair() {
+    if [ -e "$TMATE_SOCKET_LOCATION" ]; then
+        if [ -e "$TMATE_SOCKET_LOCATION" ]; then
+            tmux detach -s $(cat $TMATE_TMUX_SESSION)
+            rm -f $TMATE_TMUX_SESSION
+        fi
+
+        tmate -S "$TMATE_SOCKET_LOCATION" kill-session -t "$TMATE_PAIR_NAME"
+        echo "Killed session $TMATE_PAIR_NAME"
+    else
+        echo "Session already killed"
+    fi
+}
 
 ###################
 # ALIASES
