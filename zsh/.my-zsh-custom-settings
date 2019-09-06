@@ -160,6 +160,14 @@ TMATE_PAIR_NAME="$(whoami)-pair"
 TMATE_SOCKET_LOCATION="/tmp/tmate-pair.sock"
 TMATE_TMUX_SESSION="/tmp/tmate-tmux-session"
 
+tmate-ls() {
+    tmate -S $TMATE_SOCKET_LOCATION ls
+}
+
+tmate-a() {
+    tmate -S $TMATE_SOCKET_LOCATION a -t $TMATE_PAIR_NAME
+}
+
 tmate-write-url() {
     url="$(tmate -S $TMATE_SOCKET_LOCATION display -p 'WRITE: #{tmate_ssh} | #{tmate_web}')"
     echo "$url" | tr -d '\n' | xclip
