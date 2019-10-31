@@ -160,12 +160,20 @@ TMATE_PAIR_NAME="$(whoami)-pair"
 TMATE_SOCKET_LOCATION="/tmp/tmate-pair.sock"
 TMATE_TMUX_SESSION="/tmp/tmate-tmux-session"
 
+tmate-new() {
+    tmate -S $TMATE_SOCKET_LOCATION new -s "$1"
+}
+
 tmate-ls() {
     tmate -S $TMATE_SOCKET_LOCATION ls
 }
 
 tmate-a() {
-    tmate -S $TMATE_SOCKET_LOCATION a -t $TMATE_PAIR_NAME
+    if [ -z $1 ]; then
+      tmate -S $TMATE_SOCKET_LOCATION a -t $TMATE_PAIR_NAME
+    else
+      tmate -S $TMATE_SOCKET_LOCATION a -t $1
+    fi
 }
 
 tmate-write-url() {
