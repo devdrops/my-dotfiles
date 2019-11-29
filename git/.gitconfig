@@ -24,6 +24,11 @@
 [diff]
   tool = vimdiff
 
+[merge]
+  tool = vimdiff
+  conflictstyle = diff3
+  prompt = false
+
 [alias]
   gc = commit -S 
   group = shortlog -s -n
