@@ -223,6 +223,13 @@ tmate-unpair() {
     fi
 }
 
+checkGVM() {
+    if ! type gvm >> /dev/null ; then
+        source ~/.gvm/scripts/gvm
+    fi
+}
+checkGVM
+
 ###################
 # ALIASES
 ###################
