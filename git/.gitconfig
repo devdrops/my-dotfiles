@@ -7,6 +7,7 @@
 #   - https://gist.github.com/pksunkara/988716
 #   - https://www.atlassian.com/git/tutorials/setting-up-a-repository/git-config
 #   - https://nathanhoad.net/how-to-colours-in-git/
+#   - https://medium.com/easyread/today-i-learned-fix-go-get-private-repository-return-error-terminal-prompts-disabled-8c5549d89045
 #
 ##################################
 
@@ -20,6 +21,9 @@
   editor = vim
   whitespace = trailing-space
   excludesfile = ~/.gitignore_global
+
+[url "git@github.com"]
+  insteadOf = https://github.com/
 
 [diff]
   tool = vimdiff
