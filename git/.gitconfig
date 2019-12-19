@@ -22,7 +22,7 @@
   whitespace = trailing-space
   excludesfile = ~/.gitignore_global
 
-[url "git@github.com"]
+[url "git@github.com:"]
   insteadOf = https://github.com/
 
 [diff]
