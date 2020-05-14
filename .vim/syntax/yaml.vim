@@ -2,6 +2,6 @@
 " # Vim Style: YAML
 " #################################
 
-set tabstop=2               "
-set shiftwidth=2            " Basic indentation: 2 spaces
-set softtabstop=2           "
+set tabstop=4               "
+set shiftwidth=4            " Basic indentation: 4 spaces
+set softtabstop=4           "
