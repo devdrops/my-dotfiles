@@ -13,6 +13,7 @@
 " #   https://medium.com/vim-drops/javascript-folding-on-vim-119c70d2e872
 " #   https://vimways.org/2018/from-vimrc-to-vim/
 " #   https://github.com/amix/vimrc/blob/master/vimrcs/basic.vim
+" #   https://html.developreference.com/article/22757209/Forcing+vimdiff+to+wrap+lines%3F
 " #
 " ##################################
 
@@ -78,4 +79,13 @@
   let g:netrw_preview=1             " Open preview vertically.
   let g:netrw_special_syntax=1      " Special syntax for a given list of file types.
   let g:netrw_fastbrowse=2          " Speed for listing directories.
+
+
+" :::::::::: vimdiff Settings ::::::::::
+  au VimEnter * if &diff | execute 'windo set wrap' | endif
+  " vimdiff highlight
+  hi DiffAdd    ctermfg=NONE ctermbg=DarkGreen  " Added line
+  hi DiffChange ctermfg=NONE ctermbg=DarkYellow " Changed line
+  hi DiffDelete ctermfg=NONE ctermbg=DarkRed    " Deleted line
+  hi DiffText   ctermfg=NONE ctermbg=DarkBlue   " Changed text within a changed line
 
