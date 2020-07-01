@@ -8,6 +8,8 @@
 #   - https://www.atlassian.com/git/tutorials/setting-up-a-repository/git-config
 #   - https://nathanhoad.net/how-to-colours-in-git/
 #   - https://medium.com/easyread/today-i-learned-fix-go-get-private-repository-return-error-terminal-prompts-disabled-8c5549d89045
+#   - https://stackoverflow.com/a/15128894
+#   - https://stackoverflow.com/a/34065448
 #
 ##################################
 
@@ -27,6 +29,10 @@
 
 [diff]
   tool = vimdiff
+
+[difftool]
+  prompt = false
+  trustExitCode = true
 
 [merge]
   tool = vimdiff
