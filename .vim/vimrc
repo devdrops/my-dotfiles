@@ -82,6 +82,7 @@
 
 
 " :::::::::: vimdiff Settings ::::::::::
+  " Set line wrap when using vimdiff
   au VimEnter * if &diff | execute 'windo set wrap' | endif
   " vimdiff highlight
   hi DiffAdd    ctermfg=NONE ctermbg=DarkGreen  " Added line
