@@ -75,35 +75,73 @@
       set t_Co=256
   endif
 
-  colorscheme monokai               " Define the current color theme. Requires contents from `.vim/colors` dir from this repository.
+  colorscheme monokai               " Define the current color theme. Requires
+                                    " contents from `.vim/colors` dir from this
+                                    " repository.
 
 
 " :::::::::: Netrw Settings ::::::::::
-  let g:netrw_banner=0              " Remove netrw banner.
-  let g:netrw_liststyle=3           " Visualization. 3 stands for tree style.
-  let g:netrw_altv=1                " Open files on the right.
-  let g:netrw_preview=1             " Open preview vertically.
-  let g:netrw_winsize=75            " Open the preview with 75% of the screen.
-  let g:netrw_special_syntax=1      " Special syntax for a given list of file types.
-  let g:netrw_fastbrowse=2          " Speed for listing directories.
+  let g:netrw_banner=0              " Netrw banner.
+                                    "   0 - Suppress.
+                                    "   1 - Display (default).
+  let g:netrw_liststyle=3           " Folder/file list style.
+                                    "   0 - Thin.
+                                    "   1 - Long.
+                                    "   2 - Wide.
+                                    "   3 - Tree.
+  let g:netrw_altv=1                " Control right/left splitting.
+                                    "   0 - Horizontal.
+                                    "   1 - Vertical.
+  let g:netrw_preview=1             " Control horizontal vs vertical splitting.
+                                    "   0 - Preview horizontal.
+                                    "   1 - Preview vertical.
+  let g:netrw_winsize=80            " Open the preview with 80% of the screen.
+  let g:netrw_special_syntax=1      " Special syntax for a given list of file
+                                    " types.
+                                    "   0 - Disabled.
+                                    "   1 - Enabled.
+  let g:netrw_fastbrowse=2          " Directory browsing.
+                                    "   0 - Slow.
+                                    "   1 - Medium (default).
+                                    "   2 - Fast.
   " Do not display files and folders in the list.
-  let g:netrw_list_hide='.git,.sass-cache,.jpg,.png,.svg'
-  "let g:netrw_list_hide='\.git\$\zs,.jpeg,.jpg,.png,.svg'
-  let g:netrw_special_syntax=1      " Enable Netrw special syntax for files.
-  let g:netrw_ignorenetrc=1         " Ignore .netrc files.
+  let g:netrw_list_hide='^.git/$,.jpg$,.jpeg$,.png$,.svg$'
+  let g:netrw_ignorenetrc=1         " .netrc file usage.
+                                    "   0 - Load.
+                                    "   1 - Ignore.
   let g:netrw_browse_split=3        " Set how to display splitted files:
-                                    " 0 - default
-                                    " 1 - horizontal split
-                                    " 2 - vertical split
-                                    " 3 - new tab/window
-
+                                    "   0 - Default.
+                                    "   1 - Horizontal split.
+                                    "   2 - Vertical split.
+                                    "   3 - New tab/window.
+  let g:netrw_hide=1                " File display mode:
+                                    "   0 - Show all.
+                                    "   1 - Show not hidden (default).
+                                    "   2 - Show only hidden.
+  let g:netrw_sort_by='name'        " Display sort:
+                                    "   'name' - Alphabetically (default).
+                                    "   'time' - Modification time.
+                                    "   'size' - Size.
+                                    "   'exten' - Extension.
+  let g:netrw_sort_direction='normal' " Sort orientation:
+                                      "   'normal' -  A to Z (default).
+                                      "   'reverse' - Z to A.
+  let g:netrw_sort_options='i'      " Sort options.
+                                    "   'i' means 'case insensitive'.
+  " Time format for strftime().
+  let g:netrw_timefmt=' %a %Y-%m-%d  %I-%M-%S %p'
+  let g:netrw_use_noswf=0           " Netrw creation of swap files for browser
+                                    " buffers:
+                                    "   1 -Enabled (default).
+                                    "   0 - Disabled.
 
 " :::::::::: vimdiff Settings ::::::::::
-  " Set line wrap when using vimdiff
+  " Set line wrap when using vimdiff.
   au VimEnter * if &diff | execute 'windo set wrap' | endif
-  " vimdiff highlight
-  hi DiffAdd    ctermfg=NONE ctermbg=DarkGreen  " Added line
-  hi DiffChange ctermfg=NONE ctermbg=DarkYellow " Changed line
-  hi DiffDelete ctermfg=NONE ctermbg=DarkRed    " Deleted line
-  hi DiffText   ctermfg=NONE ctermbg=DarkBlue   " Changed text within a changed line
+  " vimdiff syntax highlight
+  hi DiffAdd    ctermfg=NONE ctermbg=DarkGreen  " Added line.
+  hi DiffChange ctermfg=NONE ctermbg=DarkYellow " Changed line.
+  hi DiffDelete ctermfg=NONE ctermbg=DarkRed    " Deleted line.
+  hi DiffText   ctermfg=NONE ctermbg=DarkBlue   " Changed text within a changed
+                                                " line.
 
