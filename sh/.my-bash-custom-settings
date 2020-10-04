@@ -1,0 +1,233 @@
+#!/bin/bash
+
+##################################
+#
+# SHELL CUSTOM SETTINGS: BASH
+#
+# References:
+#   http://mewbies.com/motd_console_codes_color_chart_in_color_black_background.htm#colors
+#   https://samljones.com/2017-07-19/remote-pair-tmate-tmux/
+#
+##################################
+
+###################
+# SOURCES
+###################
+
+####################
+# EXPORTS
+####################
+
+# Default text editor
+export EDITOR=vim
+# Kotlin
+export PATH=$PATH:$HOME/kotlinc/bin
+# Gradle
+export PATH=$PATH:$HOME/gradle-4.6/bin
+# Binaries
+export PATH=$PATH:~/.my-binaries
+
+###################
+# FUNCTIONS
+###################
+
+function todayIs {
+  declare -a TEXTCOLORS=("1" "2" "3" "4" "5" "6" "7")
+  choosen=`shuf -i 1-${#TEXTCOLORS[@]} -n 1`
+
+  tput setaf ${TEXTCOLORS[$choosen]};tput bold; echo "TODAY IS: "`date +%^A`, `date +%^B`, `date +%F`"\e[39m"
+}
+todayIs
+
+function messageOfTheDay {
+  echo $(curl -s -X GET 'http://api.forismatic.com/api/1.0/?method=getQuote&format=json&lang=en' | jq '.quoteText')
+}
+#messageOfTheDay
+
+function currentDir {
+  pwd | xclip
+}
+function goToDir {
+  cd $(xclip -o)
+}
+
+# Checks if there is a tmux session named 'dotfiles'
+function checkDotfilesSession {
+  tmux ls | grep 'dotfiles' &> /dev/null
+
+  if [ $? = 0 ]; then return true; else return false; fi
+}
+
+# Random phrases
+function randomPhrase {
+  declare -a QUALITIES=("good" "bad" "great" "terrible" "nice" "tough")
+  declare -a SITUATIONS=("wear red socks on lava when using"
+    "fishing sharks using your enemies with"
+    "find a treasure hidden in your"
+    "read a book about psycopaths with"
+    "watch unicorns having sex using"
+    "learn how mummies use to cook people using"
+    "find an immigrant living inside your"
+    "drink a lot of coffee with"
+    "drive a racing car along with"
+    "open a can of beans using"
+    "wear anti-radiation clothes using your"
+    "see the sunrise at Chernobyl with"
+    "go to Mars using only your"
+    "leave your house with only your"
+    "travel to Spain riding"
+    "worship a God that looks like"
+    "create an statue of your"
+    "watch Rick and Morty with your"
+    "Get Schwifty using your"
+    "learn a new recipe on how to cook"
+    "fight aliens inside"
+    "watch a boring TV show along with your"
+    "choose your next president using"
+    "run naked with only your"
+    "eat boiling rice along with"
+  )
+  declare -a THINGS=("a cat"
+    "cat"
+    "a dog"
+    "dog"
+    "boots"
+    "hat"
+    "keyboard"
+    "bottle"
+    "money"
+    "a cactus"
+    "butter"
+    "bottle of Mountain Dew"
+    "spoon"
+    "fork"
+    "laser gun"
+    "corn"
+    "head"
+    "knife"
+    "Limp Bizkit album"
+    "Elvis costume"
+    "Terminator poster"
+    "Terminator"
+    "Barbie doll"
+    "poncho"
+    "credit card"
+    "bread"
+    "typewriter"
+    "machine gun"
+    "cocaine"
+    "bottle of 51"
+    "scissors"
+    "shark"
+    "chainsaw"
+    "Old Spice"
+    "TNT"
+    "cat"
+    "pencil"
+    "Apple Watch"
+    "cellphone"
+    "spear"
+    "Batman costume"
+    "can of beans"
+    "short camuflado da vovó Juju"
+  )
+
+  foo=`shuf -i 1-${#QUALITIES[@]} -n 1`
+  bar=`shuf -i 1-${#SITUATIONS[@]} -n 1`
+  baz=`shuf -i 1-${#THINGS[@]} -n 1`
+
+  echo "Today is a ${QUALITIES[$foo]} day to ${SITUATIONS[$bar]} ${THINGS[$baz]}." | cowsay -f skeleton
+}
+randomPhrase
+
+# TMUX / TMATE functions
+
+TMATE_PAIR_NAME="$(whoami)-pair"
+TMATE_SOCKET_LOCATION="/tmp/tmate-pair.sock"
+TMATE_TMUX_SESSION="/tmp/tmate-tmux-session"
+
+tmate-new() {
+    tmate -S $TMATE_SOCKET_LOCATION new -s "$1"
+}
+
+tmate-ls() {
+    tmate -S $TMATE_SOCKET_LOCATION ls
+}
+
+tmate-a() {
+    if [ -z $1 ]; then
+      tmate -S $TMATE_SOCKET_LOCATION a -t $TMATE_PAIR_NAME
+    else
+      tmate -S $TMATE_SOCKET_LOCATION a -t $1
+    fi
+}
+
+tmate-write-url() {
+    url="$(tmate -S $TMATE_SOCKET_LOCATION display -p 'WRITE: #{tmate_ssh} | #{tmate_web}')"
+    echo "$url" | tr -d '\n' | xclip
+    echo "Copied tmate URL for $TMATE_PAIR_NAME:"
+    echo "$url"
+}
+
+tmate-read-url() {
+    url="$(tmate -S $TMATE_SOCKET_LOCATION display -p 'READ: #{tmate_ssh_ro} | #{tmate_web_ro}')"
+    echo "$url" | tr -d '\n' | xclip
+    echo "Copied tmate URL for $TMATE_PAIR_NAME:"
+    echo "$url"
+}
+
+tmate-pair() {
+    if [ ! -e "$TMATE_SOCKET_LOCATION" ]; then
+        tmate -S "$TMATE_SOCKET_LOCATION" -f "$HOME/.tmate.conf" new-session -d -s "$TMATE_PAIR_NAME"
+
+        while [ -z "$url" ]; do
+            url="$(tmate -S $TMATE_SOCKET_LOCATION display -p '#{tmate_ssh}')"
+        done
+        tmate-write-url
+        sleep 1
+
+        if [ -n "$1" ]; then
+            echo $1 > $TMATE_TMUX_SESSION
+            tmate -S "$TMATE_SOCKET_LOCATION" send -t "$TMATE_PAIR_NAME" "TMUX='' tmux attach-session -t $1" ENTER
+        fi
+    fi
+
+    tmate -S "$TMATE_SOCKET_LOCATION" attach-session -t "$TMATE_PAIR_NAME"
+}
+
+tmate-unpair() {
+    if [ -e "$TMATE_SOCKET_LOCATION" ]; then
+        if [ -e "$TMATE_SOCKET_LOCATION" ]; then
+            tmux detach -s $(cat $TMATE_TMUX_SESSION)
+            rm -f $TMATE_TMUX_SESSION
+        fi
+
+        tmate -S "$TMATE_SOCKET_LOCATION" kill-session -t "$TMATE_PAIR_NAME"
+        echo "Killed session $TMATE_PAIR_NAME"
+    else
+        echo "Session already killed"
+    fi
+}
+
+checkGVM() {
+    if ! type gvm >> /dev/null ; then
+        source ~/.gvm/scripts/gvm
+    fi
+}
+checkGVM
+
+dotheupgrade() {
+  sudo apt update && sudo apt upgrade -y
+}
+
+###################
+# ALIASES
+###################
+
+alias c="currentDir"
+alias gt="goToDir"
+alias ls="ls -lat --color"
+alias xclip="xclip -selection clipboard"
+alias expath="export PATH=$PATH:$(pwd)"
+alias gc="git commit -S"
+

@@ -2,9 +2,7 @@
 
 ##################################
 #
-# CUSTOM SETTINGS FOR .zshrc
-#
-# OBS: requires ZSH.
+# SHELL CUSTOM SETTINGS: ZSHELL
 #
 # References:
 #   http://mewbies.com/motd_console_codes_color_chart_in_color_black_background.htm#colors
@@ -16,18 +14,12 @@
 # SOURCES
 ###################
 
-source ~/.tmuxinator-helper
-
 ####################
 # EXPORTS
 ####################
 
 # Default text editor
 export EDITOR=vim
-# Go
-export PATH=$PATH:/usr/local/go/bin
-export PATH=$PATH:$HOME/go/bin
-export CGO_ENABLED=0
 # Kotlin
 export PATH=$PATH:$HOME/kotlinc/bin
 # Gradle
@@ -64,12 +56,6 @@ function checkDotfilesSession {
   tmux ls | grep 'dotfiles' &> /dev/null
 
   if [ $? = 0 ]; then return true; else return false; fi
-
-  #if [ $? = 0 ] then
-  #  return true
-  #else
-  #  return false
-  #fi
 }
 
 # Random phrases
