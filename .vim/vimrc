@@ -78,7 +78,7 @@
       set t_Co=256
   endif
 
-  colorscheme monokai               " Define the current color theme. Requires
+  colorscheme industry              " Define the current color theme. Requires
                                     " contents from `.vim/colors` dir from this
                                     " repository.
 
