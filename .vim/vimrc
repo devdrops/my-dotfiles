@@ -33,17 +33,22 @@
   set softtabstop=2                 " Indentation with 2 intervals.
   set shiftround                    " Round indent to shiftwidth value.
   set laststatus=2                  " Last window status.
-  set display=lastline              " Display the whole line instead of wrap with @.
+  set display=lastline              " Display the whole line instead of wrap
+                                    " with @.
 
-  set showmode                      " Already defined on Vim. Display current mode.
+  set showmode                      " Already defined on Vim. Display current
+                                    " mode.
 
   set incsearch                     " Highlight pattern on search while typing.
   set hlsearch                      " Highlight all matches on search.
   set wrapscan                      " Searches wrap around the end of the file.
-  set splitbelow                    " Puts the new splitted window below the current one.
-  set splitright                    " Puts the new splitted window right the current one.
+  set splitbelow                    " Puts the new splitted window below the
+                                    " current one.
+  set splitright                    " Puts the new splitted window right the
+                                    " current one.
   set cursorline                    " Highlight the screen line of the cursor.
-  set report=0                      " Reports number of lines changed. 0 stands for always.
+  set report=0                      " Reports number of lines changed. 0 stands
+                                    " for always.
   set synmaxcol=200                 " Maximum column to search for syntax items.
 
   set number                        " Line number.
@@ -51,15 +56,23 @@
 
   set wildmode=longest,list,full    " Navigation method.
   set wildmenu                      " Navigation through files/folders.
-  set wildignorecase                " Case insensitive autocompletion for files and folders.
-  set tabpagemax=100                " Number of tabs when using `vim -p` (default is 10).
-  set showtabline=2                 " Tab display. 0: never; 1: only with 2 or more tabs; 2: always.
-  set foldmethod=syntax             " Defines folding method. `syntax` is based on file syntax.
-  set foldcolumn=1                  " Columns when folding. 
-  set foldlevelstart=99             " Folding mode when opening files. 99 keeps all folds open.
-  set keywordprg=google             " Execute `google` when hit K. Requires `bins/google` file from this repository.
-  set autoread                      " Vim will automatically read all changes made outside Vim.
-  set ruler                         " Display current line and column numbers, as `live, column`.
+  set wildignorecase                " Case insensitive autocompletion for files
+                                    " and folders.
+  set tabpagemax=100                " Number of tabs when using `vim -p`
+                                    " (default is 10).
+  set showtabline=2                 " Tab display. 0: never; 1: only with 2 or
+                                    " more tabs; 2: always.
+  set foldmethod=syntax             " Defines folding method. `syntax` is based
+                                    " on file syntax.
+  set foldcolumn=1                  " Columns when folding.
+  set foldlevelstart=99             " Folding mode when opening files. 99 keeps
+                                    " all folds open.
+  set keywordprg=google             " Execute `google` when hit K. Requires
+                                    " `bins/google` file from this repository.
+  set autoread                      " Vim will automatically read all changes
+                                    " made outside Vim.
+  set ruler                         " Display current line and column numbers,
+                                    " as `live, column`.
 
   set title                         " Enables title
   " Modify title format
@@ -78,7 +91,7 @@
       set t_Co=256
   endif
 
-  colorscheme industry              " Define the current color theme. Requires
+  colorscheme base16-oceanicnext    " Define the current color theme. Requires
                                     " contents from `.vim/colors` dir from this
                                     " repository.
 
@@ -147,4 +160,3 @@
   hi DiffDelete ctermfg=NONE ctermbg=DarkRed    " Deleted line.
   hi DiffText   ctermfg=NONE ctermbg=DarkBlue   " Changed text within a changed
                                                 " line.
-
