@@ -24,6 +24,9 @@
   whitespace = trailing-space
   excludesfile = ~/.gitignore_global
 
+[init]
+  defaultBranch = main
+
 [url "git@github.com:"]
   insteadOf = https://github.com/
 
