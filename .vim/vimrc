@@ -92,7 +92,7 @@
       set t_Co=256
   endif
 
-  colorscheme base16-oceanicnext    " Define the current color theme. Requires
+  colorscheme first                 " Define the current color theme. Requires
                                     " contents from `.vim/colors` dir from this
                                     " repository.
 
