@@ -17,6 +17,7 @@
 " #   https://remram44.github.io/regex-cheatsheet/regex.html
 " #   https://cheatography.com/fievel/cheat-sheets/vim-regexp/
 " #   http://www.softpanorama.org/Editors/Vimorama/vim_regular_expressions.shtml
+" #   https://vimtricks.com/p/highlight-syntax-inside-markdown/
 " #
 " ##################################
 
@@ -95,6 +96,13 @@
                                     " contents from `.vim/colors` dir from this
                                     " repository.
 
+  " Set highlight syntax on code written inside markdown blocks
+  let g:markdown_fenced_languages =
+    \ [
+    \   'conf', 'css', 'cucumber', 'dockerfile', 'go', 'java', 'javascript',
+    \   'json', 'kotlin', 'make', 'nginx', 'php', 'terraform', 'text', 'toml',
+    \   'xml', 'yaml', 'html'
+    \ ]
 
 " :::::::::: Netrw Settings ::::::::::
   let g:netrw_banner=0              " Netrw banner.
