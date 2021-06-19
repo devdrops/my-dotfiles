@@ -47,7 +47,7 @@ hi Normal       cterm=NONE
 "hi SignColumn   cterm=NONE           ctermfg=Blue         ctermbg=Yellow
 
 " :::::::::: Vim tab bar ::::::::::
-hi TabLineSel  cterm=bold ctermfg=LightGreen ctermbg=Black
+hi TabLineSel  cterm=bold ctermfg=LightCyan ctermbg=Black
 hi TabLineFill cterm=NONE ctermfg=Black      ctermbg=White
 hi TabLine     cterm=NONE ctermfg=DarkGrey   ctermbg=Black
 
