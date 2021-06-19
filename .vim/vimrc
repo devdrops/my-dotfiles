@@ -18,6 +18,7 @@
 " #   https://cheatography.com/fievel/cheat-sheets/vim-regexp/
 " #   http://www.softpanorama.org/Editors/Vimorama/vim_regular_expressions.shtml
 " #   https://vimtricks.com/p/highlight-syntax-inside-markdown/
+" #   https://vim.fandom.com/wiki/256_colors_in_vim
 " #
 " ##################################
 
@@ -88,9 +89,7 @@
   set noswapfile                    " No swap files.
   set noundofile                    " Deactivate file backup.
 
-  if $COLORTERM == 'gnome-terminal'
-      set t_Co=256
-  endif
+  set t_Co=256                      " Enable 256 colors.
 
   colorscheme first                 " Define the current color theme. Requires
                                     " contents from `.vim/colors` dir from this
