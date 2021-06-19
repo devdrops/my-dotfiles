@@ -3,5 +3,5 @@
 " #################################
 
 " Defining filetype without override
-autocmd BufNewFile,BufRead *.kt setfiletype kotlin
-autocmd BufNewFile,BufRead *.kts setfiletype kotlin
+autocmd BufNewFile,BufRead *.kt set filetype=kotlin
+autocmd BufNewFile,BufRead *.kts set filetype=kotlin
