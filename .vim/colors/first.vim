@@ -39,7 +39,7 @@ hi Special      cterm=NONE           ctermfg=LightRed
 hi SpecialKey   cterm=bold           ctermfg=DarkBlue
 hi Statement    cterm=bold           ctermfg=LightRed
 hi StatusLine   cterm=NONE           ctermfg=White        ctermbg=DarkGray
-hi Title        cterm=bold,underline ctermfg=LightMagenta
+hi Title        cterm=bold,underline ctermfg=Magenta
 hi Type         cterm=bold           ctermfg=LightGreen
 " TODO
 "hi Search       cterm=NONE           ctermfg=Blue         ctermbg=Yellow
@@ -52,9 +52,23 @@ hi TabLineFill cterm=NONE ctermfg=Black     ctermbg=White
 hi TabLineSel  cterm=bold ctermfg=LightCyan ctermbg=Black
 
 " :::::::::: Netrw ::::::::::
-hi netrwDir          cterm=bold      ctermfg=LightCyan
+hi netrwDir          cterm=bold      ctermfg=LightBlue
 hi netrwExe          cterm=underline ctermfg=Cyan
 hi netrwPlain        cterm=NONE      ctermfg=LightGreen
-hi netrwTreeBar      cterm=bold      ctermfg=LightCyan
+hi netrwTreeBar      cterm=bold      ctermfg=LightBlue
 hi netrwTreeBarSpace cterm=NONE
 
+" ------------------------------------------------------------------------------
+
+" :::::::::: Highlight Syntax: Go ::::::::::
+hi goType         cterm=NONE ctermfg=Brown
+hi goSignedInts   cterm=NONE ctermfg=Brown
+hi goUnsignedInts cterm=NONE ctermfg=Brown
+hi goFloats       cterm=NONE ctermfg=Brown
+hi goComplexes    cterm=NONE ctermfg=Brown
+hi goDeclType     cterm=NONE ctermfg=Brown
+hi goDirective    cterm=bold ctermfg=LightYellow
+
+" :::::::::: Highlight Syntax: Markdown ::::::::::
+hi markdownH1               cterm=bold,underline ctermfg=Magenta
+hi markdownHeadingDelimiter cterm=bold,underline ctermfg=Magenta
