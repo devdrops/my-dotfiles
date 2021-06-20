@@ -7,4 +7,4 @@
 " ##################################
 
 set colorcolumn=81
-highlight ColorColumn ctermbg=lightblue ctermfg=red
+highlight ColorColumn cterm=bold ctermbg=Blue ctermfg=Red
