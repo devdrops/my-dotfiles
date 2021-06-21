@@ -38,6 +38,8 @@ FILE=~/.local/bin/tmuxp
 if [ -f "$FILE" ]; then
   export PATH=$PATH:~/.local/bin
 fi
+# Enable 256 color. Requires the contents from ./.terminfo
+export TERM=screen-256color
 
 ###################
 # FUNCTIONS
