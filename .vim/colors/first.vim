@@ -22,10 +22,10 @@ endif
 let colors_name = "first"
 
 " :::::::::: Vim default background for Normal ::::::::::
-hi Normal ctermfg=LightGray ctermbg=Black
+hi Normal cterm=NONE ctermfg=LightGray ctermbg=Black
 
 " :::::::::: Vim syntax highlighting ::::::::::
-hi Comment      cterm=NONE           ctermfg=DarkGrey
+hi Comment      cterm=NONE,italic    ctermfg=DarkGrey
 hi Constant     cterm=NONE           ctermfg=LightCyan
 hi CursorLineNr cterm=bold           ctermfg=Yellow
 hi Delimiter    cterm=bold,underline ctermfg=Yellow
@@ -33,7 +33,6 @@ hi Function     cterm=NONE           ctermfg=LightGreen
 hi Identifier   cterm=NONE           ctermfg=DarkCyan
 hi LineNr       cterm=NONE           ctermfg=Brown
 hi ModeMsg      cterm=bold           ctermfg=White        ctermbg=DarkGray
-hi Normal       cterm=NONE
 hi PreProc      cterm=NONE           ctermfg=Yellow
 hi Special      cterm=NONE           ctermfg=LightRed
 hi SpecialKey   cterm=bold           ctermfg=DarkBlue
@@ -52,10 +51,10 @@ hi TabLineFill cterm=NONE ctermfg=Black     ctermbg=White
 hi TabLineSel  cterm=bold ctermfg=LightCyan ctermbg=Black
 
 " :::::::::: Netrw ::::::::::
-hi netrwDir          cterm=bold      ctermfg=LightBlue
-hi netrwExe          cterm=underline ctermfg=Cyan
-hi netrwPlain        cterm=NONE      ctermfg=LightGreen
-hi netrwTreeBar      cterm=bold      ctermfg=LightBlue
+hi netrwDir          cterm=bold             ctermfg=LightBlue
+hi netrwExe          cterm=underline,italic ctermfg=Cyan
+hi netrwPlain        cterm=NONE             ctermfg=LightGreen
+hi netrwTreeBar      cterm=bold             ctermfg=LightBlue
 hi netrwTreeBarSpace cterm=NONE
 
 " ------------------------------------------------------------------------------
