@@ -168,7 +168,7 @@ function checkDotfilesSession {
     return 0
   fi
 }
-checkDotfilesSession
+#checkDotfilesSession
 
 tmate-new() {
   tmate -S $TMATE_SOCKET_LOCATION new -s "$1"
