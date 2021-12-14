@@ -1,6 +1,9 @@
-package example
+package main
 
 import (
 	""
 )
 
+func main() {
+
+}
