@@ -9,4 +9,4 @@
 " #   https://stackoverflow.com/a/657484
 " ##################################
 
-noremap <silent> C :let @/ = ""<CR>
+noremap <silent> C :let @/ = "" \| :echom "Search results are cleared :D"<CR>
