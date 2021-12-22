@@ -11,7 +11,13 @@
 " Maintainer: Davi Marcondes Moreira (@devdrops)
 " Remark:     "first" is strongly based on "industry" original colorscheme,
 "             with a few tweaks. Works best when using 256 colors.
+" References:
+"             - https://vim.fandom.com/wiki/Creating_your_own_syntax_files
 " ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+if exists("b:current_syntax")
+  finish
+endif
 
 set background=dark
 highlight clear
@@ -24,7 +30,7 @@ let colors_name = "first"
 " :::::::::: Vim default background for Normal ::::::::::
 hi Normal cterm=NONE ctermfg=LightGray ctermbg=Black
 
-" :::::::::: Vim syntax highlighting ::::::::::
+" :::::::::: General syntax highlighting ::::::::::
 hi Comment      cterm=NONE,italic    ctermfg=DarkGrey
 hi Constant     cterm=NONE           ctermfg=LightCyan
 hi CursorLineNr cterm=bold           ctermfg=Yellow
@@ -32,12 +38,12 @@ hi Delimiter    cterm=bold,underline ctermfg=Yellow
 hi Function     cterm=NONE           ctermfg=LightGreen
 hi Identifier   cterm=NONE           ctermfg=DarkCyan
 hi LineNr       cterm=NONE           ctermfg=Brown
-hi ModeMsg      cterm=bold           ctermfg=White        ctermbg=DarkGray
+hi ModeMsg      cterm=bold           ctermfg=White      ctermbg=DarkGray
 hi PreProc      cterm=NONE           ctermfg=Yellow
 hi Special      cterm=NONE           ctermfg=LightRed
 hi SpecialKey   cterm=bold           ctermfg=DarkBlue
 hi Statement    cterm=bold           ctermfg=LightRed
-hi StatusLine   cterm=NONE           ctermfg=White        ctermbg=DarkGray
+hi StatusLine   cterm=NONE           ctermfg=White      ctermbg=DarkGray
 hi Title        cterm=bold,underline ctermfg=Magenta
 hi Type         cterm=bold           ctermfg=LightGreen
 " TODO
@@ -45,12 +51,16 @@ hi Type         cterm=bold           ctermfg=LightGreen
 " TODO
 "hi SignColumn   cterm=NONE           ctermfg=Blue         ctermbg=Yellow
 
+" :::::::::: Vim syntax highlight ::::::::::
+hi def link vimLineComment Comment
+hi def link vimTodo        Comment
+
 " :::::::::: Vim tab bar ::::::::::
 hi TabLine     cterm=NONE ctermfg=DarkGrey  ctermbg=Black
 hi TabLineFill cterm=NONE ctermfg=Black     ctermbg=White
 hi TabLineSel  cterm=bold ctermfg=LightCyan ctermbg=Black
 
-" :::::::::: Netrw ::::::::::
+" :::::::::: Netrw syntax highlight ::::::::::
 hi netrwDir          cterm=bold             ctermfg=LightBlue
 hi netrwExe          cterm=underline,italic ctermfg=Cyan
 hi netrwPlain        cterm=NONE             ctermfg=LightGreen
@@ -60,14 +70,14 @@ hi netrwTreeBarSpace cterm=NONE
 " ------------------------------------------------------------------------------
 
 " :::::::::: Highlight Syntax: Go ::::::::::
-hi goType         cterm=NONE ctermfg=Brown
-hi goSignedInts   cterm=NONE ctermfg=Brown
-hi goUnsignedInts cterm=NONE ctermfg=Brown
-hi goFloats       cterm=NONE ctermfg=Brown
-hi goComplexes    cterm=NONE ctermfg=Brown
-hi goDeclType     cterm=NONE ctermfg=Brown
-hi goDirective    cterm=bold ctermfg=LightYellow
+hi goType      cterm=NONE ctermfg=Brown
+hi goDirective cterm=NONE ctermfg=LightGreen
+hi def link goSignedInts   goType
+hi def link goUnsignedInts goType
+hi def link goFloats       goType
+hi def link goComplexes    goType
+hi def link goDeclType     goType
 
 " :::::::::: Highlight Syntax: Markdown ::::::::::
-hi markdownH1               cterm=bold,underline ctermfg=Magenta
-hi markdownHeadingDelimiter cterm=bold,underline ctermfg=Magenta
+hi markdownH1 cterm=bold,underline ctermfg=Magenta
+hi def link markdownHeadingDelimiter markdownH1
