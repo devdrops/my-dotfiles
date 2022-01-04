@@ -77,6 +77,7 @@ hi def link goUnsignedInts goType
 hi def link goFloats       goType
 hi def link goComplexes    goType
 hi def link goDeclType     goType
+hi def link goTodo         Comment
 
 " :::::::::: Highlight Syntax: Markdown ::::::::::
 hi markdownH1 cterm=bold,underline ctermfg=Magenta
