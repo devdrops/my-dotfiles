@@ -10,6 +10,7 @@
 #   - https://medium.com/easyread/today-i-learned-fix-go-get-private-repository-return-error-terminal-prompts-disabled-8c5549d89045
 #   - https://stackoverflow.com/a/15128894
 #   - https://stackoverflow.com/a/34065448
+#   - https://git-scm.com/docs/git-config
 #
 ##################################
 
@@ -43,28 +44,50 @@
   prompt = false
 
 [alias]
-  gc = commit -S 
+  gc = commit -S
   group = shortlog -s -n
-  csi = log --follow -- 
+  csi = log --follow --
 
 [commit]
   gpgsign = true
+  cleanup = scissors
 
 [color]
   ui = auto
 
+; Cores na exibição de branches
 [color "branch"]
   current = yellow bold
   local = green bold dim
   remote = cyan bold dim
 
+; Cores na exibição de diff
 [color "diff"]
-  meta = yellow bold
-  frag = magenta bold
-  old = red bold
-  new = green bold
-  whitespace = red reverse
+  meta = 60 italic
+  frag = 60 italic
+  func = 245 italic
+  colorMoved = plain
+  context = 245 normal
+  contextDimmed = 202
+  contextBold = 220
+  commit = 210 bold
+  whitespace = 196 reverse
+  old = 9 bold
+  oldBold = 9 italic
+  oldMoved = 9 italic
+  oldDimmed = 9 italic
+  oldMovedDimmed = 9 italic
+  oldMovedAlternative = 9 italic
+  oldMovedAlternativeDimmed = 9 italic
+  new = 70 bold
+  newBold = 70 italic
+  newMoved = 70 italic
+  newDimmed = 70 italic
+  newMovedDimmed = 70 italic
+  newMovedAlternative = 70 italic
+  newMovedAlternativeDimmed = 70 italic
 
+; Cores na exibição de status
 [color "status"]
   added = green bold
   changed = yellow bold
