@@ -155,15 +155,24 @@
   let g:netrw_timefmt=' %a %Y-%m-%d  %I-%M-%S %p'
   let g:netrw_use_noswf=0           " Netrw creation of swap files for browser
                                     " buffers:
-                                    "   1 -Enabled (default).
+                                    "   1 - Enabled (default).
                                     "   0 - Disabled.
 
 " :::::::::: vimdiff Settings ::::::::::
   " Set line wrap when using vimdiff.
   au VimEnter * if &diff | execute 'windo set wrap' | endif
-  " vimdiff syntax highlight
-  hi DiffAdd    ctermfg=NONE ctermbg=DarkGreen  " Added line.
-  hi DiffChange ctermfg=NONE ctermbg=DarkYellow " Changed line.
-  hi DiffDelete ctermfg=NONE ctermbg=DarkRed    " Deleted line.
-  hi DiffText   ctermfg=NONE ctermbg=DarkBlue   " Changed text within a changed
-                                                " line.
+  " vimdiff syntax highlight: added line.
+  hi DiffAdd    ctermfg=Black ctermbg=LightGreen
+  " vimdiff syntax highlight: changed line.
+  hi DiffChange ctermfg=Black ctermbg=Yellow
+  " vimdiff syntax highlight: deleted line.
+  hi DiffDelete ctermfg=Black ctermbg=LightRed
+  " vimdiff syntax highlight: changed text within a changed line.
+  hi DiffText   ctermfg=Black ctermbg=LightBlue
+
+" :::::::::: git commit Settings ::::::::::
+  hi diffAdded   cterm=bold ctermfg=LightGreen ctermbg=Black
+  hi diffRemoved cterm=bold ctermfg=DarkRed    ctermbg=Black
+  hi diffNewFile cterm=bold ctermfg=DarkBlue   ctermbg=Black
+  hi diffFile    cterm=bold ctermfg=LightBlue  ctermbg=Black
+

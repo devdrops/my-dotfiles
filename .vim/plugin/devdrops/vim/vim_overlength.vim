@@ -6,5 +6,5 @@
 " #   https://stackoverflow.com/a/235970
 " ##################################
 
-highlight OverLength cterm=bold ctermbg=Blue ctermfg=Red
+highlight OverLength cterm=NONE ctermbg=DarkRed ctermfg=Black
 match OverLength /\%81v.\+/
