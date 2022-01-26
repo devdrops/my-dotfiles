@@ -11,6 +11,22 @@
 ##################################
 
 ###################
+# ALIASES
+###################
+
+alias c="currentDir"
+alias gt="goToDir"
+if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+  alias ls="ls -lah"
+  alias xclip="xclip -selection clipboard"
+else
+  alias ls="ls -lat --color"
+  alias xclip="pbcopy"
+fi
+alias expath="export PATH=$PATH:$(pwd)"
+alias gc="git commit -S -v"
+
+###################
 # SOURCES
 ###################
 checkGVM() {
@@ -232,15 +248,3 @@ tmate-unpair() {
     echo "Session already killed"
   fi
 }
-
-###################
-# ALIASES
-###################
-
-alias c="currentDir"
-alias gt="goToDir"
-alias ls="ls -lat --color"
-alias xclip="xclip -selection clipboard"
-alias expath="export PATH=$PATH:$(pwd)"
-alias gc="git commit -S -v"
-
