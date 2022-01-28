@@ -17,7 +17,7 @@
 alias c="currentDir"
 alias gt="goToDir"
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
-  alias ls="ls -lah"
+  alias ls="ls --color -lat"
   alias xclip="xclip -selection clipboard"
 else
   alias ls="ls -lat --color"
