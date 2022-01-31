@@ -28,6 +28,9 @@ Cada arquivo de configuração possui links de referência no topo indicando ond
 aprendi cada coisa aplicada aqui, além de comentários explicando o que cada
 configuração faz. Se você gostou do que está aqui, recomendo demais a leitura :D
 
+Cada diretório contém um arquivo `README.md` contendo detalhes sobre seu
+conteúdo, instalação etc.
+
 ## Pré-requisitos
 
 Antes de estes arquivos, certifique-se de que você tem os seguintes programas
