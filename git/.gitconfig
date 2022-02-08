@@ -31,6 +31,9 @@
 [url "git@github.com:"]
   insteadOf = https://github.com/
 
+[pull]
+  rebase = false
+
 [diff]
   tool = vimdiff
 
