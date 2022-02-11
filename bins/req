@@ -1,0 +1,14 @@
+#!/bin/bash
+##################################
+# REQUEST
+#
+# Perform a HTTP request using cURL
+# and returns it's contents.
+# Requires:
+#   - cURL
+#   - grep
+##################################
+
+resp=$(curl -H "Accept: application/vnd.github.v3+json" https://api.github.com/users/devdrops | grep email)
+echo "$resp"
+

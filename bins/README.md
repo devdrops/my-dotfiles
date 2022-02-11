@@ -3,6 +3,9 @@
 Este diretório contém scripts em bash usados como executáveis, para me ajudar em
 tarefas no dia a dia.
 
+**Importante:** os binários usam `bash` como shell, logo é importante ter Bash
+na sua máquina para usá-los com sucesso.
+
 ## Lista de Executáveis
 
 - [goo](#goo)
