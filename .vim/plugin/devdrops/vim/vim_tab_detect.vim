@@ -9,4 +9,4 @@
 
 highlight SpecialKey cterm=bold ctermfg=12
 set list
-set listchars=tab:→\ ,trail:·,nbsp:·
+set listchars=tab:\ \ ,trail:→,nbsp:·
