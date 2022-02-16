@@ -91,6 +91,15 @@
 
   set t_Co=256                      " Enable 256 colors.
 
+  set foldmethod=indent             " Set which method is used for folding:
+                                    "   - manual
+                                    "   - indent
+                                    "   - expr
+                                    "   - marker
+                                    "   - syntax (default)
+                                    "   - diff
+                                    " See :h foldmethod
+
   colorscheme first                 " Define the current color theme. Requires
                                     " contents from `.vim/colors` dir from this
                                     " repository.
