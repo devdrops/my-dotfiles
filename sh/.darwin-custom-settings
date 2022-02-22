@@ -1,41 +1,20 @@
 #!/bin/bash
 
 ##################################
-#
 # SHELL CUSTOM SETTINGS: ZSHELL
 #
-# References:
-#   http://mewbies.com/motd_console_codes_color_chart_in_color_black_background.htm#colors
-#   https://samljones.com/2017-07-19/remote-pair-tmate-tmux/
-#
+# This file should be used only in
+# darwin* OS environments.
 ##################################
 
 ###################
 # ALIASES
 ###################
 
-alias c="currentDir"
-alias gt="goToDir"
-if [[ "$OSTYPE" == "linux-gnu"* ]]; then
-  alias ls="ls --color -lat"
-  alias xclip="xclip -selection clipboard"
-else
-  alias ls="ls -lat --color"
-  alias xclip="pbcopy"
-fi
+alias ls="ls -lahtGLp"
+alias xclip="xclip -selection clipboard"
 alias expath="export PATH=$PATH:$(pwd)"
 alias gc="git commit -S -v"
-
-###################
-# SOURCES
-###################
-checkGVM() {
-  FILE=~/.gvm/scripts/gvm
-  if [ -e "$FILE" ] ; then
-    source $FILE
-  fi
-}
-checkGVM
 
 ####################
 # EXPORTS
@@ -43,17 +22,8 @@ checkGVM
 
 # Default text editor
 export EDITOR=vim
-# Kotlin
-export PATH=$PATH:$HOME/kotlinc/bin
-# Gradle
-export PATH=$PATH:$HOME/gradle-4.6/bin
 # Binaries
 export PATH=$PATH:~/.my-binaries
-# tmuxp (if present)
-FILE=~/.local/bin/tmuxp
-if [ -f "$FILE" ]; then
-  export PATH=$PATH:~/.local/bin
-fi
 # Enable 256 color. Requires the contents from ./.terminfo
 export TERM=screen-256color
 
@@ -63,9 +33,9 @@ export TERM=screen-256color
 
 function todayIs {
   declare -a TEXTCOLORS=("1" "2" "3" "4" "5" "6" "7")
-  choosen=`shuf -i 1-${#TEXTCOLORS[@]} -n 1`
+  choosen=`gshuf -i 1-${#TEXTCOLORS[@]} -n 1`
 
-  tput setaf ${TEXTCOLORS[$choosen]};tput bold; echo "TODAY IS: "`date +%^A`, `date +%^B`, `date +%F`"\e[39m"
+  tput setaf ${TEXTCOLORS[$choosen]};tput bold; date "+TODAY IS: %A, %B %d, %Y"
 }
 todayIs
 
@@ -73,17 +43,6 @@ function messageOfTheDay {
   echo $(curl -s -X GET 'http://api.forismatic.com/api/1.0/?method=getQuote&format=json&lang=en' | jq '.quoteText')
 }
 #messageOfTheDay
-
-function currentDir {
-  pwd | xclip
-}
-function goToDir {
-  cd $(xclip -o)
-}
-
-dotheupgrade() {
-  sudo apt update && sudo apt upgrade -y
-}
 
 # Random phrases
 function randomPhrase {

@@ -20,22 +20,12 @@ cp -a ./tmux/.tmux.conf ~/.tmux.conf
 cp -a ./tmate/.tmate.conf ~/.tmate.conf
 
 # Shell extras
-# Install only if OS == LINUX
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
-  FILE=~/.zshrc
-  if [ -f "$FILE" ]; then
-    # Zsh
-    [[ -f ~/.my-zsh-custom-settings ]] && rm ~/.my-zsh-custom-settings
-    cp ./sh/.my-zsh-custom-settings ~/ && \
-      grep -qF 'source ~/.my-zsh-custom-settings' ~/.zshrc || printf "\n# $USER custom shell:\nsource ~/.my-zsh-custom-settings" >> ~/.zshrc
-  fi
-  FILE=~/.bashrc
-  if [ -f "$FILE" ]; then
-    # Bash
-    [[ -f ~/.my-bash-custom-settings ]] && rm ~/.my-bash-custom-settings
-    cp sh/.my-bash-custom-settings ~/ && \
-      grep -qF 'source ~/.my-bash-custom-settings' ~/.bashrc || printf "\n# $USER custom shell:\nsource ~/.my-bash-custom-settings" >> ~/.bashrc
-  fi
+  cp ./sh/.linux-gnu-custom-settings ~/ && \
+    grep -qF 'source ~/.linux-gnu-custom-settings' ~/.zshrc || printf "\n# $USER custom shell:\nsource ~/.linux-gnu-custom-settings" >> ~/.zshrc
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+  cp ./sh/.darwin-custom-settings ~/ && \
+    grep -qF 'source ~/.darwin-custom-settings' ~/.zshrc || printf "\n# $USER custom shell:\nsource ~/.darwin-custom-settings" >> ~/.zshrc
 fi
 
 # Binaries

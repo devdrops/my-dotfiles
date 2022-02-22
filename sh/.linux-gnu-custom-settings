@@ -1,13 +1,10 @@
 #!/bin/bash
 
 ##################################
+# SHELL CUSTOM SETTINGS: ZSHELL
 #
-# SHELL CUSTOM SETTINGS: BASH
-#
-# References:
-#   http://mewbies.com/motd_console_codes_color_chart_in_color_black_background.htm#colors
-#   https://samljones.com/2017-07-19/remote-pair-tmate-tmux/
-#
+# This file should be used only in
+# linux-gnu* OS environments.
 ##################################
 
 ###################
@@ -16,26 +13,10 @@
 
 alias c="currentDir"
 alias gt="goToDir"
-if [[ "$OSTYPE" == "linux-gnu"* ]]; then
-  alias ls="ls -lah"
-  alias xclip="xclip -selection clipboard"
-else
-  alias ls="ls -lat --color"
-  alias xclip="pbcopy"
-fi
+alias ls="ls --color -lat"
+alias xclip="xclip -selection clipboard"
 alias expath="export PATH=$PATH:$(pwd)"
 alias gc="git commit -S -v"
-
-###################
-# SOURCES
-###################
-checkGVM() {
-  FILE=~/.gvm/scripts/gvm
-  if [ -e "$FILE" ] ; then
-    source $FILE
-  fi
-}
-checkGVM
 
 ####################
 # EXPORTS
@@ -43,17 +24,8 @@ checkGVM
 
 # Default text editor
 export EDITOR=vim
-# Kotlin
-export PATH=$PATH:$HOME/kotlinc/bin
-# Gradle
-export PATH=$PATH:$HOME/gradle-4.6/bin
 # Binaries
 export PATH=$PATH:~/.my-binaries
-# tmuxp (if present)
-FILE=~/.local/bin/tmuxp
-if [ -f "$FILE" ]; then
-  export PATH=$PATH:~/.local/bin
-fi
 # Enable 256 color. Requires the contents from ./.terminfo
 export TERM=screen-256color
 
