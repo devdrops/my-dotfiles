@@ -1,0 +1,8 @@
+--recurse=yes
+--exclude=.git
+--exclude=.github
+--exclude=.svn
+--exclude=vendor/*
+--exclude=log/*
+--exclude=\*.yaml
+--exclude=\*.yml
