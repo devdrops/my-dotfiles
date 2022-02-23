@@ -35,7 +35,7 @@ function todayIs {
   declare -a TEXTCOLORS=("1" "2" "3" "4" "5" "6" "7")
   choosen=`gshuf -i 1-${#TEXTCOLORS[@]} -n 1`
 
-  tput setaf ${TEXTCOLORS[$choosen]};tput bold; date "+TODAY IS: %A, %B %d, %Y"
+  tput setaf ${TEXTCOLORS[$choosen]};tput bold; date "+Hoje é: %A, %d de %B, %Y"
 }
 todayIs
 
