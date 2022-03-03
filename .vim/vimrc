@@ -64,8 +64,6 @@
                                     " (default is 10).
   set showtabline=2                 " Tab display. 0: never; 1: only with 2 or
                                     " more tabs; 2: always.
-  set foldmethod=syntax             " Defines folding method. `syntax` is based
-                                    " on file syntax.
   set foldcolumn=1                  " Columns when folding.
   set foldlevelstart=99             " Folding mode when opening files. 99 keeps
                                     " all folds open.
