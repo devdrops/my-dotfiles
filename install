@@ -32,3 +32,6 @@ fi
 rm -rf ~/.my-binaries && \
   cp -a ./bins ~/.my-binaries
 
+# ctags
+cp .ctags/.ctags ~/.ctags
+

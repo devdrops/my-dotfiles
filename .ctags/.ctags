@@ -1,8 +1,12 @@
 --recurse=yes
 --exclude=.git
 --exclude=.github
+--exclude=.gitignore
 --exclude=.svn
 --exclude=vendor/*
 --exclude=log/*
 --exclude=\*.yaml
 --exclude=\*.yml
+--exclude=\*.md
+--exclude=LICENSE
+--exclude=.dockerignore
