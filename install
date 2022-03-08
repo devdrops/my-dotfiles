@@ -33,5 +33,8 @@ rm -rf ~/.my-binaries && \
   cp -a ./bins ~/.my-binaries
 
 # ctags
-cp .ctags/.ctags ~/.ctags
-
+if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+    cp .ctags/.linux-ctags ~/.ctags
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+    cp .ctags/.macos-ctags ~/.ctags
+fi
