@@ -10,3 +10,6 @@
 --exclude=\*.md
 --exclude=LICENSE
 --exclude=.dockerignore
+--exclude=Makefile
+--exclude=makefile
+--exclude=sonar-project.properties
