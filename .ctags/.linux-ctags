@@ -21,6 +21,7 @@
 --exclude=\*.xml
 --exclude=\*.md
 --exclude=\*.markdown
+--exclude=\*.log
 --exclude=LICENSE
 --exclude=.dockerignore
 --exclude=Makefile
