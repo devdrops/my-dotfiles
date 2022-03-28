@@ -12,7 +12,6 @@
 --exclude=node_modules
 --exclude=build
 --exclude=vendor/*
---exclude=log/*
 --exclude=\*.html
 --exclude=\*.out
 --exclude=\*.yaml
