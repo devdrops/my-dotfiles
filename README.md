@@ -10,13 +10,17 @@ Meus arquivos de configuração para as seguintes ferramentas do dia a dia:
 
 - [vim](/.vim)
 - [git](/git)
-- [shell](/sh)
+- [shell (Zsh e Bash](/sh)
 - [tmate](/tmate)
 - [tmux](/tmux)
 - [binários úteis](/bins)
+- [terminfo](/.terminfo)
+- [ctags](/.ctags)
 
 As configurações são todas voltadas para uso no SO Linux Mint, mas são de fácil
-adaptação para outros sistemas operacionais.
+adaptação para outros sistemas operacionais. Poucas opções foram adaptadas para
+o Mac OS, como [ctags](/.ctags) e [shell](/sh), e que podem ser usadas da forma
+como estão se assim desejar.
 
 A ausência de plugins para vim, tmux e tmate é opção e preferência minha.
 Plugins são legais, mas eu pessoalmente gosto de fazer as coisas "na mão",
