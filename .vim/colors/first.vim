@@ -61,10 +61,11 @@ hi TabLineFill cterm=NONE ctermfg=Black     ctermbg=White
 hi TabLineSel  cterm=bold ctermfg=LightCyan ctermbg=Black
 
 " :::::::::: Netrw syntax highlight ::::::::::
-hi netrwDir          cterm=bold             ctermfg=LightBlue
-hi netrwExe          cterm=underline,italic ctermfg=Cyan
-hi netrwPlain        cterm=NONE             ctermfg=LightGreen
-hi netrwTreeBar      cterm=bold             ctermfg=LightBlue
+hi netrwClassify     cterm=bold      ctermfg=LightBlue
+hi netrwDir          cterm=bold      ctermfg=LightBlue
+hi netrwExe          cterm=underline ctermfg=Cyan
+hi netrwPlain        cterm=NONE      ctermfg=LightGreen
+hi netrwTreeBar      cterm=bold      ctermfg=White
 hi netrwTreeBarSpace cterm=NONE
 
 " ------------------------------------------------------------------------------
