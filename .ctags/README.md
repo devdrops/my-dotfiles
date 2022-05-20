@@ -1,7 +1,7 @@
 # ctags
 
-O conteúdo desta pasta serve como auxiliar para uso de Exuberant Ctags. Siga as
-instruções de instalação nas referências, bem como as demais explicações.
+O conteúdo desta pasta serve como auxiliar para uso de **Exuberant Ctags**. Siga
+as instruções de instalação nas referências, bem como as demais explicações.
 
 Temos aqui dois arquivos: `.linux-ctags` e `.macos-ctags`. Isso se dá porque a
 instalação de Exuberant Ctags no SO Linux já vem com suporte à linguagem Go,
