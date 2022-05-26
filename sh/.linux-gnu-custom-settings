@@ -224,6 +224,7 @@ tmate-unpair() {
 # Kubernetes
 if command -v kubectl &> /dev/null
 then
-  source <(kubectl completion zsh)  # setup autocomplete in zsh into the current shell
-  echo "[[ $commands[kubectl] ]] && source <(kubectl completion zsh)" >> ~/.zshrc # add autocomplete permanently to your zsh shell
+  # setup autocomplete in zsh into the current shell
+  source <(kubectl completion zsh)
+  [[ $commands[kubectl] ]] && source <(kubectl completion zsh)
 fi
