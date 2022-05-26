@@ -1,0 +1,23 @@
+{
+  "update_check": false,
+
+  "fade_fold_buttons": false,
+
+  "spell_check": true,
+
+  "line_padding_bottom": 2,
+
+  "trim_trailing_white_space_on_save": true,
+
+  "word_wrap": true,
+
+  "wrap_width": 80,
+
+  "rulers": [80],
+
+  "show_encoding": true,
+
+  "color_scheme": "Monokai.sublime-color-scheme",
+
+  "line_numbers": true
+}
