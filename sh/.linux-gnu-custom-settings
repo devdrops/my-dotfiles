@@ -13,10 +13,12 @@
 
 alias c="currentDir"
 alias gt="goToDir"
-alias ls="ls --color -lat"
+alias lls="longls ${1}"
 alias xclip="xclip -selection clipboard"
 alias expath="export PATH=$PATH:$(pwd)"
 alias gc="git commit -S -v"
+alias gdsafe="git branch --merged | grep -v main | xargs git branch -D"
+alias gdall="git branch | grep -v main | xargs git branch -D"
 
 ####################
 # EXPORTS
@@ -33,6 +35,17 @@ export TERM=screen-256color
 # FUNCTIONS
 ###################
 
+function longls {
+  local HEADERS="SIZE|PERMS|LINK COUNT|OWNER|GROUP|SIZE|MOD TIME|NAME"
+  echo -e "$HEADERS" | column -t -s"|"
+  if [ ! "${1}" ]; then
+    ls --color -ahlst -d * .*
+  else
+    echo "${1}"
+    ls --color -ahlst -d * .* "${1}"
+  fi
+}
+
 function todayIs {
   declare -a TEXTCOLORS=("1" "2" "3" "4" "5" "6" "7")
   choosen=`shuf -i 1-${#TEXTCOLORS[@]} -n 1`
@@ -42,9 +55,16 @@ function todayIs {
 todayIs
 
 function messageOfTheDay {
-  echo $(curl -s -X GET 'http://api.forismatic.com/api/1.0/?method=getQuote&format=json&lang=en' | jq '.quoteText')
+  local MESSAGE_REQUEST=$(curl -s -X GET 'http://api.forismatic.com/api/1.0/?method=getQuote&format=json&lang=en')
+
+  if command -v jq &> /dev/null
+  then
+    echo -e "${MESSAGE_REQUEST}" | jq '.quoteText' | cowthink -f duck
+  else
+    echo -e "${MESSAGE_REQUEST}" | awk -F ':' '{print $2}' | sed 's/, "quoteAuthor"//g' | cowthink -f duck
+  fi
 }
-#messageOfTheDay
+messageOfTheDay
 
 function currentDir {
   pwd | xclip
@@ -137,7 +157,7 @@ function randomPhrase {
 
   echo "Today is a ${QUALITIES[$q]} day to ${SITUATIONS[$s]} ${THINGS[$t]}." | cowsay -f skeleton
 }
-randomPhrase
+#randomPhrase
 
 # TMUX / TMATE functions
 TMATE_PAIR_NAME="$(whoami)-pair"
