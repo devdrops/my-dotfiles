@@ -4,6 +4,7 @@
 
 --totals=yes
 
+--exclude=.idea
 --exclude=.git
 --exclude=.github
 --exclude=.gitkeep
