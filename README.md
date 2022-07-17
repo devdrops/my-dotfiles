@@ -17,7 +17,6 @@ Meus arquivos de configuração para as seguintes ferramentas do dia a dia:
 - [terminfo](/.terminfo)
 - [ctags](/.ctags)
 - [Sublime Text](/sublime-text)
-- [Docker](/docker)
 
 As configurações são todas voltadas para uso no SO Linux Mint, mas são de fácil
 adaptação para outros sistemas operacionais. Poucas opções foram adaptadas para

@@ -38,6 +38,3 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
 elif [[ "$OSTYPE" == "darwin"* ]]; then
     cp .ctags/.macos-ctags ~/.ctags
 fi
-
-# docker (infelizmente requer sudo)
-sudo cp ./docker/daemon.json /etc/docker/
