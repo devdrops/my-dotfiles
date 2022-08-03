@@ -37,8 +37,17 @@ alias drmi="docker rmi ${1} -f"
 
 # Docker Compose
 alias dcu="docker-compose up"
-alias dcud="docker-compose up -d"
 alias dcd="docker-compose down"
+alias dck="docker-compose kill -s SIGKILL"
+alias dcs="docker-compose stop"
+alias dcb="docker-compose build"
+alias dce="docker-compose exec"
+alias dcl="docker-compose logs"
+alias dcr="docker-compose run"
+alias dct="docker-compose top"
+alias dcud="docker-compose up -d"
+alias dcbnc="docker-compose build --no-cache"
+alias dcrmv="docker-compose rm -v -f"
 
 ####################
 # EXPORTS
