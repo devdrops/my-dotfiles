@@ -35,6 +35,11 @@ alias dbbk="DOCKER_BUILDKIT=1 docker build"
 alias db="docker build"
 alias drmi="docker rmi ${1} -f"
 
+# Docker Compose
+alias dcu="docker-compose up"
+alias dcud="docker-compose up -d"
+alias dcd="docker-compose down"
+
 ####################
 # EXPORTS
 ####################
