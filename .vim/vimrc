@@ -19,6 +19,7 @@
 " #   http://www.softpanorama.org/Editors/Vimorama/vim_regular_expressions.shtml
 " #   https://vimtricks.com/p/highlight-syntax-inside-markdown/
 " #   https://vim.fandom.com/wiki/256_colors_in_vim
+" #   https://vimtricks.com/p/vim-search-ignore-case
 " #
 " ##################################
 
@@ -60,6 +61,12 @@
   set wildmenu                      " Navigation through files/folders.
   set wildignorecase                " Case insensitive autocompletion for files
                                     " and folders.
+
+  set ignorecase                    " Makes pattern matching case-insensitive.
+
+  set smartcase                     " Overrides ignorecase if your pattern
+                                    " contains mixed case.
+
   set tabpagemax=100                " Number of tabs when using `vim -p`
                                     " (default is 10).
   set showtabline=2                 " Tab display. 0: never; 1: only with 2 or
