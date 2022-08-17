@@ -6,5 +6,5 @@
 " #   https://vi.stackexchange.com/a/357
 " ##################################
 
-set colorcolumn=81
+set colorcolumn=121
 highlight ColorColumn cterm=NONE ctermbg=DarkRed ctermfg=Black

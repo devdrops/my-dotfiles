@@ -2,10 +2,10 @@
 " # Vim Detection: Markdown
 " #################################
 
-" Settings to make 80 columns as the horizontal limit when creating/editing
+" Settings to make 120 columns as the horizontal limit when creating/editing
 " only markdown files (files ending with .md or .markdown):
-" - `textwidth=80` sets the maximum column to 80 (:h textwidth)
-au BufRead,BufNewFile,BufWrite *.md,*.markdown setlocal textwidth=80
+" - `textwidth=120` sets the maximum column to 120 (:h textwidth)
+au BufRead,BufNewFile,BufWrite *.md,*.markdown setlocal textwidth=120
 " - `formatoptions=tln` sets the format behavior (:h fo-table):
 "   - `t` follows the value defined in `textwidth`;
 "   - `l` is for long lines in insert mode;
