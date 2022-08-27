@@ -9,6 +9,7 @@
 Meus arquivos de configuração para as seguintes ferramentas do dia a dia:
 
 - [vim](/.vim)
+- [neovim](/nvim)
 - [git](/git)
 - [shell (Zsh e Bash](/sh)
 - [tmate](/tmate)

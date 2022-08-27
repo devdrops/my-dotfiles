@@ -10,6 +10,13 @@
 rm -rf ~/.vim && \
   cp -a ./.vim ~/
 
+# NeoVim
+if [ ! -d "~/.config/nvim" ]
+then
+  mkdir -p ~/.config/nvim
+fi
+cp -a ./nvim/init.vim ~/.config/nvim/init.vim
+
 # Git
 cp -a ./git/.git* ~/
 
