@@ -114,7 +114,7 @@
     \ [
     \   'conf', 'css', 'cucumber', 'dockerfile', 'go', 'java', 'javascript',
     \   'json', 'kotlin', 'make', 'nginx', 'php', 'terraform', 'text', 'toml',
-    \   'xml', 'yaml', 'html', 'bash'
+    \   'xml', 'yaml', 'html', 'bash', 'sh'
     \ ]
 
 " :::::::::: Netrw Settings ::::::::::
