@@ -105,7 +105,8 @@
                                     "   - diff
                                     " See :h foldmethod
 
-  colorscheme first                 " Define the current color theme. Requires
+  packadd! dracula
+  colorscheme dracula               " Define the current color theme. Requires
                                     " contents from `.vim/colors` dir from this
                                     " repository.
 
