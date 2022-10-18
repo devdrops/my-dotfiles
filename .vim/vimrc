@@ -176,14 +176,16 @@
 " :::::::::: vimdiff Settings ::::::::::
   " Set line wrap when using vimdiff.
   au VimEnter * if &diff | execute 'windo set wrap' | endif
-  " vimdiff syntax highlight: added line.
-  hi DiffAdd    ctermfg=Black ctermbg=LightGreen
-  " vimdiff syntax highlight: changed line.
-  hi DiffChange ctermfg=Black ctermbg=Yellow
-  " vimdiff syntax highlight: deleted line.
-  hi DiffDelete ctermfg=Black ctermbg=LightRed
-  " vimdiff syntax highlight: changed text within a changed line.
-  hi DiffText   ctermfg=Black ctermbg=LightBlue
+  if &diff
+    " vimdiff syntax highlight: added line.
+    hi DiffAdd    ctermfg=Black ctermbg=LightGreen
+    " vimdiff syntax highlight: changed line.
+    hi DiffChange ctermfg=Black ctermbg=Yellow
+    " vimdiff syntax highlight: deleted line.
+    hi DiffDelete ctermfg=Black ctermbg=LightRed
+    " vimdiff syntax highlight: changed text within a changed line.
+    hi DiffText   ctermfg=Black ctermbg=LightBlue
+  endif
 
 " :::::::::: git commit Settings ::::::::::
   hi diffAdded   cterm=bold ctermfg=LightGreen ctermbg=Black
