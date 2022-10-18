@@ -118,6 +118,11 @@
     \   'xml', 'yaml', 'html', 'bash', 'sh'
     \ ]
 
+  " Tabs
+  hi TabLine     cterm=NONE        ctermfg=Gray ctermbg=238
+  hi TabLineSel  cterm=bold,italic ctermfg=123
+  hi TabLineFill cterm=NONE                     ctermbg=16
+
 " :::::::::: Netrw Settings ::::::::::
   let g:netrw_banner=0              " Netrw banner.
                                     "   0 - Suppress.
