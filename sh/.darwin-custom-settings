@@ -27,8 +27,8 @@ alias grep="grep --color=always --exclude-dir={.bzr,CVS,.hg,.svn,.idea,vendor}"
 
 # git
 alias gc="git commit -S -v"
-alias gdsafe="git branch --merged | egrep -v '(main|master)' | xargs git branch -D"
-alias gdall="git branch | egrep -v '(main|master)' | xargs git branch -D"
+alias gdsafe="git branch --merged | egrep -v '(main|master|develop)' | xargs git branch -D"
+alias gdall="git branch | egrep -v '(main|master|develop)' | xargs git branch -D"
 
 # Docker
 alias dbbk="DOCKER_BUILDKIT=1 docker build"
