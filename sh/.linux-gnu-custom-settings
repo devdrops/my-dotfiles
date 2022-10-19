@@ -274,6 +274,19 @@ tmate-unpair() {
   fi
 }
 
+function diffPR {
+  CUR_BRANCH="$(git rev-parse --abbrev-ref HEAD)"
+  if [ ! "${1}" ]; then
+    BRANCHES="$(git branch --remote | egrep '(main|master|develop)' | grep -v HEAD)"
+    echo $BRANCHES
+    echo Escolha uma das branches acima:
+    read BASE_BRANCH
+  else
+    BASE_BRANCH=${1}
+  fi
+  git difftool $BASE_BRANCH...$CUR_BRANCH --diff-filter=AM
+}
+
 # Kubernetes
 if command -v kubectl &> /dev/null
 then
