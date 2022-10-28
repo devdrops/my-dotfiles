@@ -1,10 +1,16 @@
 " ##################################
 " # OVERLENGTH
 " #
-" # PURPOSE: highlight columns longer than 120 characters.
+" # PURPOSE: highlight columns longer than X characters.
 " # REFERENCE:
 " #   https://stackoverflow.com/a/235970
 " ##################################
 
-highlight OverLength cterm=NONE ctermbg=DarkRed ctermfg=Black
-match OverLength /\%121v.\+/
+let VIM_CustomMaxColumnLength = $VIM_CUSTOM_MAX_COLUMN_LENGTH
+" Default value if VIM_CUSTOM_MAX_COLUMN_LENGTH is missing:
+if len(VIM_CustomMaxColumnLength) == 0
+  let VIM_CustomMaxColumnLength = 80
+endif
+
+highlight OverLength cterm=NONE ctermbg=DarkGrey ctermfg=Black
+execute 'match OverLength /\%' . VIM_CustomMaxColumnLength . 'v.\+/'
