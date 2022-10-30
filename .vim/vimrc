@@ -52,7 +52,7 @@
   set cursorline                    " Highlight the screen line of the cursor.
   set report=0                      " Reports number of lines changed. 0 stands
                                     " for always.
-  set synmaxcol=200                 " Maximum column to search for syntax items.
+  "set synmaxcol=200                 " Maximum column to search for syntax items.
 
   set number                        " Line number.
   set relativenumber                " Relative line number.
