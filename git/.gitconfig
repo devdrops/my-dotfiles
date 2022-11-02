@@ -50,6 +50,7 @@
   gc = commit -S
   group = shortlog -s -n
   csi = log --follow --
+  lg = "log --date=format-local:'%Y-%m-%d %H:%M:%S' --pretty=format:'%C(green bold)> %Creset%C(cyan)%H%Creset %C(black bold)%ad%Creset %C(auto)%d%Creset%n%C(blue italic)  %aN (%aE)%Creset %C(black bold)[sign: %G?]%Creset%n%C(auto)  %+B%n'"
 
 [commit]
   gpgsign = true
