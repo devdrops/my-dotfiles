@@ -192,9 +192,10 @@
     hi DiffText   ctermfg=Black ctermbg=LightBlue
   endif
 
-" :::::::::: git commit Settings ::::::::::
-  hi diffAdded   cterm=bold ctermfg=LightGreen ctermbg=Black
-  hi diffRemoved cterm=bold ctermfg=DarkRed    ctermbg=Black
-  hi diffNewFile cterm=bold ctermfg=DarkBlue   ctermbg=Black
-  hi diffFile    cterm=bold ctermfg=LightBlue  ctermbg=Black
+" :::::::::: gitcommit Settings ::::::::::
+  hi diffAdded     cterm=bold ctermfg=LightGreen ctermbg=Black
+  hi diffRemoved   cterm=bold ctermfg=DarkRed    ctermbg=Black
+  hi diffNewFile   cterm=bold ctermfg=DarkBlue   ctermbg=Black
+  hi diffFile      cterm=bold ctermfg=LightBlue  ctermbg=Black
+  hi gitcommitDiff cterm=NONE ctermfg=240
 
