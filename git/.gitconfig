@@ -24,6 +24,7 @@
   editor = vim
   whitespace = trailing-space
   excludesfile = ~/.gitignore_global
+  hooksPath = ~/.githooks_global
 
 [init]
   defaultBranch = main
@@ -31,20 +32,29 @@
 [url "git@github.com:"]
   insteadOf = https://github.com/
 
+[fetch]
+  recurseSubmodules = yes
+  prune = true
+  output = full
+  writeCommitGraph = true
+
 [pull]
   rebase = false
 
 [diff]
-  tool = vimdiff
+  tool = nvimdiff
 
 [difftool]
   prompt = false
   trustExitCode = true
 
 [merge]
-  tool = vimdiff
+  tool = nvimdiff2
   conflictstyle = diff3
   prompt = false
+  branchdesc = true
+  log = true
+  verbosity = 5
 
 ; Afeta git log
 [format]
@@ -63,7 +73,9 @@
 
 [commit]
   gpgsign = true
-  cleanup = scissors
+  cleanup = default
+  template = ~/.gitmessage_global
+  status = false
 
 [color]
   ui = auto

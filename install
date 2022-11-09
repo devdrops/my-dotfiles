@@ -18,7 +18,8 @@ fi
 cp -a ./nvim/init.vim ~/.config/nvim/init.vim
 
 # Git
-cp -a ./git/.git* ~/
+rm -rf ~/.githooks_global && \
+  cp -a ./git/.git* ~/
 
 # tmux
 cp -a ./tmux/.tmux.conf ~/.tmux.conf
