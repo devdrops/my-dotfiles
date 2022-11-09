@@ -4,6 +4,8 @@
 " # purpose: create a `Co-authored-by` footer
 " #
 " # REFERENCE:
+" #     - https://docs.github.com/en/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/creating-a-commit-with-multiple-authors#creating-co-authored-commits-on-the-command-line
+" #     - https://gist.github.com/lisawolderiksen/f9747a3ae1e58e9daa7d176ab98f1bad
 " ##################################
 
 " Etapas:
@@ -19,3 +21,6 @@
 "   feito, um programa que possa performar isso.
 "   - Posso fazer um binário em Go com net/http, que vai ler um argumento e
 "   devolver a informação que quero.
+
+
+" Co-authored-by: name <name@example.com>
