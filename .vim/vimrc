@@ -124,59 +124,63 @@
   hi TabLineFill cterm=NONE                     ctermbg=16
 
 " :::::::::: Netrw Settings ::::::::::
-  let g:netrw_banner=0              " Netrw banner.
-                                    "   0 - Suppress.
-                                    "   1 - Display (default).
-  let g:netrw_liststyle=3           " Folder/file list style.
-                                    "   0 - Thin.
-                                    "   1 - Long.
-                                    "   2 - Wide.
-                                    "   3 - Tree.
-  let g:netrw_altv=1                " Control right/left splitting.
-                                    "   0 - Horizontal.
-                                    "   1 - Vertical.
-  let g:netrw_preview=1             " Control horizontal vs vertical splitting.
-                                    "   0 - Preview horizontal.
-                                    "   1 - Preview vertical.
-  let g:netrw_winsize=80            " Open the preview with 80% of the screen.
-  let g:netrw_special_syntax=1      " Special syntax for a given list of file
-                                    " types.
-                                    "   0 - Disabled.
-                                    "   1 - Enabled.
-  let g:netrw_fastbrowse=2          " Directory browsing.
-                                    "   0 - Slow.
-                                    "   1 - Medium (default).
-                                    "   2 - Fast.
+  let g:netrw_banner=0                " Netrw banner.
+                                      "   0 - Suppress.
+                                      "   1 - Display (default).
+  let g:netrw_liststyle=3             " Folder/file list style.
+                                      "   0 - Thin.
+                                      "   1 - Long.
+                                      "   2 - Wide.
+                                      "   3 - Tree.
+  let g:netrw_altv=1                  " Control right/left splitting.
+                                      "   0 - Horizontal.
+                                      "   1 - Vertical.
+  let g:netrw_preview=1               " Control horizontal vs vertical splitting.
+                                      "   0 - Preview horizontal.
+                                      "   1 - Preview vertical.
+  let g:netrw_winsize=80              " Open the preview with 80% of the screen.
+  let g:netrw_special_syntax=1        " Special syntax for a given list of file
+                                      " types.
+                                      "   0 - Disabled.
+                                      "   1 - Enabled.
+  let g:netrw_fastbrowse=2            " Directory browsing.
+                                      "   0 - Slow.
+                                      "   1 - Medium (default).
+                                      "   2 - Fast.
   " Do not display files and folders in the list.
   let g:netrw_list_hide='^.git/$,.jpg$,.jpeg$,.png$,.svg,.ico,.gif$'
-  let g:netrw_ignorenetrc=1         " .netrc file usage.
-                                    "   0 - Load.
-                                    "   1 - Ignore.
-  let g:netrw_browse_split=3        " Set how to display splitted files:
-                                    "   0 - Default.
-                                    "   1 - Horizontal split.
-                                    "   2 - Vertical split.
-                                    "   3 - New tab/window.
-  let g:netrw_hide=1                " File display mode:
-                                    "   0 - Show all.
-                                    "   1 - Show not hidden (default).
-                                    "   2 - Show only hidden.
-  let g:netrw_sort_by='name'        " Display sort:
-                                    "   'name' - Alphabetically (default).
-                                    "   'time' - Modification time.
-                                    "   'size' - Size.
-                                    "   'exten' - Extension.
+  let g:netrw_ignorenetrc=1           " .netrc file usage.
+                                      "   0 - Load.
+                                      "   1 - Ignore.
+  let g:netrw_browse_split=3          " Set how to display splitted files:
+                                      "   0 - Default.
+                                      "   1 - Horizontal split.
+                                      "   2 - Vertical split.
+                                      "   3 - New tab/window.
+  let g:netrw_hide=1                  " File display mode:
+                                      "   0 - Show all.
+                                      "   1 - Show not hidden (default).
+                                      "   2 - Show only hidden.
+  let g:netrw_sort_by='name'          " Display sort:
+                                      "   'name' - Alphabetically (default).
+                                      "   'time' - Modification time.
+                                      "   'size' - Size.
+                                      "   'exten' - Extension.
   let g:netrw_sort_direction='normal' " Sort orientation:
                                       "   'normal' -  A to Z (default).
                                       "   'reverse' - Z to A.
-  let g:netrw_sort_options='i'      " Sort options.
-                                    "   'i' means 'case insensitive'.
+  let g:netrw_sort_options='i'        " Sort options.
+                                      "   'i' means 'case insensitive'.
   " Time format for strftime().
   let g:netrw_timefmt=' %a %Y-%m-%d  %I-%M-%S %p'
-  let g:netrw_use_noswf=0           " Netrw creation of swap files for browser
-                                    " buffers:
-                                    "   1 - Enabled (default).
-                                    "   0 - Disabled.
+  let g:netrw_use_noswf=0             " Netrw creation of swap files for browser
+                                      " buffers:
+                                      "   1 - Enabled (default).
+                                      "   0 - Disabled.
+  let g:netrw_keepdir=0               " Current browser directory
+                                      "   1 - (default) keep current directory immune from the browsing directory.
+                                      "   0 - keep the current directory the same as the browsing directory.
+  let g:netrw_localcopydircmd='cp -r' " Netrw's command to copy folders. Default: 'cp'
 
 " :::::::::: vimdiff Settings ::::::::::
   " Set line wrap when using vimdiff.
