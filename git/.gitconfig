@@ -21,7 +21,7 @@
   signingkey = 564848AD8F25F213
 
 [core]
-  editor = vim
+  editor = nvim
   whitespace = trailing-space
   excludesfile = ~/.gitignore_global
   hooksPath = ~/.githooks_global
