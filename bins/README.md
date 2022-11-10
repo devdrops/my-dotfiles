@@ -10,6 +10,7 @@ na sua máquina para usá-los com sucesso.
 
 - [goo](#goo)
 - [google](#google)
+- [unshort](#unshort)
 
 ### goo
 
@@ -42,4 +43,21 @@ permissões de sudo).
 ```bash
 # Onde <PALAVRA> é o que quero pesquisar
 google <PALAVRA>
+```
+
+### unshort
+
+Ferramenta para observar o destino de URLs encurtadas. Seu código fonte está
+[aqui](https://github.com/devdrops/unshort).
+
+#### Pré Requisitos
+
+Instale o arquivo `google` na pasta `/usr/bin` (talvez seja necessário permissões de sudo).
+
+#### Forma de Uso
+
+```bash
+# Onde <URL> é o endereço que quero checar
+unshort <URL>
+# Exemplo: unshort https://bit.ly
 ```
