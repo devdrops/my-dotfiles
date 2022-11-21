@@ -8,4 +8,8 @@
 " #   https://git-scm.com/docs/git-log#Documentation/git-log.txt--Lltstartgtltendgtltfilegt
 " ##################################
 
-map <silent> <F4> :exe '!git log -L' . line('.') . ',' . line('.') . ':' . @%<CR><CR>
+if has('nvim')
+  map <silent> <F4> :exe '!git log -L' . line('.') . ',' . line('.') . ':' . @%<CR>
+else
+  map <silent> <F4> :exe '!git log -L' . line('.') . ',' . line('.') . ':' . @%<CR><CR>
+endif

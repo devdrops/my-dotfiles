@@ -13,4 +13,4 @@
 noremap <F3> :set hlsearch! hlsearch?<CR>
 
 " hlsearch colors
-hi Search cterm=bold ctermfg=DarkRed ctermbg=White
+hi Search cterm=bold,italic ctermfg=DarkRed ctermbg=White

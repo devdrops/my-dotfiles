@@ -5,4 +5,8 @@
 " #          Requires the `git/.gitconfig` file from this repository.
 " ##################################
 
-map <silent> <F2> :!git group %<CR><CR>
+if has('nvim')
+  map <F2> :exe '!git group ' . @%<CR>
+else
+  map <silent> <F2> :!git group %<CR><CR>
+endif
