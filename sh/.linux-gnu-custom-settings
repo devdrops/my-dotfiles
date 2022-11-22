@@ -290,6 +290,97 @@ function diffPR {
   git difftool $BASE_BRANCH...$CUR_BRANCH --diff-filter=AM
 }
 
+function phpToolboxCBF {
+  CUR_BRANCH="$(git rev-parse --abbrev-ref HEAD)"
+  if [ ! "${1}" ]; then
+    BRANCHES="$(git branch --remote | egrep '(main|master|develop)' | grep -v HEAD)"
+    echo $BRANCHES
+    echo Escolha uma das branches acima:
+    read BASE_BRANCH
+  else
+    BASE_BRANCH=${1}
+  fi
+  git diff $BASE_BRANCH...$CUR_BRANCH --name-only --diff-filter=AM | xargs -I {} docker run -t --rm -v $(pwd):/code -w /code devdrops/php-toolbox:latest phpcbf {}
+}
+
+function phpToolboxCS {
+  CUR_BRANCH="$(git rev-parse --abbrev-ref HEAD)"
+  if [ ! "${1}" ]; then
+    BRANCHES="$(git branch --remote | egrep '(main|master|develop)' | grep -v HEAD)"
+    echo $BRANCHES
+    echo Escolha uma das branches acima:
+    read BASE_BRANCH
+  else
+    BASE_BRANCH=${1}
+  fi
+  git diff $BASE_BRANCH...$CUR_BRANCH --name-only --diff-filter=AM | xargs -I {} docker run -t --rm -v $(pwd):/code -w /code devdrops/php-toolbox:latest phpcs {}
+}
+
+function phpToolboxCSFixer {
+  CUR_BRANCH="$(git rev-parse --abbrev-ref HEAD)"
+  if [ ! "${1}" ]; then
+    BRANCHES="$(git branch --remote | egrep '(main|master|develop)' | grep -v HEAD)"
+    echo $BRANCHES
+    echo Escolha uma das branches acima:
+    read BASE_BRANCH
+  else
+    BASE_BRANCH=${1}
+  fi
+  git diff $BASE_BRANCH...$CUR_BRANCH --name-only --diff-filter=AM | xargs -I {} docker run -t --rm -v $(pwd):/code -w /code devdrops/php-toolbox:latest php-cs-fixer fix {}
+}
+
+function phpToolboxMD {
+  CUR_BRANCH="$(git rev-parse --abbrev-ref HEAD)"
+  if [ ! "${1}" ]; then
+    BRANCHES="$(git branch --remote | egrep '(main|master|develop)' | grep -v HEAD)"
+    echo $BRANCHES
+    echo Escolha uma das branches acima:
+    read BASE_BRANCH
+  else
+    BASE_BRANCH=${1}
+  fi
+  git diff $BASE_BRANCH...$CUR_BRANCH --name-only --diff-filter=AM | xargs -I {} docker run -t --rm -v $(pwd):/code -w /code devdrops/php-toolbox:latest phpmd {} text cleancode,codesize,controversial,design,naming,unusedcode
+}
+
+function phpToolboxLoC {
+  CUR_BRANCH="$(git rev-parse --abbrev-ref HEAD)"
+  if [ ! "${1}" ]; then
+    BRANCHES="$(git branch --remote | egrep '(main|master|develop)' | grep -v HEAD)"
+    echo $BRANCHES
+    echo Escolha uma das branches acima:
+    read BASE_BRANCH
+  else
+    BASE_BRANCH=${1}
+  fi
+  git diff $BASE_BRANCH...$CUR_BRANCH --name-only --diff-filter=AM | xargs -I {} docker run -t --rm -v $(pwd):/code -w /code devdrops/php-toolbox:latest phploc {}
+}
+
+function phpToolboxStan {
+  CUR_BRANCH="$(git rev-parse --abbrev-ref HEAD)"
+  if [ ! "${1}" ]; then
+    BRANCHES="$(git branch --remote | egrep '(main|master|develop)' | grep -v HEAD)"
+    echo $BRANCHES
+    echo Escolha uma das branches acima:
+    read BASE_BRANCH
+  else
+    BASE_BRANCH=${1}
+  fi
+  git diff $BASE_BRANCH...$CUR_BRANCH --name-only --diff-filter=AM | xargs -I {} docker run -t --rm -v $(pwd):/code -w /code devdrops/php-toolbox:latest phpstan {}
+}
+
+function phpToolboxPsalm {
+  CUR_BRANCH="$(git rev-parse --abbrev-ref HEAD)"
+  if [ ! "${1}" ]; then
+    BRANCHES="$(git branch --remote | egrep '(main|master|develop)' | grep -v HEAD)"
+    echo $BRANCHES
+    echo Escolha uma das branches acima:
+    read BASE_BRANCH
+  else
+    BASE_BRANCH=${1}
+  fi
+  git diff $BASE_BRANCH...$CUR_BRANCH --name-only --diff-filter=AM | xargs -I {} docker run -t --rm -v $(pwd):/code -w /code devdrops/php-toolbox:latest psalm {}
+}
+
 # Kubernetes
 if command -v kubectl &> /dev/null
 then
