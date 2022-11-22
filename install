@@ -7,42 +7,43 @@
 ##################################
 
 # Vim
-rm -rf ~/.vim && \
-  cp -a ./.vim ~/
+rm -rf "$HOME/.vim" && \
+  cp -a ./.vim "$HOME/"
 
 # NeoVim
-if [ ! -d "~/.config/nvim" ]
+if [ ! -d "$HOME/.config/nvim" ]
 then
-  mkdir -p ~/.config/nvim
+  mkdir -p "$HOME/.config/nvim"
 fi
-cp -a ./nvim/init.vim ~/.config/nvim/init.vim
+rm -rf "$HOME/.config/nvim" && \
+  cp -a ./nvim "$HOME/.config"
 
 # Git
-rm -rf ~/.githooks_global && \
-  cp -a ./git/.git* ~/
+rm -rf "$HOME/.githooks_global" && \
+  cp -a ./git/.git* "$HOME/"
 
 # tmux
-cp -a ./tmux/.tmux.conf ~/.tmux.conf
+cp -a ./tmux/.tmux.conf "$HOME/.tmux.conf"
 
 # tmate
-cp -a ./tmate/.tmate.conf ~/.tmate.conf
+cp -a ./tmate/.tmate.conf "$HOME/.tmate.conf"
 
 # Shell extras
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
-  cp ./sh/.linux-gnu-custom-settings ~/ && \
-    grep -qF 'source ~/.linux-gnu-custom-settings' ~/.zshrc || printf "\n# $USER custom shell:\nsource ~/.linux-gnu-custom-settings" >> ~/.zshrc
+  cp ./sh/.linux-gnu-custom-settings "$HOME/" && \
+    grep -qF "source $HOME/.linux-gnu-custom-settings" "$HOME/.zshrc" || printf "\n# %s custom shell:\nsource %s/.linux-gnu-custom-settings" "$USER" "$HOME" >> "$HOME/.zshrc"
 elif [[ "$OSTYPE" == "darwin"* ]]; then
-  cp ./sh/.darwin-custom-settings ~/ && \
-    grep -qF 'source ~/.darwin-custom-settings' ~/.zshrc || printf "\n# $USER custom shell:\nsource ~/.darwin-custom-settings" >> ~/.zshrc
+  cp ./sh/.darwin-custom-settings "$HOME/" && \
+    grep -qF "source $HOME/.darwin-custom-settings" "$HOME/.zshrc" || printf "\n# %s custom shell:\nsource %s/.darwin-custom-settings" "$USER" "$HOME" >> "$HOME/.zshrc"
 fi
 
 # Binaries
-rm -rf ~/.my-binaries && \
-  cp -a ./bins ~/.my-binaries
+rm -rf "$HOME/.my-binaries" && \
+  cp -a ./bins "$HOME/.my-binaries"
 
 # ctags
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
-    cp .ctags/.linux-ctags ~/.ctags
+    cp .ctags/.linux-ctags "$HOME/.ctags"
 elif [[ "$OSTYPE" == "darwin"* ]]; then
-    cp .ctags/.macos-ctags ~/.ctags
+    cp .ctags/.macos-ctags "$HOME/.ctags"
 fi

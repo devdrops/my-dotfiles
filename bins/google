@@ -8,7 +8,7 @@
 ##################################
 
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
-  google-chrome-stable https://www.google.com/search?q=$1
+  google-chrome-stable https://www.google.com/search?q="$1"
 elif [[ "$OSTYPE" == "darwin"* ]]; then
-  open -a "Google Chrome" https://www.google.com/search?q=$1
+  open -a "Google Chrome" https://www.google.com/search?q="$1"
 fi

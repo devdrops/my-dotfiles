@@ -9,7 +9,7 @@
 ##################################
 
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
-  google-chrome-stable $1
+  google-chrome-stable "$1"
 elif [[ "$OSTYPE" == "darwin"* ]]; then
-  open -a "Google Chrome" $1
+  open -a "Google Chrome" "$1"
 fi
