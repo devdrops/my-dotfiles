@@ -68,7 +68,7 @@
   gc = commit -S
   group = shortlog -s -n
   csi = log --follow --
-  logs = "log --all --decorate=short --show-pulls --date=format-local:'%Y-%m-%d %H:%M:%S' --pretty=format:'%C(green bold)> %Creset%C(cyan)%H%Creset %C(black bold)%cd%Creset %C(auto)%d%Creset%n%C(blue italic)  %cN (%cE)%Creset %C(black bold)[sign: %G?]%Creset%n%C(auto)  %+B%n'"
+  logs = "log --decorate=short --show-pulls --date=format-local:'%Y-%m-%d %H:%M:%S' --pretty=format:'%C(green bold)> %Creset%C(cyan)%H%Creset %C(black bold)%cd%Creset %C(auto)%d%Creset%n%C(blue italic)  %cN (%cE)%Creset %C(black bold)[sign: %G?]%Creset%n%C(auto)  %+B%n'"
   tags = "tag --sort=-creatordate --format=\"%(color:green bold)> %(color:reset)%(color:cyan)%(refname:short) %(color:black bold)%(if)%(creatordate)%(then)%(creatordate:format:%Y-%m-%d %H:%M:%S)%(else)(data desconhecida)%(end)\n  %(color:blue italic)%(if)%(authorname)%(then)%(authorname) (%(authoremail))%(else)(autoria desconhecida)%(end) %(color:reset)%(color:black bold)[%(if)%(contents:signature)%(then)%(contents:signature)%(else)sign: N%(end)]\n%(color:reset)\n  %(color:white)%(contents:subject)\n\n\""
 
 [commit]
