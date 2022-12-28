@@ -36,50 +36,37 @@
   set softtabstop=2                 " Indentation with 2 intervals.
   set shiftround                    " Round indent to shiftwidth value.
   set laststatus=2                  " Last window status.
-  set display=lastline              " Display the whole line instead of wrap
-                                    " with @.
+  set display=lastline              " Display the whole line instead of wrap with @.
 
-  set showmode                      " Already defined on Vim. Display current
-                                    " mode.
+  set showmode                      " Already defined on Vim. Display current mode.
 
   set incsearch                     " Highlight pattern on search while typing.
   set hlsearch                      " Highlight all matches on search.
   set wrapscan                      " Searches wrap around the end of the file.
-  set splitbelow                    " Puts the new splitted window below the
-                                    " current one.
-  set splitright                    " Puts the new splitted window right the
-                                    " current one.
+  set splitbelow                    " Puts the new splitted window below the current one.
+  set splitright                    " Puts the new splitted window right the current one.
   set cursorline                    " Highlight the screen line of the cursor.
-  set report=0                      " Reports number of lines changed. 0 stands
-                                    " for always.
-  "set synmaxcol=200                 " Maximum column to search for syntax items.
+  set report=0                      " Reports number of lines changed. 0 stands for always.
+  set synmaxcol=0                   " Maximum column to search for syntax items. Default: 3000. 0 removes the limit.
 
   set number                        " Line number.
   set relativenumber                " Relative line number.
 
   set wildmode=longest,list,full    " Navigation method.
   set wildmenu                      " Navigation through files/folders.
-  set wildignorecase                " Case insensitive autocompletion for files
-                                    " and folders.
+  set wildignorecase                " Case insensitive autocompletion for files and folders.
 
   set ignorecase                    " Makes pattern matching case-insensitive.
 
-  set smartcase                     " Overrides ignorecase if your pattern
-                                    " contains mixed case.
+  set smartcase                     " Overrides ignorecase if your pattern contains mixed case.
 
-  set tabpagemax=100                " Number of tabs when using `vim -p`
-                                    " (default is 10).
-  set showtabline=2                 " Tab display. 0: never; 1: only with 2 or
-                                    " more tabs; 2: always.
+  set tabpagemax=100                " Number of tabs when using `vim -p` (default is 10).
+  set showtabline=2                 " Tab display. 0: never; 1: only with 2 or more tabs; 2: always.
   set foldcolumn=1                  " Columns when folding.
-  set foldlevelstart=99             " Folding mode when opening files. 99 keeps
-                                    " all folds open.
-  set keywordprg=google             " Execute `google` when hit K. Requires
-                                    " `bins/google` file from this repository.
-  set autoread                      " Vim will automatically read all changes
-                                    " made outside Vim.
-  set ruler                         " Display current line and column numbers,
-                                    " as `live, column`.
+  set foldlevelstart=99             " Folding mode when opening files. 99 keeps all folds open.
+  set keywordprg=google             " Execute `google` when hit K. Requires `bins/google` file from this repository.
+  set autoread                      " Vim will automatically read all changes made outside Vim.
+  set ruler                         " Display current line and column numbers, as `live, column`.
 
   set title                         " Enables title
   " Modify title format
@@ -106,8 +93,7 @@
                                     " See :h foldmethod
 
   packadd! dracula
-  colorscheme dracula               " Define the current color theme. Requires
-                                    " contents from `.vim/colors` dir from this
+  colorscheme dracula               " Define the current color theme. Requires contents from `.vim/colors` dir from this
                                     " repository.
 
   " Set highlight syntax on code written inside markdown blocks
@@ -148,7 +134,7 @@
                                       "   1 - Medium (default).
                                       "   2 - Fast.
   " Do not display files and folders in the list.
-  let g:netrw_list_hide='^.git/$,.jpg$,.jpeg$,.png$,.svg,.ico,.gif$'
+  let g:netrw_list_hide='^.git/$,.jpg$,.jpeg$,.png$,.svg,.ico,.gif$,.cache$'
   let g:netrw_ignorenetrc=1           " .netrc file usage.
                                       "   0 - Load.
                                       "   1 - Ignore.
@@ -172,15 +158,22 @@
   let g:netrw_sort_options='i'        " Sort options.
                                       "   'i' means 'case insensitive'.
   " Time format for strftime().
-  let g:netrw_timefmt=' %a %Y-%m-%d  %I-%M-%S %p'
+  let g:netrw_timefmt=' %a %Y-%m-%d  %I:%M:%S %p'
   let g:netrw_use_noswf=0             " Netrw creation of swap files for browser
                                       " buffers:
                                       "   1 - Enabled (default).
                                       "   0 - Disabled.
-  let g:netrw_keepdir=0               " Current browser directory
+  let g:netrw_keepdir=1               " Current browser directory
                                       "   1 - (default) keep current directory immune from the browsing directory.
                                       "   0 - keep the current directory the same as the browsing directory.
+  let g:netrw_localcopycmd='cp-r'     " Netrw's command to copy folders. Default: 'cp'
   let g:netrw_localcopydircmd='cp -r' " Netrw's command to copy folders. Default: 'cp'
+  let g:netrw_localmkdir='mkdir -p'
+  let g:netrw_use_errorwindow=2
+  let g:netrw_sizestyle='H'           " Changes how file size is displayed using qf.
+                                      "   b - (default) Byte size
+                                      "   h - Human friendly, base 1000
+                                      "   H - Human friendly, base 1024
 
 " :::::::::: vimdiff Settings ::::::::::
   " Set line wrap when using vimdiff.
