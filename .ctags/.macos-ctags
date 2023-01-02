@@ -40,6 +40,15 @@
 --exclude=makefile
 --exclude=sonar-project.properties
 
+--langdef=JSON
+--langmap=JSON:.json
+
+--langdef=YAML
+--langmap=YAML:.yaml.yml
+
+--langdef=Dockerfile
+--langmap=Dockerfile:([Dd]ockerfile)
+
 --langdef=Go
 --langmap=Go:.go
 --regex-Go=/func([ \t]+\([^)]+\))?[ \t]+([a-zA-Z0-9_]+)/\2/d,func/

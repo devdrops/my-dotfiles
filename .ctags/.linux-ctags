@@ -39,3 +39,12 @@
 --exclude=Makefile
 --exclude=makefile
 --exclude=sonar-project.properties
+
+--langdef=JSON
+--langmap=JSON:.json
+
+--langdef=YAML
+--langmap=YAML:.yaml.yml
+
+--langdef=Dockerfile
+--langmap=Dockerfile:([Dd]ockerfile)
