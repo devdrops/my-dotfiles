@@ -68,6 +68,8 @@
 --langdef=Textfile
 --langmap=Textfile:.txt.doc.docx.rtf
 
+--langmap=Vim:(vimrc).vim
+
 --langdef=Go
 --langmap=Go:.go
 --regex-Go=/func([ \t]+\([^)]+\))?[ \t]+([a-zA-Z0-9_]+)/\2/d,func/

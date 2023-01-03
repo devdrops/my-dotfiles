@@ -67,3 +67,5 @@
 
 --langdef=Textfile
 --langmap=Textfile:.txt.doc.docx.rtf
+
+--langmap=Vim:(vimrc).vim
