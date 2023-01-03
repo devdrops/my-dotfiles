@@ -69,3 +69,5 @@
 --langmap=Textfile:.txt.doc.docx.rtf
 
 --langmap=Vim:(vimrc).vim
+
+--langmap=Go:(go.mod).go
