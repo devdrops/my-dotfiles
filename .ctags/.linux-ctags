@@ -9,6 +9,7 @@
 --exclude=.github
 --exclude=.gitkeep
 --exclude=.gitignore
+--exclude=.gitattributes
 --exclude=.bitbucket
 --exclude=.svn
 --exclude=.dockerignore
@@ -47,12 +48,20 @@
 --exclude=*.feature
 --exclude=*.txt
 --exclude=*.bkp
+--exclude=*.so
+--exclude=*.pdf
+--exclude=*.crt
+--exclude=*.rpm
+--exclude=*.tar
+--exclude=*.gz
 --exclude=go.sum
+--exclude=id_rsa
 --exclude=LICENSE
 --exclude=CODEOWNERS
 --exclude=CHANGELOG
 --exclude=Makefile
 --exclude=makefile
+--exclude=Jenkinsfile
 --exclude=sonar-project.properties
 --exclude=tags
 
