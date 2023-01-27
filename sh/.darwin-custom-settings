@@ -31,6 +31,8 @@ alias gc="git commit -S -v"
 alias gdsafe="git branch --merged | egrep -v '(main|master|develop|^\*)' | xargs git branch -D"
 alias gdall="git branch | egrep -v '(main|master|develop|^\*)' | xargs git branch -D"
 alias gst="git status -u"
+alias gsl="git stash list"
+alias glu="git ls-files --others --exclude-standard"
 
 # Docker
 alias dbbk="DOCKER_BUILDKIT=1 docker build"
