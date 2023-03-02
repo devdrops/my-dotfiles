@@ -112,7 +112,7 @@ function goToDir {
 }
 
 dotheupgrade() {
-  sudo apt update && sudo apt upgrade -y
+  sudo apt update -y; sudo apt upgrade -y; sudo apt-get update -y; sudo apt autoremove -y; sudo apt autoclean -y
 }
 
 # Random phrases
