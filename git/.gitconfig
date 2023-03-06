@@ -19,6 +19,7 @@
   email = davi.marcondes.moreira@gmail.com
   username = devdrops
   signingkey = 564848AD8F25F213
+  writeExtras = true
 
 [core]
   editor = nvim
