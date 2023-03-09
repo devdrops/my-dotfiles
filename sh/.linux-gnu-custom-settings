@@ -383,6 +383,14 @@ function phpToolboxPsalm {
   git diff $BASE_BRANCH...$CUR_BRANCH --name-only --diff-filter=AM | xargs -I {} sh -c 'printf "\nINSPECTING WITH PSALM %s:\n" {};docker run -t --rm -v $(pwd):/code -w /code devdrops/php-toolbox:latest psalm {}'
 }
 
+function toB64 {
+  echo "${1}" | base64 -w 0 | xclip
+}
+
+function fromB64 {
+  echo ${1} | base64 -d | xclip
+}
+
 # Kubernetes
 if command -v kubectl &> /dev/null
 then
