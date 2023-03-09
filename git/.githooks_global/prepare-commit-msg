@@ -7,9 +7,16 @@
 #   - https://gist.github.com/devdrops/7a77472d8ee3e4be2df2569f9a66dfe5
 ##################################
 
+# TODO: escrever o bloco EXTRAS apenas se user.writeExtras == true
+
+# Variables
 DOTFILES_GIT_BRANCH_NAME=$(git branch | grep '*' | sed 's/* //')
+DOTFILES_GIT_WRITE_EXTRAS=$(git config --get user.writeExtras)
+DOTFILES_GIT_DIFF=$(git diff --name-status -r)
+DOTFILES_GIT_DIFF_VERBOSE=$(git diff -v)
 
 # Extra info to add the current branch name in the commit message
+#if [ -n "$DOTFILES_GIT_BRANCH_NAME" && "$DOTFILES_GIT_WRITE_EXTRAS" == 'true' ]
 if [ -n "$DOTFILES_GIT_BRANCH_NAME" ]
 then
     echo "" >> "$1"
@@ -23,9 +30,7 @@ printf '\n# Do not modify or remove the line above.' >> "$1"
 printf '\n# Everything below it will be ignored.' >> "$1"
 
 # List all changes, in a nutshell
-DOTFILES_GIT_DIFF=$(git diff --name-status -r)
 printf '\n\nChanges introduced:\n\n%s' "${DOTFILES_GIT_DIFF}" >> "$1"
 
 # Details of all changes
-DOTFILES_GIT_DIFF_VERBOSE=$(git diff -v)
 printf '\n\n%s' "${DOTFILES_GIT_DIFF_VERBOSE}" >> "$1"
