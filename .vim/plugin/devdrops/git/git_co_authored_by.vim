@@ -12,4 +12,4 @@ function! GitCoAuthoredBy()
     r ~/.vim/templates/git-co-authored-by.tpl
 endfunction
 
-nmap CAB :call GitCoAuthoredBy()<CR>
+noremap CAB :call GitCoAuthoredBy()<CR>

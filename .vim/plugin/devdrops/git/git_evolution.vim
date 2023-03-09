@@ -8,8 +8,13 @@
 " #   https://git-scm.com/docs/git-log#Documentation/git-log.txt--Lltstartgtltendgtltfilegt
 " ##################################
 
+function! GitEvolution()
+
+endfunction
+
 if has('nvim')
-  map <silent> <F4> :exe '!git log -L' . line('.') . ',' . line('.') . ':' . @%<CR>
+  "noremap <silent> <F4> :exe "!git log -L".line('.').",".line('.').":".@%<Nul>
+  noremap <F4> :call GitEvolution()<CR>
 else
-  map <silent> <F4> :exe '!git log -L' . line('.') . ',' . line('.') . ':' . @%<CR><CR>
+  noremap <silent> <F4> :exe "!git log -L".line('.').",".line('.').":".@%<CR><CR>
 endif
