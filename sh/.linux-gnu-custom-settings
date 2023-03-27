@@ -25,7 +25,7 @@ alias gt="goToDir"
 alias lls="longls ${1}"
 alias xclip="xclip -selection clipboard"
 alias expath="export PATH=$PATH:$(pwd)"
-alias grep="grep --color=auto --exclude-dir=.bzr --exclude-dir=CVS --exclude-dir=.git --exclude-dir=.idea --exclude-dir=vendor --exclude=tags"
+alias grep="grep --no-messages --recursive --color=auto --exclude-dir=.bzr --exclude-dir=CVS --exclude-dir=.git --exclude-dir=.idea --exclude-dir=vendor --exclude=tags --exclude='*.log'"
 
 # git
 alias gc="git commit -S -v"
