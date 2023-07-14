@@ -22,6 +22,7 @@
 --exclude=*.out
 --exclude=*.yaml
 --exclude=*.yml
+--exclude=*.toml
 --exclude=*.csv
 --exclude=*.min.js
 --exclude=*.min.css
@@ -36,6 +37,7 @@
 --exclude=*.bmp
 --exclude=*.gif
 --exclude=*.svg
+--exclude=*.ico
 --exclude=*.lock
 --exclude=*.dist
 --exclude=*.pub
@@ -67,6 +69,9 @@
 
 --langdef=JSON
 --langmap=JSON:.json
+
+--langdef=TOML
+--langmap=TOML:.toml
 
 --langdef=YAML
 --langmap=YAML:.yaml.yml
