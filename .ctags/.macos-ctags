@@ -19,6 +19,7 @@
 --exclude=vendor
 --exclude=*.html
 --exclude=*.css
+--exclude=*.scss
 --exclude=*.out
 --exclude=*.yaml
 --exclude=*.yml
@@ -56,6 +57,10 @@
 --exclude=*.rpm
 --exclude=*.tar
 --exclude=*.gz
+--exclude=*.mp4
+--exclude=*.webm
+--exclude=*.example
+--exclude=*.webmanifest
 --exclude=go.sum
 --exclude=id_rsa
 --exclude=LICENSE
@@ -65,6 +70,7 @@
 --exclude=makefile
 --exclude=Jenkinsfile
 --exclude=sonar-project.properties
+--exclude=sentry.properties
 --exclude=tags
 
 --langdef=JSON
@@ -89,3 +95,21 @@
 --regex-Go=/func([ \t]+\([^)]+\))?[ \t]+([a-zA-Z0-9_]+)/\2/d,func/
 --regex-Go=/var[ \t]+([a-zA-Z_][a-zA-Z0-9_]+)/\1/d,var/
 --regex-Go=/type[ \t]+([a-zA-Z_][a-zA-Z0-9_]+)/\1/d,type/
+
+--langdef=TypeScript
+--langmap=TypeScript:.ts
+
+--langdef=TypeScript_React
+--langmap=TypeScript_React:.tsx
+
+--langdef=Sass
+--langmap=Sass:.scss
+
+--langdef=terminfo
+--langmap=terminfo:.terminfo
+
+--langdef=BasicTemplate
+--langmap=BasicTemplate:.tpl
+
+--langdef=Conf
+--langmap=Conf:.conf
