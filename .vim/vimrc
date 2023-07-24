@@ -101,7 +101,7 @@
     \ [
     \   'conf', 'css', 'cucumber', 'dockerfile', 'go', 'java', 'javascript',
     \   'json', 'kotlin', 'make', 'nginx', 'php', 'terraform', 'text', 'toml',
-    \   'xml', 'yaml', 'html', 'bash', 'sh'
+    \   'xml', 'yaml', 'html', 'bash', 'sh', 'vim'
     \ ]
 
   " Tabs
