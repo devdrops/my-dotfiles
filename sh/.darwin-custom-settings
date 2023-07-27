@@ -354,7 +354,7 @@ function phpToolboxStan {
   else
     BASE_BRANCH=${1}
   fi
-  git diff $BASE_BRANCH...$CUR_BRANCH --name-only --diff-filter=AM | xargs -I {} sh -c 'printf "\nINSPECTING WITH PHPSTAN %s:\n" {};docker run -t --rm -v $(pwd):/code -w /code devdrops/php-toolbox:latest phpstan analyze {}'
+  git diff $BASE_BRANCH...$CUR_BRANCH --name-only --diff-filter=AM | xargs -I {} sh -c 'printf "\nINSPECTING WITH PHPSTAN %s:\n" {};docker run -t --rm -v $(pwd):/code -w /code devdrops/php-toolbox:latest phpstan analyze {} --memory-limit 1G'
 }
 
 function phpToolboxPsalm {
