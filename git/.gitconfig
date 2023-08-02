@@ -80,7 +80,7 @@
 
 [commit]
   gpgsign = true
-  cleanup = default
+  cleanup = strip
   template = ~/.gitmessage_global
   status = false
 
