@@ -41,6 +41,7 @@ alias drmi="docker rmi ${1} -f"
 # Docker Compose
 alias dcu="docker-compose up"
 alias dcd="docker-compose down"
+alias dcdro="docker-compose down --remove-orphans"
 alias dck="docker-compose kill -s SIGKILL"
 alias dcs="docker-compose stop"
 alias dcb="docker-compose build"
