@@ -14,3 +14,4 @@ Go.
 - https://kulkarniamit.github.io/whatwhyhow/howto/use-vim-ctags.html
 - https://stackoverflow.com/a/8236826
 - http://go-wise.blogspot.com/2011/09/using-ctags-with-go.html
+- https://ericjmritz.wordpress.com/2013/05/22/finding-php-traits-with-exuberant-ctags/comment-page-1/#comment-15531
