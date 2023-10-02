@@ -20,3 +20,6 @@ syn match goParentheses "\((\|)\)"
 " Braces
 syn match goBraces "\({\|}\)"
 hi default link goBraces goParentheses
+
+hi goChannelDirection cterm=NONE,italic ctermfg=Green
+syn match goChannelDirection "<-"
