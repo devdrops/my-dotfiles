@@ -37,6 +37,7 @@ alias glu="git ls-files --others --exclude-standard"
 alias dbbk="DOCKER_BUILDKIT=1 docker build"
 alias db="docker build"
 alias drmi="docker rmi ${1} -f"
+alias dddi="docker images --filter \"dangling=true\" --quiet | xargs -I {} docker rmi -f {}"
 
 # Docker Compose
 alias docker-compose="docker compose"
@@ -291,7 +292,7 @@ function phpToolboxCBF {
   else
     BASE_BRANCH=${1}
   fi
-  git diff $BASE_BRANCH...$CUR_BRANCH --name-only --diff-filter=AM | xargs -I {} sh -c 'printf "\nINSPECTING WITH PHPCBF %s:\n" {};docker run -t --rm -v $(pwd):/code -w /code devdrops/php-toolbox:latest phpcbf {}'
+  git diff $BASE_BRANCH...$CUR_BRANCH --name-only --diff-filter=AM | grep '.php' | xargs -I {} sh -c 'printf "\nINSPECTING WITH PHPCBF %s:\n" {};docker run -t --rm -v $(pwd):/code -w /code devdrops/php-toolbox:latest phpcbf {}'
 }
 
 function phpToolboxCS {
@@ -304,7 +305,7 @@ function phpToolboxCS {
   else
     BASE_BRANCH=${1}
   fi
-  git diff $BASE_BRANCH...$CUR_BRANCH --name-only --diff-filter=AM | xargs -I {} sh -c 'printf "\nINSPECTING WITH PHPCS %s:\n" {};docker run -t --rm -v $(pwd):/code -w /code devdrops/php-toolbox:latest phpcs {}'
+  git diff $BASE_BRANCH...$CUR_BRANCH --name-only --diff-filter=AM | grep '.php' | xargs -I {} sh -c 'printf "\nINSPECTING WITH PHPCS %s:\n" {};docker run -t --rm -v $(pwd):/code -w /code devdrops/php-toolbox:latest phpcs {}'
 }
 
 function phpToolboxCSFixer {
@@ -317,7 +318,7 @@ function phpToolboxCSFixer {
   else
     BASE_BRANCH=${1}
   fi
-  git diff $BASE_BRANCH...$CUR_BRANCH --name-only --diff-filter=AM | xargs -I {} sh -c 'printf "\nINSPECTING WITH PHP CS FIXER %s:\n" {};docker run -t --rm -v $(pwd):/code -w /code devdrops/php-toolbox:latest php-cs-fixer fix {}'
+  git diff $BASE_BRANCH...$CUR_BRANCH --name-only --diff-filter=AM  | grep '.php' | xargs -I {} sh -c 'printf "\nINSPECTING WITH PHP CS FIXER %s:\n" {};docker run -t --rm -v $(pwd):/code -w /code devdrops/php-toolbox:latest php-cs-fixer fix {}'
 }
 
 function phpToolboxMD {
@@ -330,7 +331,7 @@ function phpToolboxMD {
   else
     BASE_BRANCH=${1}
   fi
-  git diff $BASE_BRANCH...$CUR_BRANCH --name-only --diff-filter=AM | xargs -I {} sh -c 'printf "\nINSPECTING WITH PHPMD %s:\n" {};docker run -t --rm -v $(pwd):/code -w /code devdrops/php-toolbox:latest phpmd {} text cleancode,codesize,controversial,design,naming,unusedcode'
+  git diff $BASE_BRANCH...$CUR_BRANCH --name-only --diff-filter=AM  | grep '.php' | xargs -I {} sh -c 'printf "\nINSPECTING WITH PHPMD %s:\n" {};docker run -t --rm -v $(pwd):/code -w /code devdrops/php-toolbox:latest phpmd {} text cleancode,codesize,controversial,design,naming,unusedcode'
 }
 
 function phpToolboxLoC {
@@ -343,7 +344,7 @@ function phpToolboxLoC {
   else
     BASE_BRANCH=${1}
   fi
-  git diff $BASE_BRANCH...$CUR_BRANCH --name-only --diff-filter=AM | xargs -I {} sh -c 'printf "\nINSPECTING WITH PHPLOC %s:\n" {};docker run -t --rm -v $(pwd):/code -w /code devdrops/php-toolbox:latest phploc {}'
+  git diff $BASE_BRANCH...$CUR_BRANCH --name-only --diff-filter=AM  | grep '.php' | xargs -I {} sh -c 'printf "\nINSPECTING WITH PHPLOC %s:\n" {};docker run -t --rm -v $(pwd):/code -w /code devdrops/php-toolbox:latest phploc {}'
 }
 
 function phpToolboxStan {
@@ -356,7 +357,7 @@ function phpToolboxStan {
   else
     BASE_BRANCH=${1}
   fi
-  git diff $BASE_BRANCH...$CUR_BRANCH --name-only --diff-filter=AM | xargs -I {} sh -c 'printf "\nINSPECTING WITH PHPSTAN %s:\n" {};docker run -t --rm -v $(pwd):/code -w /code devdrops/php-toolbox:latest phpstan analyze {} --memory-limit 1G'
+  git diff $BASE_BRANCH...$CUR_BRANCH --name-only --diff-filter=AM  | grep '.php' | xargs -I {} sh -c 'printf "\nINSPECTING WITH PHPSTAN %s:\n" {};docker run -t --rm -v $(pwd):/code -w /code devdrops/php-toolbox:latest phpstan analyze {} --memory-limit 1G'
 }
 
 function phpToolboxPsalm {
@@ -369,7 +370,7 @@ function phpToolboxPsalm {
   else
     BASE_BRANCH=${1}
   fi
-  git diff $BASE_BRANCH...$CUR_BRANCH --name-only --diff-filter=AM | xargs -I {} sh -c 'printf "\nINSPECTING WITH PSALM %s:\n" {};docker run -t --rm -v $(pwd):/code -w /code devdrops/php-toolbox:latest psalm {}'
+  git diff $BASE_BRANCH...$CUR_BRANCH --name-only --diff-filter=AM  | grep '.php' | xargs -I {} sh -c 'printf "\nINSPECTING WITH PSALM %s:\n" {};docker run -t --rm -v $(pwd):/code -w /code devdrops/php-toolbox:latest psalm {}'
 }
 
 function toB64 {
