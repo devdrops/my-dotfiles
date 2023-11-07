@@ -61,6 +61,7 @@
 --exclude=*.webm
 --exclude=*.example
 --exclude=*.webmanifest
+--exclude=*.db
 --exclude=go.sum
 --exclude=id_rsa
 --exclude=LICENSE
