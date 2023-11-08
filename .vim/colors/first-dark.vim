@@ -9,7 +9,7 @@
 "
 " ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 " Maintainer: Davi Marcondes Moreira (@devdrops)
-" Remark:     "first" is strongly based on "industry" original colorscheme,
+" Remark:     "first-dark" is strongly based on "industry" original colorscheme,
 "             with a few tweaks. Works best when using 256 colors.
 " References:
 "             - https://vim.fandom.com/wiki/Creating_your_own_syntax_files
@@ -25,7 +25,7 @@ if exists("syntax_on")
     syntax reset
 endif
 
-let colors_name = "first"
+let colors_name = "first-dark"
 
 " :::::::::: Vim default background for Normal ::::::::::
 hi Normal cterm=NONE ctermfg=LightGray ctermbg=Black
