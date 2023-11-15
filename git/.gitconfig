@@ -11,6 +11,7 @@
 #   - https://stackoverflow.com/a/15128894
 #   - https://stackoverflow.com/a/34065448
 #   - https://git-scm.com/docs/git-config
+#   - https://jvns.ca/blog/2023/11/06/rebasing-what-can-go-wrong-/
 #
 ##################################
 
@@ -26,6 +27,9 @@
   whitespace = trailing-space
   excludesfile = ~/.gitignore_global
   hooksPath = ~/.githooks_global
+
+[rerere]
+  enabled = true
 
 [init]
   defaultBranch = main
