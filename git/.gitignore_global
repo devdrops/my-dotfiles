@@ -19,6 +19,7 @@ nbproject
 .floo
 .flooignore
 tags
+__debug_bin*
 ######
 
 ######
