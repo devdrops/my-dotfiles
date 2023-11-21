@@ -62,6 +62,7 @@
 --exclude=*.example
 --exclude=*.webmanifest
 --exclude=*.db
+--exclude=*.dat
 --exclude=go.sum
 --exclude=id_rsa
 --exclude=LICENSE
@@ -73,6 +74,7 @@
 --exclude=sonar-project.properties
 --exclude=sentry.properties
 --exclude=tags
+--exclude=version
 
 --langdef=JSON
 --langmap=JSON:.json
