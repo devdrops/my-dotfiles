@@ -1,7 +1,5 @@
 #!/bin/bash
-
 ##################################
-#
 # DOT FILES INSTALLER
 #
 ##################################
@@ -9,6 +7,10 @@
 # Vim
 rm -rf "$HOME/.vim" && \
   cp -a ./.vim "$HOME/"
+# Vim 8 Packages:
+  # vim-go (https://github.com/fatih/vim-go)
+  mkdir -p "$HOME/.vim/pack/plugins/start/vim-go"
+  git clone https://github.com/fatih/vim-go.git ~/.vim/pack/plugins/start/vim-go
 
 # NeoVim
 if [ ! -d "$HOME/.config/nvim" ]
