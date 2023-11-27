@@ -196,3 +196,10 @@
   hi diffFile      cterm=bold ctermfg=LightBlue  ctermbg=Black
   hi gitcommitDiff cterm=NONE ctermfg=240
 
+" :::::::::: vim-go debug Settings ::::::::::
+  let g:go_debug_windows = {
+    \ 'vars':  'rightbelow 60vnew',
+    \ 'stack': 'rightbelow 10new',
+    \ 'out':   'botright 5new',
+  \ }
+  let g:go_debug_preserve_layout = 1
