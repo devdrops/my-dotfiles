@@ -1,37 +1,103 @@
 #!/bin/bash
 ##################################
 # DOT FILES INSTALLER
-#
 ##################################
 
 # Vim
-rm -rf "$HOME/.vim" && \
-  cp -a ./.vim "$HOME/"
-# Vim 8 Packages:
-  mkdir -p "$HOME/.vim/pack/themes/start"
-  mkdir -p "$HOME/.vim/pack/plugins/start"
-  # dracula (https://github.com/dracula/vim)
-  git clone git@github.com:dracula/vim.git ~/.vim/pack/themes/start/dracula
-  # vim-go (https://github.com/fatih/vim-go)
-  git clone git@github.com:fatih/vim-go.git ~/.vim/pack/plugins/start/vim-go
+if ! command -v vim &> /dev/null
+then
+  echo "X VIM could not be found."
+  exit 1
+else
+  echo "> Installing VIM settings"
+
+  rm -rf "$HOME/.vim" && \
+    cp -a ./.vim "$HOME/"
+      # Vim 8 Packages:
+      mkdir -p "$HOME/.vim/pack/themes/start"
+      mkdir -p "$HOME/.vim/pack/plugins/start"
+      # dracula (https://github.com/dracula/vim)
+      git clone git@github.com:dracula/vim.git ~/.vim/pack/themes/start/dracula
+      # vim-go (https://github.com/fatih/vim-go)
+      git clone git@github.com:fatih/vim-go.git ~/.vim/pack/plugins/start/vim-go
+
+  echo "> VIM settings installed :)"
+fi
 
 # NeoVim
-if [ ! -d "$HOME/.config/nvim" ]
+if ! command -v nvim &> /dev/null
 then
-  mkdir -p "$HOME/.config/nvim"
+  echo "X NVIM could not be found."
+  exit 1
+else
+  echo "> Installing NVIM settings"
+
+  if [ ! -d "$HOME/.config/nvim" ]
+  then
+    mkdir -p "$HOME/.config/nvim"
+  fi
+  rm -rf "$HOME/.config/nvim" && \
+    cp -a ./nvim "$HOME/.config"
+
+  echo "> NVIM settings installed :)"
 fi
-rm -rf "$HOME/.config/nvim" && \
-  cp -a ./nvim "$HOME/.config"
 
 # Git
-rm -rf "$HOME/.githooks_global" && \
-  cp -a ./git/.git* "$HOME/"
+if ! command -v git &> /dev/null
+then
+  echo "X GIT could not be found."
+  exit 1
+else
+  echo "> Installing GIT settings"
+
+  rm -rf "$HOME/.githooks_global" && \
+    cp -a ./git/.git* "$HOME/"
+
+  echo "> GIT settings installed :)"
+fi
 
 # tmux
-cp -a ./tmux/.tmux.conf "$HOME/.tmux.conf"
+if ! command -v tmux &> /dev/null
+then
+  echo "X TMUX could not be found."
+  exit 1
+else
+  echo "> Installing TMUX settings"
+
+  cp -a ./tmux/.tmux.conf "$HOME/.tmux.conf"
+
+  echo "> TMUX settings installed :)"
+fi
 
 # tmate
-cp -a ./tmate/.tmate.conf "$HOME/.tmate.conf"
+if ! command -v tmate &> /dev/null
+then
+  echo "X TMATE could not be found."
+  exit 1
+else
+  echo "> Installing TMATE settings"
+
+  cp -a ./tmate/.tmate.conf "$HOME/.tmate.conf"
+
+  echo "> TMATE settings installed :)"
+fi
+
+# ctags
+if ! command -v ctags &> /dev/null
+then
+  echo "X CTAGS could not be found."
+  exit 1
+else
+  echo "> Installing CTAGS settings"
+
+  if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+    cp .ctags/.linux-ctags "$HOME/.ctags"
+  elif [[ "$OSTYPE" == "darwin"* ]]; then
+    cp .ctags/.macos-ctags "$HOME/.ctags"
+  fi
+
+  echo "> CTAGS settings installed :)"
+fi
 
 # Shell extras
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
@@ -46,9 +112,5 @@ fi
 rm -rf "$HOME/.my-binaries" && \
   cp -a ./bins "$HOME/.my-binaries"
 
-# ctags
-if [[ "$OSTYPE" == "linux-gnu"* ]]; then
-    cp .ctags/.linux-ctags "$HOME/.ctags"
-elif [[ "$OSTYPE" == "darwin"* ]]; then
-    cp .ctags/.macos-ctags "$HOME/.ctags"
-fi
+# Finish!
+exit 0
