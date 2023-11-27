@@ -8,9 +8,12 @@
 rm -rf "$HOME/.vim" && \
   cp -a ./.vim "$HOME/"
 # Vim 8 Packages:
+  mkdir -p "$HOME/.vim/pack/themes/start"
+  mkdir -p "$HOME/.vim/pack/plugins/start"
+  # dracula (https://github.com/dracula/vim)
+  git clone git@github.com:dracula/vim.git ~/.vim/pack/themes/start/dracula
   # vim-go (https://github.com/fatih/vim-go)
-  mkdir -p "$HOME/.vim/pack/plugins/start/vim-go"
-  git clone https://github.com/fatih/vim-go.git ~/.vim/pack/plugins/start/vim-go
+  git clone git@github.com:fatih/vim-go.git ~/.vim/pack/plugins/start/vim-go
 
 # NeoVim
 if [ ! -d "$HOME/.config/nvim" ]

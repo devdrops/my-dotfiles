@@ -93,8 +93,7 @@
                                     " See :h foldmethod
 
   packadd! dracula
-  colorscheme dracula               " Define the current color theme. Requires contents from `.vim/colors` dir from this
-                                    " repository.
+  colorscheme dracula               " Define the current color theme.
 
   " Set highlight syntax on code written inside markdown blocks
   let g:markdown_fenced_languages =
