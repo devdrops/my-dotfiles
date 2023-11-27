@@ -9,7 +9,6 @@ A estrutura de pastas aqui segue a mesma nativa do Vim, o que beneficia o carreg
 - [Opções para detectar tipos de arquivos](./ftdetect)
 - [Plugins de tipos de arquivos](./ftplugin)
 - [Sintaxe de indentação](./indent)
-- [Temas de cores mais complexos](./pack)
 - [Scripts e plugins](./plugin/devdrops)
 - [Sintaxe de arquivos](./syntax)
 - [Templates de arquivos](./templates)
@@ -27,4 +26,5 @@ que cada coisa faz. Basta abrir o editor e usar o comando `:h <opção>`, onde `
 - Todas as configurações aqui também são usadas para o editor [NeoVim](https://neovim.io/).
 - Embora não tenha problemas com plugins, não estou usando nada além daquilo que crio (exceto temas de cores, como
 Dracula por exemplo). Essa é uma escolha pessoal minha :wink:
-
+  - (Edit 2023-11-27): Comecei a experimentar o uso de packages do Vim 8 para plugins. Todos devem ser instalados
+  através do arquivo de instalação, `install`, localizado na raiz do projeto.
