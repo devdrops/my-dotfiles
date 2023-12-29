@@ -20,6 +20,7 @@
 " #   https://vimtricks.com/p/highlight-syntax-inside-markdown/
 " #   https://vim.fandom.com/wiki/256_colors_in_vim
 " #   https://vimtricks.com/p/vim-search-ignore-case
+" #   https://cs.opensource.google/go/x/tools/+/refs/tags/gopls/v0.14.2:gopls/doc/vim.md
 " #
 " ##################################
 
@@ -195,10 +196,14 @@
   hi diffFile      cterm=bold ctermfg=LightBlue  ctermbg=Black
   hi gitcommitDiff cterm=NONE ctermfg=240
 
-" :::::::::: vim-go debug Settings ::::::::::
+" :::::::::: vim-go Settings ::::::::::
+  " Debug
   let g:go_debug_windows = {
     \ 'vars':  'rightbelow 60vnew',
     \ 'stack': 'rightbelow 10new',
     \ 'out':   'botright 5new',
   \ }
   let g:go_debug_preserve_layout = 1
+  " gopls
+  let g:go_def_mode='gopls'
+  let g:go_info_mode='gopls'
