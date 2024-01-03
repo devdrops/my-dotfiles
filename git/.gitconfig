@@ -82,7 +82,7 @@
   group = shortlog -s -n
   csi = log --follow --
   logs = "log --decorate=short --show-pulls --pretty=format:'%C(green bold)> %Creset%C(cyan)%H%Creset %C(black bold)%cd%Creset %C(auto)%d%Creset%n%C(blue italic)  %cN (%cE)%Creset %C(black bold)[sign: %G?]%Creset%n%C(auto)  %+B%n' --stat"
-  tags = "tag --sort=-taggerdate --format=\"%(color:green bold)> %(color:reset)%(color:cyan)%(refname:short) %(color:black bold)%(if)%(taggerdate)%(then)criada em %(taggerdate:format:%Y-%m-%d %H:%M:%S)%(else)(data desconhecida)%(end)\n  %(color:blue italic)%(if)%(tagger)%(then)%(tagger)%(else)(autoria desconhecida)%(end) %(color:reset)\n%(color:black bold)[sign: %(if)%(contents:signature)%(then)S%(else)N%(end)]\n%(color:reset)\n  %(color:black)%(contents:subject)\n\n%(contents:body)\n\""
+  tags = "tag --sort=-creatordate --format=\"%(color:green bold)> %(color:reset)%(color:cyan)%(refname:short) %(color:black bold)%(if)%(taggerdate)%(then)Tagged at %(taggerdate:format:%Y-%m-%d %H:%M:%S)%(else)%(if)%(creatordate)%(then)Created at %(creatordate:format:%Y-%m-%d %H:%M:%S)%(else)(unknown date for tag/creation)%(end)%(end)\n  %(color:blue italic)%(if)%(tagger)%(then)Tagged by: %(tagger)%(else)%(if)%(authorname)%(then)Authored by: %(authorname)%(if)%(authoremail)%(then) %(authoremail)%(end)%(else)(no tagger/author identified)%(end)%(end) %(color:reset) %(color:black bold)[signed: %(if)%(contents:signature)%(then)Y%(else)N%(end)]\n%(color:reset)\n  %(color:black)%(contents:subject)\n\n%(contents:body)\n\""
   stashes = "stash list --decorate=short --show-pulls --pretty=format:'%C(green bold)%gd > %Creset%C(cyan)%H%Creset %C(black bold)%cd%Creset %C(auto)%d%Creset%n%C(blue italic)  %cN (%cE)%Creset %C(black bold)[sign: %G?]%Creset%n%n%C(auto)  %B%n'"
 
 [commit]
