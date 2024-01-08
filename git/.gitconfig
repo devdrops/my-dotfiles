@@ -96,9 +96,9 @@
 
 ; Cores na exibição de branches
 [color "branch"]
-  current = yellow bold
-  local = green bold dim
-  remote = cyan bold dim
+  current = yellow black reverse bold
+  local = green black reverse bold dim
+  remote = cyan black reverse bold dim
 
 ; Cores na exibição de diff
 [color "diff"]
@@ -128,7 +128,7 @@
 
 ; Cores na exibição de status
 [color "status"]
-  added = green bold
-  changed = yellow bold
-  untracked = red bold
+  added = green black reverse bold
+  changed = yellow black reverse bold
+  untracked = red black reverse bold
 
