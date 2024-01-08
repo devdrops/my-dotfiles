@@ -12,8 +12,8 @@
 # Variables
 DOTFILES_GIT_BRANCH_NAME=$(git branch | grep '*' | sed 's/* //')
 DOTFILES_GIT_WRITE_EXTRAS=$(git config --get user.writeExtras)
-DOTFILES_GIT_DIFF=$(git diff --name-status -r)
-DOTFILES_GIT_DIFF_VERBOSE=$(git diff -v)
+DOTFILES_GIT_DIFF=$(git diff --staged --name-status -r)
+DOTFILES_GIT_DIFF_VERBOSE=$(git diff --staged -v)
 
 # Extra info to add the current branch name in the commit message
 #if [ -n "$DOTFILES_GIT_BRANCH_NAME" && "$DOTFILES_GIT_WRITE_EXTRAS" == 'true' ]
