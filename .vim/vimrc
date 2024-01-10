@@ -197,6 +197,7 @@
   hi gitcommitDiff cterm=NONE ctermfg=240
 
 " :::::::::: vim-go Settings ::::::::::
+  let g:go_template_autocreate = 1
   " Debug
   let g:go_debug_windows = {
     \ 'vars':  'rightbelow 60vnew',
