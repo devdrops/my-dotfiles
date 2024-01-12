@@ -18,6 +18,8 @@ nbproject
 *.sw*
 .floo
 .flooignore
+.vscode
+main
 tags
 __debug_bin*
 ######
