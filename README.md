@@ -45,9 +45,9 @@ problemas em versões anteriores):
 
 |Programa|Versão (recomendada)|
 |:---|:--:|
-|vim|`version 8.1.2269`|
-|git|`git version 2.25.1`|
-|tmux|`tmux 3.0a`|
+|vim|`version 8.2.2121`|
+|git|`git version 2.43.2`|
+|tmux|`tmux 3.2a`|
 |tmate|`tmate 2.4.0`|
 
 ## Instalação
