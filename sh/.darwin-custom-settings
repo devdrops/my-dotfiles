@@ -20,9 +20,9 @@
 ###################
 
 # General
-alias lls="longls ${1}"
+alias lls='longls ${1}'
 alias xclip="pbcopy"
-alias expath="export PATH=$PATH:$(pwd)"
+alias expath='export PATH=$PATH:$(pwd)'
 alias grep="grep --no-messages --color=auto --exclude-dir=.bzr --exclude-dir=CVS --exclude-dir=.git --exclude-dir=.idea --exclude-dir=vendor --exclude=tags --exclude='*.log'"
 
 # git
@@ -37,7 +37,7 @@ alias gsp="git stash -p"
 # Docker
 alias dbbk="DOCKER_BUILDKIT=1 docker build"
 alias db="docker build"
-alias drmi="docker rmi ${1} -f"
+alias drmi='docker rmi ${1} -f'
 alias dddi="docker images --filter \"dangling=true\" --quiet | xargs -I {} docker rmi -f {}"
 
 # Docker Compose
@@ -187,6 +187,10 @@ function randomPhrase {
   echo "Today is a ${QUALITIES[$q]} day to ${SITUATIONS[$s]} ${THINGS[$t]}." | cowsay -f skeleton
 }
 #randomPhrase
+
+watchImages() {
+  watch -n 1 -t -c docker ps --format \"table {{.ID}}\\t{{.Image}}\\t{{.Ports}}\\t{{.State}}\\t{{.Status}}\\t{{.Names}}\\t{{.Networks}}\"
+}
 
 # TMUX / TMATE functions
 TMATE_PAIR_NAME="$(whoami)-pair"

@@ -220,6 +220,10 @@ function checkDotfilesSession {
 }
 #checkDotfilesSession
 
+watchImages() {
+  watch -n 1 -t -c docker ps --format \"table {{.ID}}\\t{{.Image}}\\t{{.Ports}}\\t{{.State}}\\t{{.Status}}\\t{{.Names}}\\t{{.Networks}}\"
+}
+
 tmate-new() {
   tmate -S $TMATE_SOCKET_LOCATION new -s "$1"
 }
