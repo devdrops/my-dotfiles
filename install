@@ -7,7 +7,6 @@
 if ! command -v vim &> /dev/null
 then
   echo "X VIM could not be found."
-  exit 1
 else
   echo "> Installing VIM settings"
 
@@ -28,7 +27,6 @@ fi
 if ! command -v nvim &> /dev/null
 then
   echo "X NVIM could not be found."
-  exit 1
 else
   echo "> Installing NVIM settings"
 
@@ -46,7 +44,6 @@ fi
 if ! command -v git &> /dev/null
 then
   echo "X GIT could not be found."
-  exit 1
 else
   echo "> Installing GIT settings"
 
@@ -60,7 +57,6 @@ fi
 if ! command -v tmux &> /dev/null
 then
   echo "X TMUX could not be found."
-  exit 1
 else
   echo "> Installing TMUX settings"
 
@@ -73,7 +69,6 @@ fi
 if ! command -v tmate &> /dev/null
 then
   echo "X TMATE could not be found."
-  exit 1
 else
   echo "> Installing TMATE settings"
 
@@ -86,7 +81,6 @@ fi
 if ! command -v ctags &> /dev/null
 then
   echo "X CTAGS could not be found."
-  exit 1
 else
   echo "> Installing CTAGS settings"
 
