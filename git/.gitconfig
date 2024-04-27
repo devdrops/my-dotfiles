@@ -67,7 +67,7 @@
 
 [merge]
   tool = nvimdiff2
-  conflictStyle = zdiff3
+  conflictStyle = diff3
   prompt = false
   branchdesc = true
   log = true
