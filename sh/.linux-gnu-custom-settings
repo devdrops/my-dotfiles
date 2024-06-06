@@ -35,6 +35,8 @@ alias gst="git status -u"
 alias gsl="git stash list"
 alias glu="git ls-files --others --exclude-standard"
 alias gsp="git stash -p"
+alias gsn="git stash --include-untracked -m 'STASH FROM `git rev-parse --abbrev-ref HEAD` AT `date +"%Y-%m-%dT%H:%M:%S_GMT%Z"`'"
+alias gspop="git stash pop ${1}"
 
 # Docker
 alias dbbk="DOCKER_BUILDKIT=1 docker build"
