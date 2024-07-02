@@ -227,6 +227,10 @@ watchImages() {
   watch -n 1 -t -c docker ps --format \"table {{.ID}}\\t{{.Image}}\\t{{.Ports}}\\t{{.State}}\\t{{.Status}}\\t{{.Names}}\\t{{.Networks}}\"
 }
 
+watchListen() {
+  watch -t -n 1 'sudo lsof -i -P -n | grep LISTEN'
+}
+
 tmate-new() {
   tmate -S $TMATE_SOCKET_LOCATION new -s "$1"
 }
