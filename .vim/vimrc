@@ -100,8 +100,8 @@
   let g:markdown_fenced_languages =
     \ [
     \   'conf', 'css', 'cucumber', 'dockerfile', 'go', 'java', 'javascript',
-    \   'json', 'kotlin', 'make', 'nginx', 'php', 'terraform', 'text', 'toml',
-    \   'xml', 'yaml', 'html', 'bash', 'sh', 'vim'
+    \   'json', 'make', 'nginx', 'php', 'terraform', 'text', 'toml', 'xml',
+    \   'yaml', 'html', 'bash', 'sh', 'vim'
     \ ]
 
   " Tabs
