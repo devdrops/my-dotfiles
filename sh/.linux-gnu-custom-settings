@@ -44,6 +44,10 @@ alias dbbk="DOCKER_BUILDKIT=1 docker build"
 alias db="docker build"
 alias drmi="docker rmi ${1} -f"
 alias dddi="docker images --filter \"dangling=true\" --quiet | xargs -I {} docker rmi -f {}"
+alias dip="docker image prune"
+alias dvp="docker volume prune"
+alias dnp="docker network prune"
+alias dsp="docker system prune"
 
 # Docker Compose
 alias docker-compose="docker compose"
