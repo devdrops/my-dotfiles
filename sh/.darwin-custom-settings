@@ -200,7 +200,7 @@ watchImages() {
 }
 
 watchListen() {
-  watch -t -n 1 'sudo lsof -i -P -n | grep LISTEN'
+  watch -t -n 1 'sudo lsof -w -i -P -n | grep LISTEN'
 }
 
 # TMUX / TMATE functions
