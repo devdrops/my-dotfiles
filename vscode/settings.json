@@ -1,0 +1,42 @@
+{
+  "go.coverOnSave": true,
+  "go.coverageDecorator": {
+    "type": "gutter",
+    "coveredHighlightColor": "rgba(64,128,128,0.5)",
+    "uncoveredHighlightColor": "rgba(128,64,64,0.25)",
+    "coveredGutterStyle": "blockgreen",
+    "uncoveredGutterStyle": "blockred"
+  },
+  "go.coverOnSingleTest": true,
+  "go.toolsManagement.autoUpdate": true,
+
+  "workbench.colorTheme": "Solarized Light",
+  "workbench.startupEditor": "none",
+
+  "files.autoSave": "afterDelay",
+  "editor.fontSize": 16,
+  "editor.fontFamily": "'Intel One Mono', 'Droid Sans Mono', 'monospace', monospace",
+  "editor.wordWrap": "on",
+  "editor.rulers": [
+    {
+      "column": 80,
+      "color": "#bada55"
+    },
+    {
+      "column": 100,
+      "color": "#e7ce3c"
+    },
+    {
+      "column": 120,
+      "color": "#ff0000"
+    }
+  ],
+
+  "cSpell.language": "en,pt,pt_BR,en,en-GB",
+  "cSpell.customDictionaries": {
+
+  },
+
+  "todo-tree.filtering.ignoreGitSubmodules": true,
+  "todo-tree.tree.showCountsInTree": true
+}
