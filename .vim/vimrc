@@ -134,7 +134,7 @@
                                       "   1 - Medium (default).
                                       "   2 - Fast.
   " Do not display files and folders in the list.
-  let g:netrw_list_hide='^.git/$,.jpg$,.jpeg$,.png$,.svg,.ico,.gif$,.cache$,.woff2$,^nbproject/$'
+  let g:netrw_list_hide='^.git/$,.jpg$,.jpeg$,.png$,.svg,.ico,.gif$,.cache$,.woff2$,^nbproject/$,^.vscode/$,^.idea/$'
   let g:netrw_ignorenetrc=1           " .netrc file usage.
                                       "   0 - Load.
                                       "   1 - Ignore.
