@@ -36,7 +36,14 @@ alias gst="git status -u"
 alias gsl="git stash list"
 alias glu="git ls-files --others --exclude-standard"
 alias gsp="git stash -p"
-alias gsn="git stash --include-untracked -m 'STASH FROM `git rev-parse --abbrev-ref HEAD` AT `date +"%Y-%m-%dT%H:%M:%S_GMT%Z"`'"
+function GitStashNow {
+  d=$(date +"%Y-%m-%dT%H:%M:%S%Z")
+  h=$(git rev-parse --abbrev-ref HEAD)
+  l=$(pwd)
+
+  git stash --include-untracked -m "STASHED ON $l, REF $h, AT $d"
+}
+alias gsn="GitStashNow"
 alias gspop="git stash pop ${1}"
 
 # Docker
