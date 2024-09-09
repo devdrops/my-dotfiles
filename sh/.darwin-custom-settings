@@ -404,6 +404,10 @@ function fromB64 {
   echo ${1} | base64 -d | xclip
 }
 
+function jwtdecode() {
+  sed 's/\./\n/g' <<< $(cut -d. -f1,2 <<< $1) | base64 --decode | jq
+}
+
 # Kubernetes
 if command -v kubectl &> /dev/null
 then
