@@ -63,6 +63,7 @@
 --exclude=*.webmanifest
 --exclude=*.db
 --exclude=*.dat
+--exclude=*.c4
 --exclude=go.sum
 --exclude=id_rsa
 --exclude=LICENSE
