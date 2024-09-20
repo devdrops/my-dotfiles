@@ -39,7 +39,7 @@ function GitStashNow {
   h=$(git rev-parse --abbrev-ref HEAD)
   l=$(pwd)
 
-  git stash --include-untracked -m "STASHED ON $l, REF $h, AT $d"
+  git stash --include-untracked -m "STASHED ON $l, REF $h, AT $d : ${1}"
 }
 alias gsn="GitStashNow"
 alias gspop="git stash pop ${1}"
