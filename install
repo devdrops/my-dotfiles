@@ -19,7 +19,11 @@ else
       git clone git@github.com:dracula/vim.git ~/.vim/pack/themes/start/dracula
       # vim-go (https://github.com/fatih/vim-go)
       git clone git@github.com:fatih/vim-go.git ~/.vim/pack/plugins/start/vim-go
-
+      # vim-airline (https://github.com/vim-airline/vim-airline)
+      git clone git@github.com:vim-airline/vim-airline.git ~/.vim/pack/plugins/start/vim-airline
+      git clone git@github.com:vim-airline/vim-airline-themes.git ~/.vim/pack/plugins/start/vim-airline-themes
+      # vim-fugitive (https://github.com/tpope/vim-fugitive)
+      git clone git@github.com:tpope/vim-fugitive.git ~/.vim/pack/plugins/start/vim-fugitive
   echo "> VIM settings installed :)"
 fi
 
@@ -105,6 +109,11 @@ fi
 # Binaries
 rm -rf "$HOME/.my-binaries" && \
   cp -a ./bins "$HOME/.my-binaries"
+
+# powerline/fonts (https://github.com/powerline/fonts)
+git clone git@github.com:powerline/fonts.git --depth=1 $HOME/powerline-fonts
+$SHELL $HOME/powerline-fonts/install.sh
+rm -rf $HOME/powerline-fonts
 
 # Finish!
 exit 0
