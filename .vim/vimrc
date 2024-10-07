@@ -40,8 +40,6 @@
   set laststatus=2                  " Last window status.
   set display=lastline              " Display the whole line instead of wrap with @.
 
-  set showmode                      " Already defined on Vim. Display current mode.
-
   set incsearch                     " Highlight pattern on search while typing.
   set hlsearch                      " Highlight all matches on search.
   set wrapscan                      " Searches wrap around the end of the file.
@@ -212,8 +210,6 @@
 
 " :::::::::: vim-airline Settings  ::::::::::
   set ttimeoutlen=50
-  set laststatus=2                              " Always display the statusline in all windows
-  set showtabline=2                             " Always display the tabline, even if there is only one tab
   set noshowmode                                " Hide the default mode text (e.g. -- INSERT -- below the statusline)
 
   let g:airline_powerline_fonts = 1             " Enabled powerline/fonts with vim-airline
