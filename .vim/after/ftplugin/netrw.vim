@@ -27,3 +27,7 @@ hi netrwTags cterm=NONE ctermbg=NONE ctermfg=DarkYellow
 " File type: YAML
 hi netrwYAML cterm=NONE ctermbg=NONE ctermfg=198
 syn match netrwYAML "\(\ \+ \)*\S*\.\%(yml\|yaml\|YML\|YAML\)\>"
+
+" File type: dot (.) file
+hi netrwDotFile cterm=NONE ctermbg=NONE ctermfg=9
+syn match netrwDotFile "\.\%(gitignore\|dockerignore\|gitleaksignore\|env\)\>"
