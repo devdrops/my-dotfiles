@@ -124,7 +124,7 @@
                                       "   0 - Preview horizontal.
                                       "   1 - Preview vertical.
   let g:netrw_winsize=80              " Open the preview with 80% of the screen.
-  let g:netrw_special_syntax=1        " Special syntax for a given list of file
+  let g:netrw_special_syntax=0        " Special syntax for a given list of file
                                       " types.
                                       "   0 - Disabled.
                                       "   1 - Enabled.

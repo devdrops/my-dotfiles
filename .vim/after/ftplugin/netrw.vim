@@ -2,6 +2,9 @@
 " # Vim Style: Netrw
 " #
 " # PURPOSE: override Netrw basic syntax
+" #
+" # References:
+" #   - https://github.com/vim/vim/blob/master/runtime/syntax/netrw.vim
 " #################################
 
 " File type: markdown
@@ -31,3 +34,7 @@ syn match netrwYAML "\(\ \+ \)*\S*\.\%(yml\|yaml\|YML\|YAML\)\>"
 " File type: dot (.) file
 hi netrwDotFile cterm=NONE ctermbg=NONE ctermfg=9
 syn match netrwDotFile "\.\%(gitignore\|dockerignore\|gitleaksignore\|env\)\>"
+
+" File type: log file.
+hi netrwLogFile cterm=NONE ctermbg=NONE ctermfg=243
+syn match netrwLogFile "\(\ \+ \)*\S*\.\%(log\)\>"
