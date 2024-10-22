@@ -11,9 +11,6 @@
 hi netrwMarkdown cterm=NONE ctermfg=Magenta
 syn match netrwMarkdown "\(\ \+ \)*\S*\.\%(md\|markdown\|MD\)\>"
 
-" File type: makefile
-hi netrwMakeFile cterm=NONE ctermfg=Brown
-
 " File type: compressed
 hi netrwCompressedFile cterm=NONE ctermbg=NONE ctermfg=Gray
 hi netrwCompress       cterm=NONE ctermbg=NONE ctermfg=Gray
@@ -42,3 +39,7 @@ syn match netrwLogFile "\(\ \+ \)*\S*\.\%(log\)\>"
 " File type: ctags 'tags' output
 hi netrwCtagsFile cterm=NONE ctermbg=NONE ctermfg=DarkYellow
 syn match netrwCtagsFile "\<tags\>"
+
+" File type: GNU make
+hi netrwMakefile cterm=NONE ctermbg=NONE ctermfg=DarkRed
+syn match netrwMakefile "\<[mM]akefile\>\|\(\ \+ \)*\S*\.\%(mak\|mk\)\>"
