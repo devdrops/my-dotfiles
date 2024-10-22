@@ -35,6 +35,10 @@ syn match netrwYAML "\(\ \+ \)*\S*\.\%(yml\|yaml\|YML\|YAML\)\>"
 hi netrwDotFile cterm=NONE ctermbg=NONE ctermfg=9
 syn match netrwDotFile "\.\%(gitignore\|dockerignore\|gitleaksignore\|env\)\>"
 
-" File type: log file.
+" File type: log file (requires netrw_special_syntax=0)
 hi netrwLogFile cterm=NONE ctermbg=NONE ctermfg=243
 syn match netrwLogFile "\(\ \+ \)*\S*\.\%(log\)\>"
+
+" File type: ctags 'tags' output
+hi netrwCtagsFile cterm=NONE ctermbg=NONE ctermfg=DarkYellow
+syn match netrwCtagsFile "\<tags\>"
