@@ -217,7 +217,7 @@ TMATE_TMUX_SESSION="/tmp/tmate-tmux-session"
 
 function tmuxls {
   tput bold ; tput smul ; echo "LIST OF TMUX SESSIONS"; tput sgr0
-  tmux list-sessions -F '#{session_id}|#{session_name}|#{session_windows} window(s)|Created at #{t:session_created}|#{?session_attached, <- Attached,}' | column -t -s '|' | sort | sed 's/\$//'
+  tmux list-sessions -F '#{session_id}|#{session_name}|#{session_windows} window(s)|Created at #{t:session_created}|#{?session_attached, <- Attached,}' | column -t -s '|' | sort | sed 's/\$/ /'
 }
 
 # Checks if there is a tmux session named 'dotfiles'
