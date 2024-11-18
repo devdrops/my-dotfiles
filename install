@@ -3,6 +3,27 @@
 # DOT FILES INSTALLER
 ##################################
 
+# Git
+if ! command -v git &> /dev/null
+then
+  echo "X GIT could not be found."
+  exit 1
+fi
+
+# fzf
+if ! command -v fzf &> /dev/null
+then
+  echo "X FZF could not be found."
+  exit 1
+fi
+
+# delta
+if ! command -v delta &> /dev/null
+then
+  echo "X Delta could not be found."
+  exit 1
+fi
+
 # Vim
 if ! command -v vim &> /dev/null
 then
@@ -45,17 +66,12 @@ else
 fi
 
 # Git
-if ! command -v git &> /dev/null
-then
-  echo "X GIT could not be found."
-else
-  echo "> Installing GIT settings"
+echo "> Installing GIT settings"
 
-  rm -rf "$HOME/.githooks_global" && \
+rm -rf "$HOME/.githooks_global" && \
     cp -a ./git/.git* "$HOME/"
 
-  echo "> GIT settings installed :)"
-fi
+echo "> GIT settings installed :)"
 
 # tmux
 if ! command -v tmux &> /dev/null

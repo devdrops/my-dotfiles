@@ -49,6 +49,10 @@ problemas em versões anteriores):
 |git|`git version 2.43.2`|
 |tmux|`tmux 3.2a`|
 |tmate|`tmate 2.4.0`|
+|Exuberant Ctags|`Exuberant Ctags 5.9~svn20110310`|
+|delta|`delta 0.18.2`|
+|fzf|`0.42.0 (debian)`|
+
 
 ## Instalação
 
