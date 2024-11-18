@@ -12,6 +12,8 @@
 #   - https://stackoverflow.com/a/34065448
 #   - https://git-scm.com/docs/git-config
 #   - https://jvns.ca/blog/2023/11/06/rebasing-what-can-go-wrong-/
+#   - https://git.tsundere.moe/Frederick888/frederick-settings/blob/master/.gitconfig
+#   - https://dandavison.github.io/delta/configuration.html
 #
 ##################################
 
@@ -27,12 +29,17 @@
   whitespace = trailing-space
   excludesfile = ~/.gitignore_global
   hooksPath = ~/.githooks_global
+  pager = delta --line-numbers --side-by-side
 
 [branch]
   sort = -committerdate
 
+[tag]
+  short = version:refname
+
 [rerere]
   enabled = true
+  autoUpdate = true
 
 [init]
   defaultBranch = main
@@ -60,6 +67,8 @@
 [diff]
   tool = nvimdiff
   algorithm = histogram
+  context = 4
+  renameLimit = 8192
 
 [difftool]
   prompt = false
@@ -72,11 +81,21 @@
   branchdesc = true
   log = true
   verbosity = 5
+  renamelimit = 16384
+  ff = false
 
 [stash]
   showStat = true
   showPatch = true
   showIncludeUntracked = true
+
+[interactive]
+  diffFilter = delta --color-only --line-numbers
+
+[delta]
+  tabs = 4
+  navigate = true
+  light = true
 
 ; Afeta git log
 [format]
