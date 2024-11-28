@@ -12,6 +12,8 @@
 --exclude=.gitattributes
 --exclude=.bitbucket
 --exclude=.svn
+--exclude=.trunk
+--exclude=.vscode
 --exclude=.dockerignore
 --exclude=node_modules
 --exclude=build
