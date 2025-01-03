@@ -109,13 +109,13 @@ function todayIs {
 todayIs
 
 function messageOfTheDay {
-  local MESSAGE_REQUEST=$(curl -s -X GET 'http://api.forismatic.com/api/1.0/?method=getQuote&format=json&lang=en')
+  local MESSAGE_REQUEST=$(curl -s -X GET 'https://api.adviceslip.com/advice')
 
   if command -v jq &> /dev/null
   then
-    echo -e "${MESSAGE_REQUEST}" | jq '.quoteText' | cowthink -f duck
+    echo -e "${MESSAGE_REQUEST}" | jq '.slip.advice' | cowthink -f duck
   else
-    echo -e "${MESSAGE_REQUEST}" | awk -F ':' '{print $2}' | sed 's/, "quoteAuthor"//g' | cowthink -f duck
+    echo -e "${MESSAGE_REQUEST}" | awk -F ':' '{print $4}' | sed 's/}//g' | cowthink -f duck
   fi
 }
 messageOfTheDay
