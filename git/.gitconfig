@@ -14,6 +14,7 @@
 #   - https://jvns.ca/blog/2023/11/06/rebasing-what-can-go-wrong-/
 #   - https://git.tsundere.moe/Frederick888/frederick-settings/blob/master/.gitconfig
 #   - https://dandavison.github.io/delta/configuration.html
+#   - https://stackoverflow.com/a/57601163
 #
 ##################################
 
@@ -113,6 +114,8 @@
   tags = "tag --sort=-creatordate --format=\"%(color:green bold)> %(color:reset)%(color:cyan)%(refname:short) %(color:black bold)%(if)%(taggerdate)%(then)Tagged at %(taggerdate:format:%Y-%m-%d %H:%M:%S)%(else)%(if)%(creatordate)%(then)Created at %(creatordate:format:%Y-%m-%d %H:%M:%S)%(else)(unknown date for tag/creation)%(end)%(end)\n  %(color:blue italic)%(if)%(tagger)%(then)Tagged by: %(tagger)%(else)%(if)%(authorname)%(then)Authored by: %(authorname)%(if)%(authoremail)%(then) %(authoremail)%(end)%(else)(no tagger/author identified)%(end)%(end) %(color:reset) %(color:black bold)[signed: %(if)%(contents:signature)%(then)Y%(else)N%(end)]\n%(color:reset)\n  %(color:black)%(contents:subject)\n\n%(contents:body)\n\""
   stashes = "stash list --decorate=short --show-pulls --pretty=format:'%C(green bold)%gd > %Creset%C(cyan)%H%Creset %C(black bold)%cd%Creset %C(auto)%d%Creset%n%C(blue italic)  %cN (%cE)%Creset %C(black bold)[sign: %G?]%Creset%n%n%C(auto)  %B%n'"
   branches = "branch --all --column=always --sort='*refname' --format=\"%(color:cyan black bold reverse) > %(refname:short) %(color:reset)\n%(color:blue italic)(Last commit by %(committername) at %(committerdate:format:%Y-%m-%d %H:%M:%S))%(color:reset)\t%(color:white black reverse italic)%(objectname:short)%(color:reset)\t%(color:black)%(subject)%(color:reset)\n\""
+  stashgrep = "!f() { for i in `git stash list --format=\"%gd\"` ; \
+              do git stash show -p $i | grep -H --label=\"$i\" \"$@\" ; done ; }; f"
 
 [commit]
   gpgsign = true
