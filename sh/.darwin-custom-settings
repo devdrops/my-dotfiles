@@ -43,6 +43,7 @@ function GitStashNow {
 }
 alias gsn="GitStashNow"
 alias gspop="git stash pop ${1}"
+alias gad="git ls-files --deleted | xargs git add"
 
 # Docker
 alias dbbk="DOCKER_BUILDKIT=1 docker build"
