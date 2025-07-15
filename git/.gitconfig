@@ -15,107 +15,40 @@
 #   - https://git.tsundere.moe/Frederick888/frederick-settings/blob/master/.gitconfig
 #   - https://dandavison.github.io/delta/configuration.html
 #   - https://stackoverflow.com/a/57601163
+#   - https://gist.github.com/pksunkara/988716
+#   - https://github.com/dandavison/delta/blob/main/manual/src/features-named-groups-of-settings.md
 #
 ##################################
 
-[user]
-  name = Davi Marcondes Moreira
-  email = davi.marcondes.moreira@gmail.com
-  username = devdrops
-  signingkey = 564848AD8F25F213
-  writeExtras = true
-
-[core]
-  editor = nvim
-  whitespace = trailing-space
-  excludesfile = ~/.gitignore_global
-  hooksPath = ~/.githooks_global
-  pager = delta --line-numbers --side-by-side
+[alias]
+  a = add --all
+  ai = add -i
+  ap = add -p
+  branches = "branch --all --column=always --sort='*refname' --format=\"%(color:cyan black bold reverse) > %(refname:short) %(color:reset)\n%(color:blue italic)(Last commit by %(committername) at %(committerdate:format:%Y-%m-%d %H:%M:%S))%(color:reset)\t%(color:white black reverse italic)%(objectname:short)%(color:reset)\t%(color:black)%(subject)%(color:reset)\n\""
+  csi = log --follow --
+  gc = commit -S
+  group = shortlog -s -n
+  logs = "log --decorate=short --show-pulls --pretty=format:'%C(green bold)> %Creset%C(cyan)%H%Creset %C(black bold)%cd%Creset %C(auto)%d%Creset%n%C(blue italic)  %cN (%cE)%Creset %C(black bold)[sign: %G?]%Creset%n%C(auto)  %+B%n' --stat"
+  tags = "tag --sort=-creatordate --format=\"%(color:green bold)> %(color:reset)%(color:cyan)%(refname:short) %(color:black bold)%(if)%(taggerdate)%(then)Tagged at %(taggerdate:format:%Y-%m-%d %H:%M:%S)%(else)%(if)%(creatordate)%(then)Created at %(creatordate:format:%Y-%m-%d %H:%M:%S)%(else)(unknown date for tag/creation)%(end)%(end)\n  %(color:blue italic)%(if)%(tagger)%(then)Tagged by: %(tagger)%(else)%(if)%(authorname)%(then)Authored by: %(authorname)%(if)%(authoremail)%(then) %(authoremail)%(end)%(else)(no tagger/author identified)%(end)%(end) %(color:reset) %(color:black bold)[signed: %(if)%(contents:signature)%(then)Y%(else)N%(end)]\n%(color:reset)\n  %(color:black)%(contents:subject)\n\n%(contents:body)\n\""
+  stashes = "stash list --decorate=short --show-pulls --pretty=format:'%C(green bold)%gd > %Creset%C(cyan)%H%Creset %C(black bold)%cd%Creset %C(auto)%d%Creset%n%C(blue italic)  %cN (%cE)%Creset %C(black bold)[sign: %G?]%Creset%n%n%C(auto)  %B%n'"
+  stashgrep = "!f() { for i in `git stash list --format=\"%gd\"` ; \
+              do git stash show -p $i | grep -H --label=\"$i\" \"$@\" ; done ; }; f"
 
 [branch]
   sort = -committerdate
 
-[tag]
-  short = version:refname
+[core]
+  editor = nvim
+  whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
+  excludesfile = ~/.gitignore_global
+  hooksPath = ~/.githooks_global
+  pager = delta --line-numbers --side-by-side
 
-[rerere]
-  enabled = true
-  autoUpdate = true
+[column]
+  ui = auto
 
-[init]
-  defaultBranch = main
-
-[url "git@github.com:"]
-  insteadOf = https://github.com/
-
-[url "git@bitbucket.org:"]
-  insteadOf = https://bitbucket.org/
-
-[fetch]
-  recurseSubmodules = yes
-  prune = true
-  output = full
-  writeCommitGraph = true
-
-[pull]
-  rebase = true
-  ff = only
-
-[push]
-  default = current
-  followtags = true
-
-[diff]
-  tool = nvimdiff
-  algorithm = histogram
-  context = 4
-  renameLimit = 8192
-
-[difftool]
-  prompt = false
-  trustExitCode = true
-
-[merge]
-  tool = nvimdiff2
-  conflictStyle = diff3
-  prompt = false
-  branchdesc = true
-  log = true
-  verbosity = 5
-  renamelimit = 16384
-  ff = false
-
-[stash]
-  showStat = true
-  showPatch = true
-  showIncludeUntracked = true
-
-[interactive]
-  diffFilter = delta --color-only --line-numbers
-
-[delta]
-  tabs = 4
-  navigate = true
-  light = true
-
-; Afeta git log
-[format]
-  pretty = fuller
-
-[log]
-  date = format:%A, %d de %B de %Y às %H:%M:%S
-  decorate = full
-
-[alias]
-  gc = commit -S
-  group = shortlog -s -n
-  csi = log --follow --
-  logs = "log --decorate=short --show-pulls --pretty=format:'%C(green bold)> %Creset%C(cyan)%H%Creset %C(black bold)%cd%Creset %C(auto)%d%Creset%n%C(blue italic)  %cN (%cE)%Creset %C(black bold)[sign: %G?]%Creset%n%C(auto)  %+B%n' --stat"
-  tags = "tag --sort=-creatordate --format=\"%(color:green bold)> %(color:reset)%(color:cyan)%(refname:short) %(color:black bold)%(if)%(taggerdate)%(then)Tagged at %(taggerdate:format:%Y-%m-%d %H:%M:%S)%(else)%(if)%(creatordate)%(then)Created at %(creatordate:format:%Y-%m-%d %H:%M:%S)%(else)(unknown date for tag/creation)%(end)%(end)\n  %(color:blue italic)%(if)%(tagger)%(then)Tagged by: %(tagger)%(else)%(if)%(authorname)%(then)Authored by: %(authorname)%(if)%(authoremail)%(then) %(authoremail)%(end)%(else)(no tagger/author identified)%(end)%(end) %(color:reset) %(color:black bold)[signed: %(if)%(contents:signature)%(then)Y%(else)N%(end)]\n%(color:reset)\n  %(color:black)%(contents:subject)\n\n%(contents:body)\n\""
-  stashes = "stash list --decorate=short --show-pulls --pretty=format:'%C(green bold)%gd > %Creset%C(cyan)%H%Creset %C(black bold)%cd%Creset %C(auto)%d%Creset%n%C(blue italic)  %cN (%cE)%Creset %C(black bold)[sign: %G?]%Creset%n%n%C(auto)  %B%n'"
-  branches = "branch --all --column=always --sort='*refname' --format=\"%(color:cyan black bold reverse) > %(refname:short) %(color:reset)\n%(color:blue italic)(Last commit by %(committername) at %(committerdate:format:%Y-%m-%d %H:%M:%S))%(color:reset)\t%(color:white black reverse italic)%(objectname:short)%(color:reset)\t%(color:black)%(subject)%(color:reset)\n\""
-  stashgrep = "!f() { for i in `git stash list --format=\"%gd\"` ; \
-              do git stash show -p $i | grep -H --label=\"$i\" \"$@\" ; done ; }; f"
+[checkout]
+  defaultRemote = origin
 
 [commit]
   gpgsign = true
@@ -126,13 +59,11 @@
 [color]
   ui = auto
 
-; Cores na exibição de branches
 [color "branch"]
   current = yellow black reverse bold
   local = green black reverse bold dim
   remote = cyan black reverse bold dim
 
-; Cores na exibição de diff
 [color "diff"]
   meta = 60 italic
   frag = 60 italic
@@ -158,9 +89,133 @@
   newMovedAlternative = 70 italic
   newMovedAlternativeDimmed = 70 italic
 
-; Cores na exibição de status
 [color "status"]
   added = green black reverse bold
   changed = yellow black reverse bold
   untracked = red black reverse bold
 
+[diff]
+  tool = nvimdiff
+  algorithm = histogram
+  context = 4
+  renameLimit = 8192
+  colorMoved = plain
+  renames = true
+
+[difftool]
+  prompt = false
+  trustExitCode = true
+
+[delta]
+  tabs = 8
+  features = line-numbers decorations
+  navigate = true
+  light = true
+  line-numbers = true
+
+[delta "decorations"]
+  line-numbers = true
+  line-numbers-minus-style = red
+  line-numbers-plus-style = green
+  line-numbers-left-style = gray
+  line-numbers-left-format = "{nm:>4}┊"
+  line-numbers-right-style = gray
+  line-numbers-right-format = "{np:>4}┊"
+  line-numbers-zero-style = gray
+  file-added-label = [NEW]
+  file-copied-label = [COPIED]
+  file-modified-label = [MODIF]
+  file-removed-label = [REMOV]
+  file-renamed-label = [RENAM]
+  file-style = bold black
+	file-decoration-style = bold orange box
+  hunk-header-decoration-style = bold olive ul
+  hunk-header-file-style = olive bold
+  hunk-header-line-number-style = orange
+  hunk-header-style = italic file line-number orchid
+
+[fetch]
+  recurseSubmodules = yes
+  prune = true
+  output = full
+  writeCommitGraph = true
+  pruneTags = true
+  all = true
+
+[filter "lfs"]
+  clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+
+[format]
+  pretty = fuller
+
+[init]
+  defaultBranch = main
+
+[interactive]
+  diffFilter = delta --color-only --line-numbers
+
+[log]
+  date = format:%A, %d de %B de %Y às %H:%M:%S
+  decorate = full
+
+[merge]
+  tool = nvimdiff2
+  conflictStyle = diff3
+  prompt = false
+  branchdesc = true
+  log = true
+  verbosity = 5
+  renamelimit = 16384
+  ff = false
+
+[pull]
+  rebase = true
+  ff = only
+
+[push]
+  default = current
+  followtags = true
+  autoSetupRemote = true
+
+[rerere]
+  enabled = true
+  autoUpdate = true
+
+[rebase]
+  autoSquash = true
+  updateRefs = true
+
+[stash]
+  showStat = true
+  showPatch = true
+  showIncludeUntracked = true
+
+[sequence]
+  editor = interactive-rebase-tool
+
+[tag]
+  short = version:refname
+  sort = version:refname
+
+[trim]
+  bases = master,main
+  protected = *production
+
+[user]
+  name = Davi Marcondes Moreira
+  email = davi.marcondes.moreira@gmail.com
+  username = devdrops
+  signingkey = 564848AD8F25F213
+  writeExtras = true
+
+[url "git@github.com:"]
+  insteadOf = https://github.com/
+
+[url "git@bitbucket.org:"]
+  insteadOf = https://bitbucket.org/
+
+[web]
+  browser = google-chrome
